@@ -1,0 +1,161 @@
+###############################################
+# MediaMTX Configuration
+# 16 Channel DVR Dahua - Windows
+###############################################
+
+###############################################
+# Global settings
+###############################################
+
+logLevel: debug
+logDestinations: [stdout]
+logStructured: false
+logFile: mediamtx.log
+
+readTimeout: 1m
+writeTimeout: 20s
+writeQueueSize: 512
+udpMaxPayloadSize: 1472
+
+###############################################
+# Authentication
+###############################################
+
+authMethod: internal
+
+authInternalUsers:
+  # User internal untuk Flask proxy — browser TIDAK tahu kredensial ini
+  - user: flask_proxy
+    pass: Tr@nsdigi53$_proxy
+    permissions:
+      - action: read
+        path:
+
+  # User admin untuk API (localhost only)
+  - user: any
+    pass:
+    ips: ["127.0.0.1", "::1"]
+    permissions:
+      - action: api
+      - action: metrics
+      - action: pprof
+      - action: publish
+      - action: read
+        path:
+###############################################
+# Control API
+###############################################
+
+api: yes
+apiAddress: 127.0.0.1:9997
+
+###############################################
+# Nonaktifkan yang tidak dipakai
+###############################################
+
+rtmp: no
+webrtc: no
+srt: no
+moq: no
+playback: no
+metrics: no
+pprof: no
+
+###############################################
+# RTSP server
+###############################################
+
+rtsp: yes
+rtspTransports: [tcp]
+rtspAddress: 127.0.0.1:8554
+#rtspAuthMethods: [basic]
+
+###############################################
+# HLS server
+###############################################
+
+
+#hls: yes
+#hlsAddress: 127.0.0.1:8888
+#hlsAllowOrigins: ["*"]
+#hlsAlwaysRemux: no
+#hlsVariant: mpegts
+#hlsSegmentCount: 10           # simpan 10 segmen (10-20s history)
+#hlsSegmentDuration: 2s        # segmen 2 detik (lebih stabil)
+#hlsPartDuration: 500ms        # part 500ms (untuk LL-HLS, abaikan kalau non-LL)
+#hlsMuxerCloseAfter: 60s
+#hlsDirectory: ""
+
+hls: yes
+hlsAddress: 127.0.0.1:8888
+hlsAllowOrigins: ["*"]
+hlsAlwaysRemux: no
+hlsVariant: fmp4              # ← UBAH dari mpegts fmp4
+hlsSegmentCount: 7            # minimal 7 untuk fmp4
+hlsSegmentDuration: 2s
+hlsPartDuration: 200ms
+hlsMuxerCloseAfter: 60s
+hlsDirectory: ""
+
+
+###############################################
+# Default path settings
+###############################################
+#
+# PENTING:
+#   - JANGAN set "sourceOnDemand" (konflik dengan runOnDemand).
+#   - Gunakan 127.0.0.1, BUKAN localhost (Windows resolve ke IPv6).
+#
+###############################################
+
+pathDefaults:
+  rtspTransport: tcp
+  maxReaders: 0
+  record: no
+  forward: []
+  alwaysAvailable: no
+
+  runOnInit:
+  runOnInitRestart: false
+
+  runOnDemand:
+  runOnDemandRestart: false
+  runOnDemandStartTimeout: 20s
+  runOnDemandCloseAfter: 60s
+
+  runOnUnDemand:
+  runOnAvailable:
+  runOnAvailableRestart: false
+  runOnUnavailable:
+  runOnOnline:
+  runOnOnlineRestart: false
+  runOnOffline:
+  runOnRead:
+  runOnReadRestart: false
+  runOnUnread:
+
+  sourceOnDemandStartTimeout: 30s
+  sourceOnDemandCloseAfter: 60s
+###############################################
+# Path settings - 16 Channel DVR Dahua
+###############################################
+#
+# DVR:
+#   IP       : 192.168.22.5
+#   User     : Rsudjbg
+#   Password : Simrs1038
+#
+# Format RTSP Dahua:
+#   rtsp://user:pass@IP:554/cam/realmonitor?channel=N&subtype=S
+#
+#   channel: 1-16
+#   subtype: 0 = main stream (HD)
+#            1 = sub stream (SD, ringan) ← dipakai
+#
+# PENTING (Windows):
+#   - Output ke 127.0.0.1, BUKAN localhost
+#   - Paksa output -rtsp_transport tcp
+#
+###############################################
+
+paths: {}

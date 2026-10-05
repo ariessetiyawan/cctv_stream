@@ -1,0 +1,761 @@
+2026/10/05 08:38:30 INF MediaMTX v1.21.1, linux, amd64
+2026/10/05 08:38:30 INF configuration loaded from /home/administrator/cctv/mediamtx.yml
+2026/10/05 08:38:30 DEB path manager created
+2026/10/05 08:38:30 ERR listen tcp 127.0.0.1:8554: bind: address already in use
+2026/10/05 08:38:30 DEB path manager is shutting down
+2026/10/05 08:38:30 INF waiting for running hooks
+2026/10/05 08:38:42 INF shutting down gracefully
+2026/10/05 08:38:42 INF [API] closing
+2026/10/05 08:38:42 DEB [API] closed
+2026/10/05 08:38:42 INF [HLS] closing
+2026/10/05 08:38:42 DEB [HLS] closed
+2026/10/05 08:38:42 INF [RTSP] closing
+2026/10/05 08:38:42 DEB [RTSP] closed
+2026/10/05 08:38:42 DEB path manager is shutting down
+2026/10/05 08:38:42 INF waiting for running hooks
+2026/10/05 08:39:06 INF MediaMTX v1.21.1, linux, amd64
+2026/10/05 08:39:06 INF configuration loaded from /home/administrator/cctv/mediamtx.yml
+2026/10/05 08:39:06 DEB path manager created
+2026/10/05 08:39:06 INF [RTSP] started with listeners on 127.0.0.1:8554 (TCP/RTSP)
+2026/10/05 08:39:06 INF [HLS] started with listener on 127.0.0.1:8888 (TCP/HTTP)
+2026/10/05 08:39:06 INF [API] started with listener on 127.0.0.1:9997 (TCP/HTTP)
+2026/10/05 08:39:14 DEB [API] [conn 127.0.0.1:48042] [c->s] GET /v3/config/global/get HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:39:14 DEB [API] [conn 127.0.0.1:48042] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 3306 bytes)
+2026/10/05 08:39:14 DEB [API] [conn 127.0.0.1:48046] [c->s] GET /v3/config/global/get HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:39:14 DEB [API] [conn 127.0.0.1:48046] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 3306 bytes)
+2026/10/05 08:39:44 DEB [API] [conn 127.0.0.1:34714] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:39:44 DEB [API] [conn 127.0.0.1:34714] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 08:41:35 DEB [API] [conn 127.0.0.1:48470] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:41:35 DEB [API] [conn 127.0.0.1:48470] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 08:43:25 DEB [API] [conn 127.0.0.1:38840] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:43:25 DEB [API] [conn 127.0.0.1:38840] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 08:45:16 DEB [API] [conn 127.0.0.1:54862] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:45:16 DEB [API] [conn 127.0.0.1:54862] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 08:47:06 DEB [API] [conn 127.0.0.1:53798] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:47:06 DEB [API] [conn 127.0.0.1:53798] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 08:48:57 DEB [API] [conn 127.0.0.1:55694] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:48:57 DEB [API] [conn 127.0.0.1:55694] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 08:50:45 DEB [API] [conn 127.0.0.1:55722] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:50:45 DEB [API] [conn 127.0.0.1:55722] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 08:52:36 DEB [API] [conn 127.0.0.1:60310] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:52:36 DEB [API] [conn 127.0.0.1:60310] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 08:54:25 DEB [API] [conn 127.0.0.1:33062] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:54:25 DEB [API] [conn 127.0.0.1:33062] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 08:56:13 DEB [API] [conn 127.0.0.1:58698] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:56:13 DEB [API] [conn 127.0.0.1:58698] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 08:58:03 DEB [API] [conn 127.0.0.1:49820] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:58:03 DEB [API] [conn 127.0.0.1:49820] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 08:59:52 DEB [API] [conn 127.0.0.1:50076] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 08:59:52 DEB [API] [conn 127.0.0.1:50076] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:01:42 DEB [API] [conn 127.0.0.1:60318] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:01:42 DEB [API] [conn 127.0.0.1:60318] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:03:33 DEB [API] [conn 127.0.0.1:44940] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:03:33 DEB [API] [conn 127.0.0.1:44940] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:05:21 DEB [API] [conn 127.0.0.1:41726] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:05:21 DEB [API] [conn 127.0.0.1:41726] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:07:11 DEB [API] [conn 127.0.0.1:54204] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:07:11 DEB [API] [conn 127.0.0.1:54204] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:09:00 DEB [API] [conn 127.0.0.1:54726] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:09:00 DEB [API] [conn 127.0.0.1:54726] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:10:51 DEB [API] [conn 127.0.0.1:34472] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:10:51 DEB [API] [conn 127.0.0.1:34472] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:12:39 DEB [API] [conn 127.0.0.1:34478] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:12:39 DEB [API] [conn 127.0.0.1:34478] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:14:30 DEB [API] [conn 127.0.0.1:39164] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:14:30 DEB [API] [conn 127.0.0.1:39164] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:16:20 DEB [API] [conn 127.0.0.1:44254] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:16:20 DEB [API] [conn 127.0.0.1:44254] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:18:11 DEB [API] [conn 127.0.0.1:33682] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:18:11 DEB [API] [conn 127.0.0.1:33682] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:20:01 DEB [API] [conn 127.0.0.1:50260] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:20:01 DEB [API] [conn 127.0.0.1:50260] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:21:50 DEB [API] [conn 127.0.0.1:43010] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:21:50 DEB [API] [conn 127.0.0.1:43010] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:23:40 DEB [API] [conn 127.0.0.1:48026] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:23:40 DEB [API] [conn 127.0.0.1:48026] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:25:29 DEB [API] [conn 127.0.0.1:36598] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:25:29 DEB [API] [conn 127.0.0.1:36598] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:27:17 DEB [API] [conn 127.0.0.1:41502] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:27:17 DEB [API] [conn 127.0.0.1:41502] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:29:07 DEB [API] [conn 127.0.0.1:38524] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:29:07 DEB [API] [conn 127.0.0.1:38524] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:30:56 DEB [API] [conn 127.0.0.1:39222] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:30:56 DEB [API] [conn 127.0.0.1:39222] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 40 bytes)
+2026/10/05 09:31:23 DEB [API] [conn 127.0.0.1:55254] [c->s] GET /v3/config/paths/get/depan-perbekalan-420 HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:31:23 ERR [API] path configuration not found
+2026/10/05 09:31:23 DEB [API] [conn 127.0.0.1:55254] [s->c] HTTP/1.1 404 Not Found
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 57 bytes)
+2026/10/05 09:31:23 DEB [API] [conn 127.0.0.1:55258] [c->s] POST /v3/config/paths/add/depan-perbekalan-420 HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+Content-Length: 175
+Content-Type: application/json
+User-Agent: python-requests/2.32.2
+
+{"source": "rtsp://Rsudjbg:Simrs1038@192.168.22.3:554/cam/realmonitor?channel=14&subtype=1", "sourceOnDemand": true, "sourceOnDemandCloseAfter": "60s", "rtspTransport": "tcp"}
+2026/10/05 09:31:23 INF reloading configuration (API request)
+2026/10/05 09:31:23 DEB [API] [conn 127.0.0.1:55258] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 15 bytes)
+2026/10/05 09:31:23 DEB [path depan-perbekalan-420] created
+2026/10/05 09:31:23 DEB [HLS] [conn 127.0.0.1:34328] [c->s] GET /depan-perbekalan-420/index.m3u8 HTTP/1.1
+Host: 127.0.0.1:8888
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Authorization: <redacted>
+Connection: keep-alive
+Cookie: <redacted>
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:31:23 DEB [HLS] [conn 127.0.0.1:34328] [s->c] HTTP/1.1 302 Found
+Location: /depan-perbekalan-420/index.m3u8?cookieCheck=1
+Server: mediamtx
+Set-Cookie: cookieCheck=1; HttpOnly; Secure; SameSite=None; Partitioned
+
+
+2026/10/05 09:31:23 DEB [HLS] [conn 127.0.0.1:34340] [c->s] GET /depan-perbekalan-420/index.m3u8?cookieCheck=1 HTTP/1.1
+Host: 127.0.0.1:8888
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Authorization: <redacted>
+Connection: keep-alive
+Cookie: <redacted>
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:31:23 INF [HLS] [session 9b32de61] created by 127.0.0.1:34340
+2026/10/05 09:31:23 INF [path depan-perbekalan-420] [RTSP source] started on demand
+2026/10/05 09:31:23 DEB [path depan-perbekalan-420] [RTSP source] connecting
+2026/10/05 09:31:23 DEB [path depan-perbekalan-420] [RTSP source] [c->s] OPTIONS rtsp://192.168.22.3:554/cam/realmonitor?channel=14&subtype=1 RTSP/1.0
+CSeq: 1
+User-Agent: gortsplib
+
+
+2026/10/05 09:31:23 DEB [path depan-perbekalan-420] [RTSP source] [s->c] RTSP/1.0 401 Unauthorized
+CSeq: 1
+WWW-Authenticate: Digest realm="Login to 4414271ade8928a1766d84f1447295f9", nonce="d02357db5d79b058c6030296ab79bbfe"
+
+
+2026/10/05 09:31:23 DEB [path depan-perbekalan-420] [RTSP source] [c->s] OPTIONS rtsp://192.168.22.3:554/cam/realmonitor?channel=14&subtype=1 RTSP/1.0
+Authorization: <redacted>
+CSeq: 2
+User-Agent: gortsplib
+
+
+2026/10/05 09:31:23 DEB [path depan-perbekalan-420] [RTSP source] [s->c] RTSP/1.0 200 OK
+CSeq: 2
+Public: OPTIONS, DESCRIBE, ANNOUNCE, SETUP, PLAY, RECORD, PAUSE, TEARDOWN, SET_PARAMETER, GET_PARAMETER
+Server: Rtsp Server/3.0
+
+
+2026/10/05 09:31:23 DEB [path depan-perbekalan-420] [RTSP source] [c->s] DESCRIBE rtsp://192.168.22.3:554/cam/realmonitor?channel=14&subtype=1 RTSP/1.0
+Accept: application/sdp
+Authorization: <redacted>
+CSeq: 3
+User-Agent: gortsplib
+
+
+2026/10/05 09:31:39 DEB [HLS] [conn 127.0.0.1:55796] [c->s] GET /depan-perbekalan-420/index.m3u8 HTTP/1.1
+Host: 127.0.0.1:8888
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Authorization: <redacted>
+Connection: keep-alive
+Cookie: <redacted>
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:31:39 DEB [HLS] [conn 127.0.0.1:55796] [s->c] HTTP/1.1 302 Found
+Location: /depan-perbekalan-420/index.m3u8?cookieCheck=1
+Server: mediamtx
+Set-Cookie: cookieCheck=1; HttpOnly; Secure; SameSite=None; Partitioned
+
+
+2026/10/05 09:31:40 DEB [HLS] [conn 127.0.0.1:55804] [c->s] GET /depan-perbekalan-420/index.m3u8?cookieCheck=1 HTTP/1.1
+Host: 127.0.0.1:8888
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Authorization: <redacted>
+Connection: keep-alive
+Cookie: <redacted>
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:31:40 INF [HLS] [session 67c23456] created by 127.0.0.1:55804
+2026/10/05 09:31:53 INF [path depan-perbekalan-420] [RTSP source] stopped: timed out
+2026/10/05 09:31:53 INF [HLS] [session 9b32de61] closed: source of path 'depan-perbekalan-420' has timed out
+2026/10/05 09:31:53 INF [HLS] [session 67c23456] closed: source of path 'depan-perbekalan-420' has timed out
+2026/10/05 09:31:53 DEB [HLS] [conn 127.0.0.1:34340] [s->c] HTTP/1.1 500 Internal Server Error
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 80 bytes)
+2026/10/05 09:31:53 DEB [HLS] [conn 127.0.0.1:55804] [s->c] HTTP/1.1 500 Internal Server Error
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 80 bytes)
+2026/10/05 09:32:45 DEB [API] [conn 127.0.0.1:32918] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:32:45 DEB [API] [conn 127.0.0.1:32918] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:34:33 DEB [API] [conn 127.0.0.1:35406] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:34:33 DEB [API] [conn 127.0.0.1:35406] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:36:23 DEB [API] [conn 127.0.0.1:53706] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:36:23 DEB [API] [conn 127.0.0.1:53706] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:38:14 DEB [API] [conn 127.0.0.1:33576] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:38:14 DEB [API] [conn 127.0.0.1:33576] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:40:05 DEB [API] [conn 127.0.0.1:37404] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:40:05 DEB [API] [conn 127.0.0.1:37404] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:41:55 DEB [API] [conn 127.0.0.1:55606] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:41:55 DEB [API] [conn 127.0.0.1:55606] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:43:43 DEB [API] [conn 127.0.0.1:42108] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:43:43 DEB [API] [conn 127.0.0.1:42108] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:45:33 DEB [API] [conn 127.0.0.1:44060] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:45:33 DEB [API] [conn 127.0.0.1:44060] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:47:23 DEB [API] [conn 127.0.0.1:39712] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:47:23 DEB [API] [conn 127.0.0.1:39712] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:49:13 DEB [API] [conn 127.0.0.1:49322] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:49:13 DEB [API] [conn 127.0.0.1:49322] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:51:04 DEB [API] [conn 127.0.0.1:55658] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:51:04 DEB [API] [conn 127.0.0.1:55658] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:52:54 DEB [API] [conn 127.0.0.1:48350] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:52:54 DEB [API] [conn 127.0.0.1:48350] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:54:44 DEB [API] [conn 127.0.0.1:48456] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:54:44 DEB [API] [conn 127.0.0.1:48456] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:56:35 DEB [API] [conn 127.0.0.1:53138] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:56:35 DEB [API] [conn 127.0.0.1:53138] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 09:58:25 DEB [API] [conn 127.0.0.1:52194] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 09:58:25 DEB [API] [conn 127.0.0.1:52194] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
+2026/10/05 10:00:14 DEB [API] [conn 127.0.0.1:60870] [c->s] GET /v3/paths/list HTTP/1.1
+Host: 127.0.0.1:9997
+Accept: */*
+Accept-Encoding: gzip, deflate, zstd
+Connection: keep-alive
+User-Agent: python-requests/2.32.2
+
+
+2026/10/05 10:00:14 DEB [API] [conn 127.0.0.1:60870] [s->c] HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: mediamtx
+
+(body of 394 bytes)
