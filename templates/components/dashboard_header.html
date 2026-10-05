@@ -1,0 +1,73 @@
+<header class="dashboard-header sticky top-0 z-40 flex items-center justify-between px-4 sm:px-6 py-3 flex-shrink-0">
+    <div class="flex items-center gap-3">
+        <button onclick="toggleSidebar()" class="lg:hidden text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+		<!-- Tombol toggle sidebar (desktop only) -->
+		<button type="button"
+				onclick="toggleSidebarMini()"
+				class="hidden lg:inline-flex items-center justify-center w-9 h-9 rounded-lg text-white/50 hover:text-white hover:bg-white/5 border border-white/10 hover:border-cyan-500/40 transition"
+				title="Mode mini (icon saja)">
+			<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+					  d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+			</svg>
+		</button>
+		
+        <!-- Brand -->
+        <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-lg shadow-blue-600/10">
+                <img src="{{ url_for('static', filename='img/logo-rsud-white.png') }}"
+                     alt="RSUD Jombang"
+                     class="w-full h-full object-contain p-1" />
+            </div>
+            <div class="leading-tight">
+                <div class="text-white font-bold text-sm sm:text-base tracking-tight">RSUD Jombang</div>
+                <div class="text-blue-400/80 text-[10px] uppercase tracking-widest font-semibold hidden sm:block">
+                    CCTV Stream · {{ page_label|default('Dashboard') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+        <!-- Role badge -->
+        {% if role is defined %}
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border
+            {{ 'bg-purple-500/15 text-purple-300 border-purple-500/30' if role == 'admin'
+               else 'bg-amber-500/15 text-amber-300 border-amber-500/30' if role == 'supervisor'
+               else 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30' }}">
+            {{ role }}
+        </span>
+        {% endif %}
+
+        <!-- Status Online -->
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-400/10 px-3 py-1.5 rounded-full border border-emerald-400/20">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+            </span>
+            Online
+        </span>
+
+        <button class="text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+        </button>
+
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold text-sm shadow-lg shadow-blue-600/30">
+                {{ user[0] if user else 'A' }}
+            </div>
+            <button onclick="handleLogout()" class="text-blue-300/50 hover:text-white text-xs font-medium transition flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                Logout
+            </button>
+        </div>
+    </div>
+</header>

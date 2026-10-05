@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CCTV Stream Server — RSUD Jombang{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='img/logo-rsud-192.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/logo-rsud-192.png') }}">
+
+    <!-- Meta tags -->
+    <meta name="description" content="Sistem Monitoring CCTV Terpusat RSUD Jombang">
+    <meta name="theme-color" content="#0a1628">
+    <meta property="og:title" content="CCTV Stream Server — RSUD Jombang">
+	<meta property="og:description" content="Sistem Monitoring CCTV Terpusat RSUD Jombang">
+	<meta property="og:image" content="{{ url_for('static', filename='img/logo-rsud-192.png', _external=True) }}">
+	<meta property="og:type" content="website">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+    <div id="global-loader" class="fixed inset-0 bg-slate-950/80 flex flex-col items-center justify-center z-[9999] transition-opacity duration-300">
+		<div class="flex flex-col items-center space-y-3">
+		  <div class="text-blue-500 text-4xl md:text-5xl animate-spin">
+			<i class="fa-solid fa-spinner"></i>
+		  </div>
+		  <p id="loader-msg" class="text-xs md:text-sm font-medium text-slate-300">Memuat Aplikasi...</p>
+		</div>
+	  </div>
+    <!-- Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js"></script>
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+	<script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+	<script>
+		(function () {
+			const form = document.getElementById('loginForm');
+			const btn  = document.getElementById('modalLoginSubmitBtn');
+			if (!form || !btn) return;
+
+			// Set loading state saat form disubmit
+			form.addEventListener('submit', function () {
+				btn.classList.add('login-btn-loading');
+				// Safety: kalau login gagal (tidak redirect), otomatis reset setelah 8 detik
+				setTimeout(() => {
+					if (document.body.contains(btn)) btn.classList.remove('login-btn-loading');
+				}, 8000);
+			});
+
+			// Helper global — panggil dari handleLogin() saat gagal
+			window.resetLoginModalLoading = function () {
+				if (btn) btn.classList.remove('login-btn-loading');
+			};
+		})();
+	</script>
+</body>
+</html>

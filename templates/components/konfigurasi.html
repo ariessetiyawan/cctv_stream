@@ -1,0 +1,899 @@
+{% extends "base.html" %}
+
+{% block title %}Konfigurasi - CCTV Stream Server{% endblock %}
+
+{% block content %}
+<div id="dashboardPage" class="dashboard-bg min-h-screen flex flex-col">
+    <!-- Dashboard Header -->
+    <header class="dashboard-header sticky top-0 z-40 flex items-center justify-between px-4 sm:px-6 py-3 flex-shrink-0">
+        <div class="flex items-center gap-3">
+            <button onclick="toggleSidebar()" class="lg:hidden text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/30">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                    </svg>
+                </div>
+                <span class="text-white font-bold text-lg tracking-tight">CCTV<span class="text-blue-400">Stream</span></span>
+                <span class="text-blue-300/30 text-xs hidden sm:inline">| Konfigurasi</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <span class="hidden sm:inline-flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-400/10 px-3 py-1.5 rounded-full border border-emerald-400/20">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                </span>
+                Online
+            </span>
+            <button class="text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+            </button>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold text-sm shadow-lg shadow-blue-600/30">
+                    {{ user[0] if user else 'A' }}
+                </div>
+                <button onclick="handleLogout()" class="text-blue-300/50 hover:text-white text-xs font-medium transition flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar -->
+        {% include 'components/sidebar.html' %}
+
+        <!-- Overlay untuk mobile -->
+        <div id="sidebarOverlay" class="fixed inset-0 z-20 bg-black/50 backdrop-blur-sm lg:hidden hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 no-scrollbar">
+            <!-- Page Header -->
+            <div class="mb-8 fade-in">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-3">
+                            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            Konfigurasi Sistem
+                        </h1>
+                        <p class="text-blue-300/60 text-sm mt-1 ml-11">Kelola pengaturan dan konfigurasi sistem monitoring CCTV secara terpusat</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-blue-300/30 bg-blue-500/5 px-3 py-1.5 rounded-full border border-blue-500/10">
+                            Terakhir diupdate: {{ last_updated|default('Hari ini') }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== KONFIGURASI FORM ====== -->
+            <div class="glass-card rounded-2xl p-6 sm:p-8 border border-blue-500/10 bg-[#0f2240]/60 fade-in">
+                <form id="settingsForm" class="space-y-6" onsubmit="saveSettings(event)">
+                    <!-- Tab Navigation -->
+                    <div class="flex flex-wrap gap-2 border-b border-blue-500/10 pb-4 mb-6">
+                        <button type="button" class="tab-btn active px-4 py-2 rounded-lg text-sm font-medium text-white bg-blue-600/20 border border-blue-500/30 transition" data-tab="umum">
+                            <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            </svg>
+                            Umum
+                        </button>
+                        <button type="button" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium text-white/60 hover:text-white border border-transparent hover:border-blue-500/20 transition" data-tab="dvr">
+                            <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                            </svg>
+                            DVR / NVR
+                        </button>
+                        <button type="button" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium text-white/60 hover:text-white border border-transparent hover:border-blue-500/20 transition" data-tab="keamanan">
+                            <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            Keamanan
+                        </button>
+                        <button type="button" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium text-white/60 hover:text-white border border-transparent hover:border-blue-500/20 transition" data-tab="jaringan">
+                            <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                            Jaringan
+                        </button>
+                        <button type="button" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium text-white/60 hover:text-white border border-transparent hover:border-blue-500/20 transition" data-tab="rekaman">
+                            <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            Rekaman
+                        </button>
+                        <button type="button" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium text-white/60 hover:text-white border border-transparent hover:border-blue-500/20 transition" data-tab="notifikasi">
+                            <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                            </svg>
+                            Notifikasi
+                        </button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- Tab: Umum -->
+                        <div id="tab-umum" class="tab-panel active">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Left Column -->
+                                <div class="space-y-5">
+                                    <h3 class="text-white font-semibold text-base flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        Pengaturan Umum
+                                    </h3>
+
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Nama Server</label>
+                                        <input type="text" id="serverName" value="CCTV Stream Server - Main" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                        <p class="text-blue-300/30 text-xs mt-1">Nama yang akan ditampilkan di dashboard</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Deskripsi Sistem</label>
+                                        <textarea rows="3" id="systemDescription" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition resize-y">Sistem monitoring CCTV terpusat untuk 9 lokasi dengan 42 DVR dan 286 kamera.</textarea>
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Zona Waktu</label>
+                                        <select id="timezone" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition">
+                                            <option value="Asia/Jakarta" class="bg-[#0a1628]" selected>Asia/Jakarta (UTC+7)</option>
+                                            <option value="Asia/Makassar" class="bg-[#0a1628]">Asia/Makassar (UTC+8)</option>
+                                            <option value="Asia/Jayapura" class="bg-[#0a1628]">Asia/Jayapura (UTC+9)</option>
+                                            <option value="UTC" class="bg-[#0a1628]">UTC</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Right Column -->
+                                <div class="space-y-5">
+                                    <h3 class="text-white font-semibold text-base flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                        </svg>
+                                        Informasi Sistem
+                                    </h3>
+
+                                    <div class="bg-[#0a1628] border border-blue-500/20 rounded-xl p-4 space-y-3">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-blue-300/50 text-sm">Versi Sistem</span>
+                                            <span class="text-white font-medium">v2.5.0</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-blue-300/50 text-sm">Uptime</span>
+                                            <span class="text-emerald-400 font-medium">14d 7h 32m</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-blue-300/50 text-sm">Jumlah Pengguna</span>
+                                            <span class="text-white font-medium">12 Aktif</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-blue-300/50 text-sm">Storage Used</span>
+                                            <span class="text-white font-medium">1.2 TB / 4 TB</span>
+                                        </div>
+                                        <div class="w-full h-1.5 bg-blue-900/40 rounded-full overflow-hidden">
+                                            <div class="h-full w-[30%] bg-blue-400 rounded-full"></div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Bahasa</label>
+                                        <select class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition">
+                                            <option value="id" class="bg-[#0a1628]" selected>Bahasa Indonesia</option>
+                                            <option value="en" class="bg-[#0a1628]">English</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ============================================ -->
+                        <!-- Tab: DVR / NVR (Dahua + Hikvision)           -->
+                        <!-- ============================================ -->
+                        <div id="tab-dvr" class="tab-panel hidden">
+                            <div class="mb-5">
+                                <h3 class="text-white font-semibold text-base flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                                    </svg>
+                                    Kredensial DVR Default
+                                </h3>
+                                <p class="text-blue-300/50 text-xs mt-1 ml-7">
+                                    Kredensial ini digunakan saat menambahkan DVR baru atau saat auto-detect channel.
+                                    Kredensial per-DVR tetap disimpan di tabel DVR.
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                                <!-- ============ DAHUA ============ -->
+                                <div class="bg-[#0a1628] border border-amber-500/20 rounded-2xl p-5 relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                                    <div class="relative flex items-center gap-3 mb-4">
+                                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-bold text-base flex items-center gap-2">
+                                                Dahua
+                                                <span class="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                                                    Default
+                                                </span>
+                                            </h4>
+                                            <p class="text-amber-300/50 text-xs">CGI + RTSP · <code class="font-mono">/cam/realmonitor</code></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="block text-blue-200/70 text-xs font-medium mb-1">Username</label>
+                                            <input type="text" id="dahuaUser" value="admin" autocomplete="off"
+                                                   class="form-input w-full bg-[#06101f] border border-amber-500/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition" />
+                                        </div>
+                                        <div>
+                                            <label class="block text-blue-200/70 text-xs font-medium mb-1">Password</label>
+                                            <input type="password" id="dahuaPass" placeholder="••••••••" autocomplete="new-password"
+                                                   class="form-input w-full bg-[#06101f] border border-amber-500/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition" />
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-3 mt-3">
+                                        <div>
+                                            <label class="block text-blue-200/70 text-xs font-medium mb-1">HTTP Port (CGI)</label>
+                                            <input type="number" id="dahuaHttpPort" value="80"
+                                                   class="form-input w-full bg-[#06101f] border border-amber-500/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition" />
+                                        </div>
+                                        <div>
+                                            <label class="block text-blue-200/70 text-xs font-medium mb-1">RTSP Port</label>
+                                            <input type="number" id="dahuaRtspPort" value="554"
+                                                   class="form-input w-full bg-[#06101f] border border-amber-500/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition" />
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 p-3 rounded-lg bg-amber-500/5 border border-amber-500/15">
+                                        <p class="text-amber-200/70 text-[11px] leading-relaxed">
+                                            <b class="text-amber-300">Playback:</b> Didukung via <code class="font-mono">loadfile.cgi</code> + FFmpeg.
+                                            Unduh <code class="font-mono">.dav</code> langsung tersedia.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- ============ HIKVISION ============ -->
+                                <div class="bg-[#0a1628] border border-emerald-500/20 rounded-2xl p-5 relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                                    <div class="relative flex items-center gap-3 mb-4">
+                                        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-bold text-base flex items-center gap-2">
+                                                Hikvision
+                                                <span class="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                                                    ISAPI
+                                                </span>
+                                            </h4>
+                                            <p class="text-emerald-300/50 text-xs">ISAPI + ONVIF · <code class="font-mono">/Streaming/Channels/N01</code></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="block text-blue-200/70 text-xs font-medium mb-1">Username</label>
+                                            <input type="text" id="hikUser" value="admin" autocomplete="off"
+                                                   class="form-input w-full bg-[#06101f] border border-emerald-500/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition" />
+                                        </div>
+                                        <div>
+                                            <label class="block text-blue-200/70 text-xs font-medium mb-1">Password</label>
+                                            <input type="password" id="hikPass" placeholder="••••••••" autocomplete="new-password"
+                                                   class="form-input w-full bg-[#06101f] border border-emerald-500/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition" />
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-3 mt-3">
+                                        <div>
+                                            <label class="block text-blue-200/70 text-xs font-medium mb-1">HTTP Port (ISAPI)</label>
+                                            <input type="number" id="hikHttpPort" value="80"
+                                                   class="form-input w-full bg-[#06101f] border border-emerald-500/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition" />
+                                        </div>
+                                        <div>
+                                            <label class="block text-blue-200/70 text-xs font-medium mb-1">RTSP Port</label>
+                                            <input type="number" id="hikRtspPort" value="554"
+                                                   class="form-input w-full bg-[#06101f] border border-emerald-500/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition" />
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/15 space-y-1.5">
+                                        <p class="text-emerald-200/70 text-[11px] leading-relaxed">
+                                            <b class="text-emerald-300">Syarat:</b> Aktifkan <code class="font-mono">ISAPI</code> & <code class="font-mono">ONVIF</code> di NVR.
+                                        </p>
+                                        <p class="text-emerald-200/60 text-[11px] leading-relaxed">
+                                            <b>Lokasi:</b> Configuration → Network → Advanced → Integration Protocol
+                                        </p>
+                                        <p class="text-emerald-200/60 text-[11px] leading-relaxed">
+                                            <b>Playback:</b> Via RTSP <code class="font-mono">?starttime=...&amp;endtime=...</code>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Info tambahan -->
+                            <div class="mt-6 p-4 rounded-xl bg-blue-500/5 border border-blue-500/15 flex items-start gap-3">
+                                <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <div class="text-[12px] text-blue-200/70 leading-relaxed">
+                                    <p class="font-semibold text-blue-300 mb-1">Cara menambahkan DVR:</p>
+                                    <ol class="list-decimal list-inside space-y-0.5 ml-1">
+                                        <li>Buka halaman <b class="text-white">Dashboard</b> → <b class="text-white">DVR Management</b></li>
+                                        <li>Klik <b class="text-white">Tambah DVR</b> dan pilih vendor yang sesuai</li>
+                                        <li>Setelah DVR tersimpan, klik <b class="text-white">Auto-Add dari DVR</b> di section Camera</li>
+                                        <li>Sistem otomatis mendeteksi semua channel via ISAPI (Hikvision) atau CGI (Dahua)</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Keamanan -->
+                        <div id="tab-keamanan" class="tab-panel hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-5">
+                                    <h3 class="text-white font-semibold text-base flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                        </svg>
+                                        Keamanan Akses
+                                    </h3>
+
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Email Admin</label>
+                                        <input type="email" id="adminEmail" value="admin@cctvstream.com" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Maksimum Pengguna</label>
+                                        <input type="number" id="maxUsers" value="50" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Session Timeout (menit)</label>
+                                        <input type="number" value="30" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                        <p class="text-blue-300/30 text-xs mt-1">Otomatis logout setelah tidak aktif</p>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-5">
+                                    <h3 class="text-white font-semibold text-base flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                        </svg>
+                                        Keamanan Data
+                                    </h3>
+
+                                    <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3">
+                                        <div>
+                                            <p class="text-white text-sm font-medium">Enkripsi Data</p>
+                                            <p class="text-blue-300/40 text-xs">AES-256 encryption untuk data sensitif</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="toggle-checkbox sr-only peer" />
+                                            <div class="toggle-label relative w-11 h-6 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-all duration-200"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3">
+                                        <div>
+                                            <p class="text-white text-sm font-medium">Two-Factor Authentication</p>
+                                            <p class="text-blue-300/40 text-xs">Verifikasi dua langkah untuk akses admin</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" class="toggle-checkbox sr-only peer" />
+                                            <div class="toggle-label relative w-11 h-6 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-all duration-200"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3">
+                                        <div>
+                                            <p class="text-white text-sm font-medium">Log Aktivitas</p>
+                                            <p class="text-blue-300/40 text-xs">Catat semua aktivitas pengguna</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="toggle-checkbox sr-only peer" />
+                                            <div class="toggle-label relative w-11 h-6 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-all duration-200"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <button type="button" class="w-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 font-medium py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                        </svg>
+                                        Ubah Password
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Jaringan -->
+                        <div id="tab-jaringan" class="tab-panel hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-5">
+                                    <h3 class="text-white font-semibold text-base flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                        </svg>
+                                        Konfigurasi IP
+                                    </h3>
+
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Alamat IP Server</label>
+                                        <input type="text" id="serverIP" value="192.168.1.100" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Port Server</label>
+                                        <input type="number" id="serverPort" value="554" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                        <p class="text-blue-300/30 text-xs mt-1">Port RTSP untuk streaming video</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Subnet Mask</label>
+                                        <input type="text" value="255.255.255.0" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                    </div>
+                                </div>
+
+                                <div class="space-y-5">
+                                    <h3 class="text-white font-semibold text-base flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" />
+                                        </svg>
+                                        DNS & Gateway
+                                    </h3>
+
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Gateway</label>
+                                        <input type="text" value="192.168.1.1" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">DNS Server</label>
+                                        <input type="text" value="8.8.8.8" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">DNS Secondary</label>
+                                        <input type="text" value="8.8.4.4" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                    </div>
+                                    <div class="bg-[#0a1628] border border-blue-500/20 rounded-xl p-4">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-blue-300/50 text-sm">Status Jaringan</span>
+                                            <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400">
+                                                <span class="relative flex h-1.5 w-1.5">
+                                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
+                                                </span>
+                                                Terhubung
+                                            </span>
+                                        </div>
+                                        <div class="flex justify-between items-center mt-2">
+                                            <span class="text-blue-300/50 text-sm">Bandwidth Usage</span>
+                                            <span class="text-white font-medium">45.2 Mbps / 100 Mbps</span>
+                                        </div>
+                                        <div class="w-full h-1.5 bg-blue-900/40 rounded-full overflow-hidden mt-2">
+                                            <div class="h-full w-[45%] bg-emerald-400 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Rekaman -->
+                        <div id="tab-rekaman" class="tab-panel hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-5">
+                                    <h3 class="text-white font-semibold text-base flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                        </svg>
+                                        Pengaturan Rekaman
+                                    </h3>
+
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Masa Retensi Rekaman (hari)</label>
+                                        <input type="number" id="retentionDays" value="30" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                        <p class="text-blue-300/30 text-xs mt-1">Lama penyimpanan rekaman sebelum dihapus otomatis</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Kualitas Rekaman</label>
+                                        <select class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition">
+                                            <option value="high" class="bg-[#0a1628]" selected>High (1080p, 30fps)</option>
+                                            <option value="medium" class="bg-[#0a1628]">Medium (720p, 25fps)</option>
+                                            <option value="low" class="bg-[#0a1628]">Low (480p, 15fps)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Format Video</label>
+                                        <select class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition">
+                                            <option value="h264" class="bg-[#0a1628]" selected>H.264 (.mp4)</option>
+                                            <option value="h265" class="bg-[#0a1628]">H.265 (.mp4)</option>
+                                            <option value="mjpeg" class="bg-[#0a1628]">MJPEG (.avi)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-5">
+                                    <h3 class="text-white font-semibold text-base flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        Fitur Rekaman
+                                    </h3>
+
+                                    <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3">
+                                        <div>
+                                            <p class="text-white text-sm font-medium">Auto Recording</p>
+                                            <p class="text-blue-300/40 text-xs">Mulai rekaman otomatis saat motion terdeteksi</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="toggle-checkbox sr-only peer" />
+                                            <div class="toggle-label relative w-11 h-6 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-all duration-200"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3">
+                                        <div>
+                                            <p class="text-white text-sm font-medium">Schedule Recording</p>
+                                            <p class="text-blue-300/40 text-xs">Rekaman berdasarkan jadwal yang ditentukan</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" class="toggle-checkbox sr-only peer" />
+                                            <div class="toggle-label relative w-11 h-6 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-all duration-200"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3">
+                                        <div>
+                                            <p class="text-white text-sm font-medium">Audio Recording</p>
+                                            <p class="text-blue-300/40 text-xs">Rekam audio bersamaan dengan video</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="toggle-checkbox sr-only peer" />
+                                            <div class="toggle-label relative w-11 h-6 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-all duration-200"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <button type="button" class="w-full bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 font-medium py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+                                        </svg>
+                                        Atur Jadwal Rekaman
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Notifikasi -->
+                        <div id="tab-notifikasi" class="tab-panel hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-5">
+                                    <h3 class="text-white font-semibold text-base flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                        </svg>
+                                        Email Notifikasi
+                                    </h3>
+
+                                    <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3">
+                                        <div>
+                                            <p class="text-white text-sm font-medium">Notifikasi Email</p>
+                                            <p class="text-blue-300/40 text-xs">Kirim alert via email saat terjadi gangguan</p>
+                                        </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="toggle-checkbox sr-only peer" />
+                                            <div class="toggle-label relative w-11 h-6 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-all duration-200"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Email Pengirim</label>
+                                        <input type="email" value="noreply@cctvstream.com" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Email Penerima</label>
+                                        <input type="email" value="admin@cctvstream.com" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                        <p class="text-blue-300/30 text-xs mt-1">Pisahkan dengan koma untuk multiple email</p>
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">SMTP Server</label>
+                                        <input type="text" value="smtp.gmail.com" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-blue-200/70 text-sm font-medium mb-1.5">SMTP Port</label>
+                                        <input type="number" value="587" class="form-input w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                                    </div>
+                                </div>
+
+                                <div class="space-y-5">
+                                    <h3 class="text-white font-semibold text-base flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                        </svg>
+                                        Event Notifikasi
+                                    </h3>
+
+                                    <div class="space-y-2">
+                                        <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-2.5">
+                                            <span class="text-white/80 text-sm">Device Offline</span>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox" checked class="toggle-checkbox sr-only peer" />
+                                                <div class="toggle-label relative w-9 h-5 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                    <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-4 h-4 rounded-full transition-all duration-200"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-2.5">
+                                            <span class="text-white/80 text-sm">Motion Detected</span>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox" checked class="toggle-checkbox sr-only peer" />
+                                                <div class="toggle-label relative w-9 h-5 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                    <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-4 h-4 rounded-full transition-all duration-200"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-2.5">
+                                            <span class="text-white/80 text-sm">Storage Full</span>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox" class="toggle-checkbox sr-only peer" />
+                                                <div class="toggle-label relative w-9 h-5 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                    <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-4 h-4 rounded-full transition-all duration-200"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-2.5">
+                                            <span class="text-white/80 text-sm">System Error</span>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox" checked class="toggle-checkbox sr-only peer" />
+                                                <div class="toggle-label relative w-9 h-5 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                    <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-4 h-4 rounded-full transition-all duration-200"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-2.5">
+                                            <span class="text-white/80 text-sm">Login Attempt</span>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox" class="toggle-checkbox sr-only peer" />
+                                                <div class="toggle-label relative w-9 h-5 bg-blue-900/40 rounded-full peer peer-checked:bg-blue-600 transition-all duration-200">
+                                                    <div class="toggle-dot absolute left-0.5 top-0.5 bg-white w-4 h-4 rounded-full transition-all duration-200"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="w-full bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 font-medium py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                        </svg>
+                                        Test Notifikasi
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-3 pt-6 mt-6 border-t border-blue-500/10">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+                            </svg>
+                            Simpan Semua Pengaturan
+                        </button>
+                        <button type="reset" class="border border-white/10 hover:bg-white/5 text-white/70 hover:text-white font-medium px-6 py-3 rounded-xl transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            Reset ke Default
+                        </button>
+                        <button type="button" onclick="window.location.reload()" class="border border-blue-500/20 hover:bg-blue-500/10 text-blue-400/70 hover:text-blue-300 font-medium px-6 py-3 rounded-xl transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            Refresh
+                        </button>
+                        <button class="ml-auto text-blue-400/70 hover:text-blue-300 text-sm transition flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Bantuan Konfigurasi
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8 fade-in">
+                <div class="dashboard-card rounded-xl p-4 hover:border-blue-500/30 cursor-pointer transition group" onclick="showSuccessToast('Berhasil!', 'Konfigurasi diekspor')">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition">
+                            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white text-sm font-medium">Ekspor Konfigurasi</p>
+                            <p class="text-blue-300/40 text-xs">Backup pengaturan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card rounded-xl p-4 hover:border-blue-500/30 cursor-pointer transition group" onclick="showSuccessToast('Berhasil!', 'Konfigurasi diimpor')">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white text-sm font-medium">Impor Konfigurasi</p>
+                            <p class="text-blue-300/40 text-xs">Restore pengaturan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card rounded-xl p-4 hover:border-blue-500/30 cursor-pointer transition group" onclick="showWarningToast('Peringatan', 'Yakin ingin reset semua pengaturan?')">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-yellow-500/20 flex items-center justify-center group-hover:bg-yellow-500/30 transition">
+                            <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white text-sm font-medium">Reset Factory</p>
+                            <p class="text-blue-300/40 text-xs">Kembali ke default</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card rounded-xl p-4 hover:border-blue-500/30 cursor-pointer transition group" onclick="showInfoToast('Info', 'Mengecek update sistem...')">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center group-hover:bg-emerald-500/30 transition">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-white text-sm font-medium">Cek Update</p>
+                            <p class="text-blue-300/40 text-xs">Versi terbaru v2.5.0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Dashboard Footer -->
+    {% include 'components/dashboard_footer.html' %}
+</div>
+
+<!-- Toast -->
+{% include 'components/toast.html' %}
+
+<script>
+    // ===== TAB NAVIGATION =====
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active', 'text-white', 'bg-blue-600/20', 'border-blue-500/30');
+                b.classList.add('text-white/60', 'border-transparent');
+            });
+
+            // Add active class to clicked tab
+            this.classList.add('active', 'text-white', 'bg-blue-600/20', 'border-blue-500/30');
+            this.classList.remove('text-white/60', 'border-transparent');
+
+            // Hide all panels
+            document.querySelectorAll('.tab-panel').forEach(p => {
+                p.classList.add('hidden');
+                p.classList.remove('active');
+            });
+
+            // Show selected panel
+            const tabName = this.dataset.tab;
+            const panel = document.getElementById(`tab-${tabName}`);
+            if (panel) {
+                panel.classList.remove('hidden');
+                panel.classList.add('active');
+                panel.style.animation = 'fadeIn 0.3s ease forwards';
+            }
+        });
+    });
+
+    // ===== SAVE SETTINGS =====
+    async function saveSettings(event) {
+        event.preventDefault();
+
+        const formData = {
+            // Umum
+            serverName:         document.getElementById('serverName')?.value || '',
+            serverIP:           document.getElementById('serverIP')?.value || '',
+            serverPort:         document.getElementById('serverPort')?.value || '',
+            timezone:           document.getElementById('timezone')?.value || '',
+            systemDescription:  document.getElementById('systemDescription')?.value || '',
+
+            // Keamanan
+            adminEmail:         document.getElementById('adminEmail')?.value || '',
+            maxUsers:           document.getElementById('maxUsers')?.value || '',
+
+            // Rekaman
+            retentionDays:      document.getElementById('retentionDays')?.value || '',
+
+            // === DVR: Dahua ===
+            dahua: {
+                username:   document.getElementById('dahuaUser')?.value || '',
+                password:   document.getElementById('dahuaPass')?.value || '',
+                http_port:  parseInt(document.getElementById('dahuaHttpPort')?.value, 10) || 80,
+                rtsp_port:  parseInt(document.getElementById('dahuaRtspPort')?.value, 10) || 554,
+            },
+
+            // === DVR: Hikvision ===
+            hikvision: {
+                username:   document.getElementById('hikUser')?.value || '',
+                password:   document.getElementById('hikPass')?.value || '',
+                http_port:  parseInt(document.getElementById('hikHttpPort')?.value, 10) || 80,
+                rtsp_port:  parseInt(document.getElementById('hikRtspPort')?.value, 10) || 554,
+            },
+        };
+
+        try {
+            const response = await fetch('/api/save-settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'same-origin',
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                showSuccessToast('Berhasil!', 'Semua pengaturan berhasil disimpan');
+            } else {
+                showErrorToast('Gagal!', data.message || 'Terjadi kesalahan');
+            }
+        } catch (error) {
+            showErrorToast('Error!', 'Terjadi kesalahan pada server');
+        }
+    }
+
+    // ===== EXPOSE FUNCTIONS TO GLOBAL =====
+    window.saveSettings = saveSettings;
+</script>
+{% endblock %}

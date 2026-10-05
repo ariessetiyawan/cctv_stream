@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ cam.name }} - DVR</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #0a0a15;
+            color: #eee;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            min-height: 100vh;
+        }
+        header {
+            padding: 15px 25px;
+            background: #16213e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #0f3460;
+        }
+        header h2 { color: #4fc3f7; font-weight: 400; }
+        header a {
+            color: #81d4fa;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #0f3460;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+        header a:hover { background: #0f3460; }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        video {
+            width: 100%;
+            max-width: 1200px;
+            background: black;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.2);
+        }
+        .info {
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            padding: 10px;
+        }
+        .error { color: #f66; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>{{ cam.name }}</h2>
+        <a href="/">← Kembali</a>
+    </header>
+	{% if not cam.mtx_path %}
+		<div class="error">Kamera ini belum punya path MediaMTX. Jalankan sync dulu.</div>
+	{% else %}
+		<div class="container">
+			<video id="video" controls autoplay muted playsinline></video>
+		</div>
+		<div class="info" id="status">Menghubungkan ke stream...</div>
+		<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js"></script>
+		<script>
+			const video    = document.getElementById('video');
+			const statusEl = document.getElementById('status');
+
+			// ✅ URL lewat Flask proxy (relatif, tidak ada host/port)
+			const hlsUrl = "/stream/{{ cam.mtx_path }}/index.m3u8";
+
+			// Atau lebih aman pakai url_for:
+			// const hlsUrl = "{{ url_for('stream_proxy', subpath=(cam.mtx_path or '') + '/index.m3u8') }}";
+
+			console.log('[DEBUG] HLS URL (proxy):', hlsUrl);
+			console.log('[DEBUG] cam.mtx_path:', "{{ cam.mtx_path }}");
+
+			if (!hlsUrl || hlsUrl.includes('//index.m3u8')) {
+				statusEl.innerHTML = '<span class="error">Kamera ini belum punya path MediaMTX. Jalankan sync dulu.</span>';
+			} else if (window.Hls && Hls.isSupported()) {
+				const hls = new Hls({
+					lowLatencyMode: true,
+					xhrSetup: function (xhr) {
+						xhr.withCredentials = true;   // ← pastikan ini
+					},
+				});
+				hls.loadSource(hlsUrl);
+				hls.attachMedia(video);
+
+				hls.on(Hls.Events.MANIFEST_PARSED, () => {
+					statusEl.textContent = "Stream aktif.";
+					video.play().catch(e => console.log('Autoplay blocked:', e));
+				});
+
+				hls.on(Hls.Events.ERROR, (_, data) => {
+					console.error('[HLS ERROR]', data);
+					if (data.fatal) {
+						if (data.response && data.response.code === 401) {
+							statusEl.innerHTML = '<span class="error">Session habis — login ulang</span>';
+						} else if (data.response && data.response.code === 404) {
+							statusEl.innerHTML = '<span class="error">Path tidak ditemukan di MediaMTX</span>';
+						} else if (data.response && data.response.code === 502) {
+							statusEl.innerHTML = '<span class="error">MediaMTX tidak dapat dihubungi</span>';
+						} else {
+							statusEl.innerHTML = '<span class="error">Error: ' + data.type + ' — ' + data.details + '</span>';
+						}
+					}
+				});
+			} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+				video.src = hlsUrl;
+				video.play();
+			} else {
+				statusEl.innerHTML = '<span class="error">Browser tidak mendukung HLS.</span>';
+			}
+		</script>
+	{% endif %}
+</body>
+</html>

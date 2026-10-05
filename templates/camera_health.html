@@ -1,0 +1,437 @@
+{% extends "base.html" %}
+
+{% block title %}Camera Health - CCTV Stream Server{% endblock %}
+
+{% block content %}
+<div id="dashboardPage" class="dashboard-bg min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="dashboard-header sticky top-0 z-40 flex items-center justify-between px-4 sm:px-6 py-3 flex-shrink-0">
+        <div class="flex items-center gap-3">
+            <button onclick="toggleSidebar()" class="lg:hidden text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/30">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                    </svg>
+                </div>
+                <span class="text-white font-bold text-lg tracking-tight">CCTV<span class="text-blue-400">Stream</span></span>
+                <span class="text-blue-300/30 text-xs hidden sm:inline">| Camera Health</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <span class="hidden sm:inline-flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-400/10 px-3 py-1.5 rounded-full border border-emerald-400/20">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                </span>
+                Online
+            </span>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold text-sm shadow-lg shadow-blue-600/30">
+                    {{ user[0] if user else 'A' }}
+                </div>
+                <button onclick="handleLogout()" class="text-blue-300/50 hover:text-white text-xs font-medium transition flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        {% include 'components/sidebar.html' %}
+        <div id="sidebarOverlay" class="fixed inset-0 z-20 bg-black/50 backdrop-blur-sm lg:hidden hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 no-scrollbar">
+
+            <!-- Page Header -->
+            <div class="mb-8 fade-in">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-3">
+                            <svg class="w-8 h-8 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            Camera Health Check
+                        </h1>
+                        <p class="text-blue-300/60 text-sm mt-1 ml-11">Diagnostik kesehatan semua kamera: DB → RTSP → MediaMTX → HLS</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button id="btnRunCheck" onclick="runHealthCheck()"
+                                class="bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-rose-600/30 transition flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <span id="btnRunText">Jalankan Pemeriksaan</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div id="healthInfo" class="hidden mb-6 fade-in">
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                    <div class="glass-card rounded-2xl p-4 bg-[#0f2240]/60 border border-blue-500/10">
+                        <p class="text-blue-300/50 text-xs uppercase tracking-wider mb-1">Total Kamera</p>
+                        <p class="text-white text-2xl font-bold" id="statTotal">—</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-4 bg-emerald-500/5 border border-emerald-500/20">
+                        <p class="text-emerald-300/70 text-xs uppercase tracking-wider mb-1">✅ OK</p>
+                        <p class="text-emerald-400 text-2xl font-bold" id="statOk">—</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-4 bg-rose-500/5 border border-rose-500/20">
+                        <p class="text-rose-300/70 text-xs uppercase tracking-wider mb-1">❌ Bermasalah</p>
+                        <p class="text-rose-400 text-2xl font-bold" id="statFailed">—</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-4 bg-blue-500/5 border border-blue-500/20">
+                        <p class="text-blue-300/70 text-xs uppercase tracking-wider mb-1">⏱ Durasi</p>
+                        <p class="text-blue-400 text-2xl font-bold"><span id="statTime">—</span><span class="text-sm">s</span></p>
+                    </div>
+                </div>
+                <p class="text-blue-300/40 text-xs mt-3 text-right">
+                    Terakhir diperiksa: <span id="statTimestamp" class="font-mono">—</span>
+                </p>
+            </div>
+
+            <!-- Filter Bar (muncul setelah run) -->
+            <div id="healthFilter" class="hidden mb-6 fade-in">
+                <div class="glass-card rounded-2xl p-4 bg-[#0f2240]/60 border border-blue-500/10 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+                    <div class="flex-1 relative">
+                        <input type="text" id="filterHealthSearch" onkeyup="applyHealthFilter()"
+                               placeholder="Cari nama, DVR, atau channel..."
+                               class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-2 pl-9 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-rose-500/50 transition text-sm" />
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-300/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <select id="filterHealthStatus" onchange="applyHealthFilter()"
+                            class="bg-[#0a1628] border border-blue-500/20 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-rose-500/50 transition">
+                        <option value="all" class="bg-[#0a1628]">Semua Status</option>
+                        <option value="ok" class="bg-[#0a1628]">✅ OK</option>
+                        <option value="failed" class="bg-[#0a1628]">❌ Bermasalah</option>
+                    </select>
+                    <select id="filterHealthLayer" onchange="applyHealthFilter()"
+                            class="bg-[#0a1628] border border-blue-500/20 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-rose-500/50 transition">
+                        <option value="all" class="bg-[#0a1628]">Semua Lapis</option>
+                        <option value="db" class="bg-[#0a1628]">DB</option>
+                        <option value="rtsp" class="bg-[#0a1628]">RTSP</option>
+                        <option value="mediamtx" class="bg-[#0a1628]">MediaMTX</option>
+                        <option value="hls" class="bg-[#0a1628]">HLS</option>
+                    </select>
+                    <button onclick="exportHealthReport()"
+                            class="text-sm text-blue-400 hover:text-blue-300 border border-blue-500/20 hover:border-blue-500/40 px-4 py-2 rounded-xl transition flex items-center gap-1.5 whitespace-nowrap">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Export JSON
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hasil Pemeriksaan -->
+            <div id="healthResult" class="hidden fade-in">
+                <div class="glass-card rounded-2xl overflow-hidden border border-blue-500/10 bg-[#0f2240]/60">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-blue-500/10 bg-blue-900/20">
+                                    <th class="px-4 py-4 text-center text-xs font-semibold text-blue-300/60 uppercase tracking-wider">Status</th>
+                                    <th class="px-4 py-4 text-center text-xs font-semibold text-blue-300/60 uppercase tracking-wider">Ch</th>
+                                    <th class="px-4 py-4 text-left text-xs font-semibold text-blue-300/60 uppercase tracking-wider">Kamera</th>
+                                    <th class="px-4 py-4 text-left text-xs font-semibold text-blue-300/60 uppercase tracking-wider">DVR</th>
+                                    <th class="px-4 py-4 text-center text-xs font-semibold text-blue-300/60 uppercase tracking-wider">Codec</th>
+                                    <th class="px-4 py-4 text-center text-xs font-semibold text-blue-300/60 uppercase tracking-wider">Resolusi</th>
+                                    <th class="px-4 py-4 text-center text-xs font-semibold text-blue-300/60 uppercase tracking-wider">DB</th>
+                                    <th class="px-4 py-4 text-center text-xs font-semibold text-blue-300/60 uppercase tracking-wider">RTSP</th>
+                                    <th class="px-4 py-4 text-center text-xs font-semibold text-blue-300/60 uppercase tracking-wider">MTX</th>
+                                    <th class="px-4 py-4 text-center text-xs font-semibold text-blue-300/60 uppercase tracking-wider">HLS</th>
+                                    <th class="px-4 py-4 text-left text-xs font-semibold text-blue-300/60 uppercase tracking-wider">Masalah</th>
+                                </tr>
+                            </thead>
+                            <tbody id="healthTableBody" class="divide-y divide-blue-500/5"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Rekomendasi -->
+                <div id="healthRecommendations" class="hidden mt-6">
+                    <div class="glass-card rounded-2xl p-5 bg-amber-500/5 border border-amber-500/20">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                            <div class="flex-1">
+                                <h3 class="text-amber-300 font-semibold mb-2">Rekomendasi Perbaikan</h3>
+                                <ul id="healthRecommendationList" class="space-y-1.5 text-sm text-blue-200/80"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div id="healthEmpty" class="text-center py-20 rounded-2xl bg-[#0f2240]/60 border border-blue-500/10">
+                <svg class="w-20 h-20 mx-auto text-rose-300/20 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944 11.955 11.955 0 013.382 5.984A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <p class="text-blue-300/60 text-sm mb-2">Belum ada pemeriksaan dijalankan</p>
+                <p class="text-blue-300/40 text-xs mb-6">Klik tombol <strong class="text-rose-400">Jalankan Pemeriksaan</strong> di atas untuk memulai diagnosa</p>
+                <button onclick="runHealthCheck()"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-sm font-semibold transition shadow-lg shadow-rose-600/20">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    Mulai Diagnosa
+                </button>
+            </div>
+
+        </main>
+    </div>
+
+    {% include 'components/dashboard_footer.html' %}
+</div>
+
+{% include 'components/toast.html' %}
+
+<script>
+let _healthData = null;
+
+async function runHealthCheck() {
+    const btn = document.getElementById('btnRunCheck');
+    const txt = document.getElementById('btnRunText');
+    btn.disabled = true;
+    txt.textContent = 'Memeriksa...';
+
+    // Sembunyikan empty state
+    document.getElementById('healthEmpty').classList.add('hidden');
+
+    try {
+        const res = await fetch('/api/camera/health', { credentials: 'same-origin' });
+        const data = await res.json();
+
+        if (!data.success) {
+            showErrorToast('Gagal', data.message || 'Tidak dapat memeriksa');
+            document.getElementById('healthEmpty').classList.remove('hidden');
+            return;
+        }
+
+        _healthData = data;
+        renderHealthReport(data);
+
+        // Toast ringkasan
+        if (data.failed === 0) {
+            showSuccessToast(
+                '✅ Semua Kamera OK',
+                `${data.ok} dari ${data.total} kamera berfungsi normal`
+            );
+        } else {
+            showWarningToast(
+                `⚠️ ${data.failed} Kamera Bermasalah`,
+                `Ch: ${data.failed_list.map(c => c.channel).join(', ')}`
+            );
+        }
+    } catch (err) {
+        console.error(err);
+        showErrorToast('Error', 'Tidak dapat menghubungi server');
+        document.getElementById('healthEmpty').classList.remove('hidden');
+    } finally {
+        btn.disabled = false;
+        txt.textContent = 'Jalankan Pemeriksaan';
+    }
+}
+
+function renderHealthReport(data) {
+    // Info panel
+    document.getElementById('healthInfo').classList.remove('hidden');
+    document.getElementById('healthFilter').classList.remove('hidden');
+    document.getElementById('healthResult').classList.remove('hidden');
+
+    document.getElementById('statTotal').textContent = data.total;
+    document.getElementById('statOk').textContent = data.ok;
+    document.getElementById('statFailed').textContent = data.failed;
+    document.getElementById('statTime').textContent = data.elapsed_sec;
+    document.getElementById('statTimestamp').textContent = data.timestamp;
+
+    // Render tabel
+    renderHealthRows(data.cameras);
+
+    // Rekomendasi
+    renderRecommendations(data);
+}
+
+function renderHealthRows(cameras) {
+    const tbody = document.getElementById('healthTableBody');
+    if (!cameras.length) {
+        tbody.innerHTML = `<tr><td colspan="11" class="text-center py-10 text-blue-300/40 text-sm">
+            Tidak ada kamera yang cocok.
+        </td></tr>`;
+        return;
+    }
+
+    tbody.innerHTML = cameras.map(c => {
+        const isOk = c.issues.length === 0;
+        const rowBg = isOk ? '' : 'bg-rose-500/5';
+        const statusBadge = isOk
+            ? '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold">✅ OK</span>'
+            : '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-400 text-[10px] font-bold">❌ FAIL</span>';
+
+        const layerCell = (status) => {
+            const colors = {
+                ok:   'text-emerald-400',
+                fail: 'text-rose-400',
+                warn: 'text-amber-400',
+                skip: 'text-slate-600',
+            };
+            const icons = {
+                ok:   '✓',
+                fail: '✗',
+                warn: '!',
+                skip: '–',
+            };
+            const cls = colors[status] || 'text-slate-500';
+            return `<span class="${cls} font-bold text-base">${icons[status] || '?'}</span>`;
+        };
+
+        const ls = c.layer_status || {};
+
+        const safe = (s) => (s ?? '').toString().replace(/</g, '&lt;');
+
+        const issuesHtml = c.issues.length
+            ? `<ul class="list-disc list-inside space-y-0.5 text-[11px] text-rose-300/90">
+                ${c.issues.map(i => `<li>${safe(i)}</li>`).join('')}
+              </ul>`
+            : '<span class="text-slate-600 text-xs">—</span>';
+
+        // Bangun data search attributes
+        const searchData = `data-name="${(c.name || '').toLowerCase()}" data-dvr="${(c.dvr || '').toLowerCase()}" data-channel="${c.channel}" data-status="${isOk ? 'ok' : 'failed'}" data-layers='${JSON.stringify(ls)}'`;
+
+        return `
+            <tr class="table-row-hover transition health-row ${rowBg}" ${searchData}>
+                <td class="px-4 py-3 text-center">${statusBadge}</td>
+                <td class="px-4 py-3 text-center">
+                    <span class="inline-block px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30 text-[10px] font-mono font-bold text-cyan-300">
+                        ${c.channel ?? '—'}
+                    </span>
+                </td>
+                <td class="px-4 py-3">
+                    <p class="text-white font-medium text-sm truncate max-w-[200px]" title="${safe(c.name)}">${safe(c.name) || '—'}</p>
+                    ${c.mtx_path ? `<p class="text-blue-300/40 text-[10px] font-mono truncate">${safe(c.mtx_path)}</p>` : ''}
+                </td>
+                <td class="px-4 py-3 text-blue-200/70 text-xs">${safe(c.dvr) || '—'}</td>
+                <td class="px-4 py-3 text-center">
+                    <span class="text-[11px] font-mono text-blue-300/70 uppercase">${safe(c.codec) || '—'}</span>
+                </td>
+                <td class="px-4 py-3 text-center">
+                    <span class="text-[11px] font-mono text-blue-300/70">${safe(c.resolution) || '—'}</span>
+                </td>
+                <td class="px-4 py-3 text-center">${layerCell(ls.db)}</td>
+                <td class="px-4 py-3 text-center">${layerCell(ls.rtsp)}</td>
+                <td class="px-4 py-3 text-center">${layerCell(ls.mediamtx)}</td>
+                <td class="px-4 py-3 text-center">${layerCell(ls.hls)}</td>
+                <td class="px-4 py-3 max-w-[300px]">${issuesHtml}</td>
+            </tr>
+        `;
+    }).join('');
+}
+
+function renderRecommendations(data) {
+    if (!data.failed_list || !data.failed_list.length) {
+        document.getElementById('healthRecommendations').classList.add('hidden');
+        return;
+    }
+
+    const issuesText = data.failed_list.flatMap(c => c.issues).join(' ').toLowerCase();
+    const recs = [];
+
+    if (issuesText.includes('h.265') || issuesText.includes('hevc')) {
+        recs.push('Ganti <code class="px-1.5 py-0.5 bg-black/30 rounded text-amber-300">hlsVariant: fmp4</code> di <code class="text-amber-300">mediamtx.yml</code> (H.265 butuh fmp4)');
+    }
+    if (issuesText.includes('dts') || issuesText.includes('muxer')) {
+        recs.push('Upgrade MediaMTX ke <strong class="text-amber-300">v1.15.5+</strong> — versi lama punya bug DTS (Issue #5209)');
+    }
+    if (issuesText.includes('401')) {
+        recs.push('Tambahkan <code class="px-1.5 py-0.5 bg-black/30 rounded text-amber-300">- action: read</code> di <code class="text-amber-300">authInternalUsers</code> di mediamtx.yml');
+    }
+    if (issuesText.includes('belum terdaftar di mediamtx') || issuesText.includes('belum di-sync')) {
+        recs.push('Jalankan <code class="text-amber-300">POST /api/mediamtx/sync</code> atau restart Flask untuk sync path ke MediaMTX');
+    }
+    if (issuesText.includes('is_active')) {
+        recs.push('Aktifkan kamera di database (set <code class="text-amber-300">is_active = 1</code>)');
+    }
+    if (issuesText.includes('rtsp gagal')) {
+        recs.push('Cek DVR: kamera terpasang, kabel tersambung, kredensial benar, IP/port tidak berubah');
+    }
+
+    if (!recs.length) {
+        document.getElementById('healthRecommendations').classList.add('hidden');
+        return;
+    }
+
+    document.getElementById('healthRecommendations').classList.remove('hidden');
+    document.getElementById('healthRecommendationList').innerHTML =
+        recs.map(r => `<li class="flex items-start gap-2">
+            <span class="text-amber-400 mt-0.5">▸</span>
+            <span>${r}</span>
+        </li>`).join('');
+}
+
+function applyHealthFilter() {
+    const search = (document.getElementById('filterHealthSearch')?.value || '').toLowerCase().trim();
+    const status = document.getElementById('filterHealthStatus')?.value || 'all';
+    const layer  = document.getElementById('filterHealthLayer')?.value || 'all';
+
+    let visible = 0;
+    document.querySelectorAll('.health-row').forEach(row => {
+        const d = row.dataset;
+        const haystack = `${d.name} ${d.dvr}`;
+        const chMatch = search && (String(d.channel) === search ||
+                                   `ch ${d.channel}` === search ||
+                                   `ch${d.channel}` === search);
+        const matchSearch = !search || haystack.includes(search) || chMatch;
+        const matchStatus = status === 'all' || d.status === status;
+
+        let matchLayer = true;
+        if (layer !== 'all') {
+            const layers = JSON.parse(d.layers || '{}');
+            matchLayer = (layers[layer] === 'fail');
+        }
+
+        if (matchSearch && matchStatus && matchLayer) {
+            row.style.display = '';
+            visible++;
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+
+function exportHealthReport() {
+    if (!_healthData) return;
+    const blob = new Blob([JSON.stringify(_healthData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `camera-health-${new Date().toISOString().slice(0,19).replace(/:/g,'-')}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showSuccessToast('Export Berhasil', 'File JSON telah diunduh');
+}
+
+window.runHealthCheck = runHealthCheck;
+window.applyHealthFilter = applyHealthFilter;
+window.exportHealthReport = exportHealthReport;
+</script>
+{% endblock %}

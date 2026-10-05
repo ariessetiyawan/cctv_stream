@@ -1,0 +1,172 @@
+{% set role          = session.get('role') %}
+{% set is_admin      = role == 'admin' %}
+{% set is_supervisor = role == 'supervisor' %}
+{% set can_manage    = is_admin or is_supervisor %}
+
+<aside id="sidebar" class="sidebar fixed lg:static inset-y-0 left-0 z-30 w-64 flex-shrink-0 transform -translate-x-full lg:translate-x-0 transition-all duration-300 pt-16 lg:pt-0 h-full lg:h-auto">
+    <nav class="p-4 space-y-1">
+
+        <!-- Brand mini (mobile only) -->
+        <div class="lg:hidden flex items-center gap-2.5 px-3 py-3 mb-2 border-b border-blue-500/10 sidebar-brand-block">
+            <div class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                <img src="{{ url_for('static', filename='img/logo-rsud-white.png') }}"
+                     alt="RSUD Jombang"
+                     class="w-full h-full object-contain p-1" />
+            </div>
+            <div class="leading-tight sidebar-brand-text">
+                <div class="text-white font-bold text-sm">RSUD Jombang</div>
+                <div class="text-blue-400/70 text-[10px] uppercase tracking-widest font-semibold">
+                    CCTV Stream
+                </div>
+            </div>
+        </div>
+
+        <!-- Toggle controls (desktop only, sticky di atas) -->
+        <div class="hidden lg:flex items-center justify-end gap-1 px-1 pb-2 mb-1 border-b border-blue-500/10 sidebar-toggle-bar">
+            <button type="button" onclick="toggleSidebarMini()"
+                    id="sidebarMiniBtn"
+                    class="p-1.5 rounded-lg text-blue-300/40 hover:text-white hover:bg-white/5 transition"
+                    title="Mode mini (icon saja)">
+                <svg class="w-4 h-4 sidebar-mini-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                </svg>
+            </button>
+            <button type="button" onclick="hideSidebar()"
+                    class="p-1.5 rounded-lg text-blue-300/40 hover:text-white hover:bg-white/5 transition"
+                    title="Sembunyikan sidebar">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="sidebar-section-title px-3 py-2 text-xs font-semibold text-blue-300/30 uppercase tracking-wider">
+            Menu Utama
+        </div>
+
+        <!-- Dashboard -->
+        <a href="{{ url_for('dashboard') }}"
+           data-tooltip="Dashboard"
+           class="sidebar-item flex items-center gap-3 px-3 py-2.5 text-sm font-medium {% if request.endpoint == 'dashboard' %}active text-white{% else %}text-white/60 hover:text-white{% endif %}">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+            <span class="sidebar-label">Dashboard</span>
+        </a>
+
+        {% if can_manage %}
+        <!-- DVR Management -->
+        <a href="{{ url_for('dashboard') }}#dvr-section"
+           data-tooltip="DVR Management"
+           class="sidebar-item flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-white/60 hover:text-white"
+           id="dvrMenuLink">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+            <span class="sidebar-label">DVR Management</span>
+            <span class="sidebar-badge ml-auto text-[10px] text-blue-300/30 bg-blue-500/10 px-2 py-0.5 rounded-full">42</span>
+        </a>
+
+        <!-- Camera List -->
+        <a href="{{ url_for('dashboard') }}#camera-section"
+           data-tooltip="Camera List"
+           class="sidebar-item flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-white/60 hover:text-white"
+           id="cameraMenuLink">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            <span class="sidebar-label">Camera List</span>
+        </a>
+        {% endif %}
+
+        <!-- Monitoring -->
+        <a href="{{ url_for('dashboard') }}#dvr-monitoring"
+           data-tooltip="Monitoring"
+           class="sidebar-item flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-white/60 hover:text-white">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span class="sidebar-label">Monitoring</span>
+        </a>
+
+        {% if is_admin %}
+        <div class="pt-4 mt-4 border-t border-blue-500/10">
+            <div class="sidebar-section-title px-3 py-2 text-xs font-semibold text-blue-300/30 uppercase tracking-wider">
+                Pengaturan
+            </div>
+
+            <!-- Konfigurasi -->
+            <a href="{{ url_for('konfigurasi') }}"
+               data-tooltip="Konfigurasi"
+               class="sidebar-item flex items-center gap-3 px-3 py-2.5 text-sm font-medium {% if request.endpoint == 'konfigurasi' %}active text-white{% else %}text-white/60 hover:text-white{% endif %}">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span class="sidebar-label">Konfigurasi</span>
+            </a>
+
+            <!-- Camera Health -->
+            <a href="{{ url_for('camera_health_page') }}"
+               data-tooltip="Camera Health"
+               class="sidebar-item flex items-center gap-3 px-3 py-2.5 text-sm font-medium {% if request.endpoint == 'camera_health_page' %}active text-white{% else %}text-white/60 hover:text-white{% endif %}">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944 11.955 11.955 0 013.382 5.984A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <span class="sidebar-label">Camera Health</span>
+                {% if request.endpoint == 'camera_health_page' %}
+                    <span class="sidebar-badge ml-auto text-[10px] text-rose-300 bg-rose-500/15 px-2 py-0.5 rounded-full">Diag</span>
+                {% endif %}
+            </a>
+
+            <!-- User Management -->
+            <a href="{{ url_for('users_page') }}"
+               data-tooltip="User Management"
+               class="sidebar-item flex items-center gap-3 px-3 py-2.5 text-sm font-medium {% if request.endpoint == 'users_page' %}active text-white{% else %}text-white/60 hover:text-white{% endif %}">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <span class="sidebar-label">User Management</span>
+                <span class="sidebar-badge ml-auto text-[10px] text-blue-300/30 bg-blue-500/10 px-2 py-0.5 rounded-full"
+                      id="userCountBadge">{{ users|length if users is defined else '' }}</span>
+            </a>
+
+            <!-- System Settings -->
+            <a href="#"
+               data-tooltip="System Settings"
+               class="sidebar-item flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-white/60 hover:text-white">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                </svg>
+                <span class="sidebar-label">System Settings</span>
+            </a>
+        </div>
+        {% endif %}
+
+        <div class="pt-4 mt-4 border-t border-blue-500/10">
+            <a href="#"
+               data-tooltip="Help & Support"
+               class="sidebar-item flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-white/40 hover:text-white/60">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="sidebar-label">Help &amp; Support</span>
+            </a>
+        </div>
+    </nav>
+</aside>
+
+<!-- Floating button untuk buka kembali sidebar saat hidden -->
+<button id="sidebarReopenBtn"
+        type="button"
+        onclick="showSidebar()"
+        class="hidden fixed top-20 left-3 z-[60] w-10 h-10 rounded-xl bg-blue-600 hover:bg-blue-500 text-white items-center justify-center shadow-lg shadow-blue-600/40 transition"
+        title="Tampilkan sidebar">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+</button>

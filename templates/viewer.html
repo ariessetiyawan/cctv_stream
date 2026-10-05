@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ cam.name }} — CCTV Viewer</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js"></script>
+
+    <style>
+        body { background: #020617; }
+        #player-video-stage:fullscreen,
+        #player-video-stage:-webkit-full-screen {
+            width: 100vw; height: 100vh;
+            background: #000; border-radius: 0;
+        }
+        #player-video-stage:fullscreen video,
+        #player-video-stage:fullscreen iframe {
+            width: 100%; height: 100%; object-fit: contain;
+        }
+        #player-video-stage.cctv-pseudo-fullscreen {
+            position: fixed !important;
+            inset: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 9999 !important;
+            background: #000 !important;
+            border-radius: 0 !important;
+        }
+        #player-video-stage.cctv-pseudo-fullscreen video,
+        #player-video-stage.cctv-pseudo-fullscreen iframe {
+            object-fit: contain;
+        }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+
+<body class="text-slate-100 min-h-screen">
+
+<div class="min-h-screen flex items-center justify-center p-0 md:p-4">
+    <div class="bg-slate-900 border-0 md:border border-slate-800 rounded-none md:rounded-2xl w-full max-w-6xl shadow-2xl flex flex-col overflow-hidden md:max-h-[95vh] md:my-auto">
+
+        <!-- ==================== HEADER ==================== -->
+        <div class="p-3 md:p-4 bg-slate-950 border-b border-slate-800">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3 overflow-hidden">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping flex-shrink-0"></span>
+                    <div class="overflow-hidden">
+                        <h3 class="font-bold text-sm md:text-base leading-tight truncate flex items-center gap-2"
+                            title="{{ cam.name }}">
+                            {{ cam.name }}
+                            {# === HIKVISION: badge vendor === #}
+                            {% set _v = (cam.vendor or '')|lower %}
+                            {% if cam.dvr %}
+                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider
+                                    {{ 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' if 'hik' in _v
+                                       else 'bg-amber-500/20 text-amber-300 border border-amber-500/30' if 'dahua' in _v
+                                       else 'bg-slate-500/20 text-slate-300 border border-slate-500/30' }}">
+                                    {{ cam.vendor or 'DVR' }}
+                                </span>
+                            {% endif %}
+                            {# === END HIKVISION === #}
+                        </h3>
+                        <p class="text-[10px] md:text-xs text-slate-400 truncate">
+                            {{ cam.location or 'Lokasi belum diisi' }}
+                            {% if cam.dvr %} · {{ cam.dvr }}{% endif %}
+                            · CH {{ cam.channel or 1 }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-1.5 flex-shrink-0">
+                    <button onclick="togglePlayerFullscreen()"
+                            id="btn-player-fullscreen"
+                            class="text-slate-300 hover:text-white hover:bg-blue-600 w-9 h-9 rounded-lg flex items-center justify-center transition bg-blue-600/20 border border-blue-700/40 cursor-pointer"
+                            title="Layar Penuh">
+                        <i class="fa-solid fa-expand text-base"></i>
+                    </button>
+                    <a href="{{ url_for('dashboard') }}"
+                       onclick="goBackToDashboard(event)"
+                       class="text-slate-400 hover:text-white hover:bg-slate-800 w-8 h-8 rounded-lg flex items-center justify-center transition flex-shrink-0"
+                       title="Kembali ke Dashboard">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div id="viewer-tabs" class="flex space-x-1 mt-3 border-b border-slate-800">
+                <button id="tab-live" onclick="switchTab('live')"
+                        class="px-3 py-1.5 text-xs font-semibold rounded-t transition
+                               bg-slate-900 text-white border-b-2 border-blue-500">
+                    <i class="fa-solid fa-circle text-red-500 text-[8px] mr-1"></i>LIVE
+                </button>
+                <button id="tab-playback" onclick="switchTab('playback')"
+                        class="px-3 py-1.5 text-xs font-semibold rounded-t transition
+                               text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-clock-rotate-left text-[10px] mr-1"></i>PLAYBACK
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== BODY ==================== -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 overflow-y-auto max-h-[calc(100vh-60px)] md:max-h-[calc(95vh-60px)]">
+
+            <!-- VIDEO STAGE -->
+            <div id="player-video-stage"
+                 class="lg:col-span-2 bg-black flex items-center justify-center aspect-video relative">
+                <video id="playback-video"
+                       class="w-full h-full object-contain hidden"
+                       controls playsinline></video>
+
+                <video id="cctv-video"
+                       class="w-full h-full object-contain hidden"
+                       controls playsinline muted autoplay></video>
+
+                <iframe id="cctv-iframe"
+                        class="w-full h-full object-contain hidden"
+                        frameborder="0"
+                        allowfullscreen></iframe>
+
+                <button onclick="togglePlayerFullscreen()"
+                        id="btn-player-fs-overlay"
+                        class="absolute top-2 right-2 z-20 bg-slate-950/80 hover:bg-blue-600 text-white w-9 h-9 rounded-lg flex items-center justify-center transition border border-slate-700 cursor-pointer"
+                        title="Layar Penuh">
+                    <i class="fa-solid fa-expand text-sm"></i>
+                </button>
+
+                <div id="player-splash"
+                     class="absolute inset-0 bg-slate-950 flex flex-col items-center justify-center text-center p-4 space-y-3">
+                    <div id="player-splash-icon" class="text-blue-500 text-3xl">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                    </div>
+                    <p id="player-splash-msg" class="text-xs md:text-sm text-slate-300">
+                        Menghubungkan ke stream...
+                    </p>
+                </div>
+            </div>
+
+            <!-- SIDE PANEL -->
+            <div class="p-3 md:p-4 bg-slate-900 border-t lg:border-t-0 lg:border-l border-slate-800 flex flex-col space-y-3">
+
+                <!-- STREAM STATS -->
+                <div class="space-y-2 text-[11px] md:text-xs bg-slate-950 p-3 rounded-lg border border-slate-800">
+                    <h4 class="font-semibold text-slate-400 uppercase tracking-wider">Status Aliran Data</h4>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Status</span>
+                        <span id="player-status-badge" class="font-semibold text-amber-500">CONNECTING</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Metode</span>
+                        <span id="player-method-val" class="font-semibold text-slate-300">HLS Proxy</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Uptime Stream</span>
+                        <span id="player-uptime-val" class="font-semibold text-slate-300">00:00</span>
+                    </div>
+                    <div id="player-retry-row" class="flex justify-between hidden">
+                        <span class="text-amber-500">Percobaan Reconnect</span>
+                        <span id="player-retry-val" class="font-semibold text-amber-500">0</span>
+                    </div>
+                </div>
+
+                <!-- INFO KAMERA -->
+                <div class="space-y-2 text-[11px] md:text-xs bg-slate-950 p-3 rounded-lg border border-slate-800">
+                    <h4 class="font-semibold text-slate-400 uppercase tracking-wider">Info Kamera</h4>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Tipe</span>
+                        <span class="font-semibold text-slate-300 uppercase">{{ cam.nvr_dvr or 'ipcam' }}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Codec</span>
+                        <span class="font-semibold text-slate-300 uppercase">{{ cam.codec or 'auto' }}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Channel</span>
+                        <span class="font-semibold text-slate-300">{{ cam.channel or 1 }}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Akses</span>
+                        <span class="font-semibold {{ 'text-emerald-400' if cam.is_public else 'text-amber-400' }}">
+                            {{ 'Publik' if cam.is_public else 'Private' }}
+                        </span>
+                    </div>
+                    {# === HIKVISION: baris protokol playback === #}
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Playback</span>
+                        <span id="pb-protocol" class="font-semibold text-slate-300 uppercase">—</span>
+                    </div>
+                    {# === END HIKVISION === #}
+                </div>
+
+                <!-- PTZ CONTROL -->
+                <div id="player-ptz-panel" class="bg-slate-950 p-3 rounded-lg border border-slate-800 space-y-2">
+                    <div class="flex items-center space-x-2 text-slate-400">
+                        <i class="fa-solid fa-gamepad text-blue-500 text-xs"></i>
+                        <span class="text-[10px] md:text-xs font-semibold uppercase tracking-wider">Kontrol Gerak (PTZ)</span>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center space-y-2">
+                        <div class="grid grid-cols-3 gap-2 w-32">
+                            <div></div>
+                            <button onclick="handlePTZMove('up')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg p-2 text-xs text-white transition flex items-center justify-center cursor-pointer" title="Atas">
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </button>
+                            <div></div>
+
+                            <button onclick="handlePTZMove('left')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg p-2 text-xs text-white transition flex items-center justify-center cursor-pointer" title="Kiri">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button onclick="handlePTZMove('stop')" class="bg-red-600 hover:bg-red-700 rounded-lg p-2 text-xs text-white transition flex items-center justify-center cursor-pointer" title="Stop">
+                                <i class="fa-solid fa-circle text-[8px]"></i>
+                            </button>
+                            <button onclick="handlePTZMove('right')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg p-2 text-xs text-white transition flex items-center justify-center cursor-pointer" title="Kanan">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+
+                            <div></div>
+                            <button onclick="handlePTZMove('down')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg p-2 text-xs text-white transition flex items-center justify-center cursor-pointer" title="Bawah">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div></div>
+                        </div>
+
+                        <div class="flex space-x-2 w-full pt-1.5 border-t border-slate-900">
+                            <button onclick="handlePTZMove('zoom-in')" class="flex-1 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg py-1 px-2 text-[10px] text-slate-200 transition flex items-center justify-center space-x-1 cursor-pointer">
+                                <i class="fa-solid fa-magnifying-glass-plus text-blue-500"></i>
+                                <span>In</span>
+                            </button>
+                            <button onclick="handlePTZMove('zoom-out')" class="flex-1 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg py-1 px-2 text-[10px] text-slate-200 transition flex items-center justify-center space-x-1 cursor-pointer">
+                                <i class="fa-solid fa-magnifying-glass-minus text-blue-500"></i>
+                                <span>Out</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLAYBACK PANEL -->
+                <div id="player-playback-panel" class="hidden bg-slate-950 p-3 rounded-lg border border-slate-800 space-y-3">
+                    <div class="flex items-center space-x-2 text-slate-400">
+                        <i class="fa-solid fa-clock-rotate-left text-amber-500 text-xs"></i>
+                        <span class="text-[10px] md:text-xs font-semibold uppercase tracking-wider">Playback Rekaman</span>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-[10px] text-slate-400 uppercase">Tanggal</label>
+                        <input type="date" id="pb-date"
+                               class="w-full bg-slate-900 border border-slate-800 rounded px-2 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="space-y-1">
+                            <label class="text-[10px] text-slate-400 uppercase">Mulai</label>
+                            <input type="time" id="pb-start" value="08:00"
+                                   class="w-full bg-slate-900 border border-slate-800 rounded px-2 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] text-slate-400 uppercase">Selesai</label>
+                            <input type="time" id="pb-end" value="09:00"
+                                   class="w-full bg-slate-900 border border-slate-800 rounded px-2 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500">
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-2">
+                        <button onclick="playbackSearch()"
+                                class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded text-xs font-semibold transition flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-magnifying-glass text-[10px]"></i>
+                            Cari
+                        </button>
+                        <button onclick="playbackDownload()" id="pb-download-btn"
+                                class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded text-xs font-semibold transition flex items-center justify-center gap-1.5 border border-slate-700">
+                            <i class="fa-solid fa-download text-[10px]"></i>
+                            Unduh
+                        </button>
+                    </div>
+
+                    <div id="pb-timeline" class="space-y-1 max-h-48 overflow-y-auto pt-1 border-t border-slate-900">
+                        <p class="text-[10px] text-slate-500 italic">Belum ada data. Klik Cari.</p>
+                    </div>
+
+                    <div id="pb-info" class="hidden text-[10px] text-slate-400 bg-slate-900 p-2 rounded border border-slate-800">
+                        <div class="flex justify-between"><span>Channel</span><span id="pb-info-ch" class="text-slate-200">-</span></div>
+                        <div class="flex justify-between"><span>Tipe</span><span id="pb-info-type" class="text-slate-200">-</span></div>
+                        <div class="flex justify-between"><span>Rentang</span><span id="pb-info-range" class="text-slate-200">-</span></div>
+                    </div>
+                </div>
+
+                <!-- QUICK ACTIONS -->
+                <div class="space-y-2">
+                    <a href="{{ url_for('dashboard') }}"
+                       class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded text-xs font-semibold transition flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                        Kembali ke Dashboard
+                    </a>
+                    <button onclick="toggleFfLog()"
+                            class="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 py-1.5 rounded text-xs font-semibold transition flex items-center justify-center gap-1.5 border border-slate-700 cursor-pointer">
+                        <i class="fa-solid fa-file-invoice text-[10px]"></i>
+                        <span id="ff-log-btn-text">Lihat Log Stream</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOG DRAWER -->
+        <div id="player-log-drawer"
+             class="hidden flex-1 border-t border-slate-800 bg-slate-950 p-4 font-mono text-[10px] md:text-xs text-slate-400 overflow-y-auto max-h-[200px] select-text">
+            <h4 class="font-semibold text-slate-200 mb-2 border-b border-slate-800 pb-1">
+                Log Stream Viewer
+            </h4>
+            <pre id="player-log-content" class="whitespace-pre-wrap leading-relaxed">Belum ada log.</pre>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ===================== STATE =====================
+    let hls = null;
+    let streamStartedAt = null;
+    let uptimeTimer = null;
+    let retryCount = 0;
+    const _logs = [];
+
+    // ===================== ELEMENTS =====================
+    const video     = document.getElementById('cctv-video');
+    const iframe    = document.getElementById('cctv-iframe');
+    const splash    = document.getElementById('player-splash');
+    const splashIcon= document.getElementById('player-splash-icon');
+    const splashMsg = document.getElementById('player-splash-msg');
+    const statusBadge = document.getElementById('player-status-badge');
+    const methodVal   = document.getElementById('player-method-val');
+    const uptimeVal   = document.getElementById('player-uptime-val');
+    const retryRow    = document.getElementById('player-retry-row');
+    const retryVal    = document.getElementById('player-retry-val');
+
+    // Data dari backend
+    const CAM = {
+        id:      {{ cam.id|tojson }},
+        name:    {{ cam.name|tojson }},
+        mtxPath: {{ (cam.mtx_path or '')|tojson }},
+        isActive:{{ (cam.is_active|string|lower) }},
+        youtubeEmbed: {{ (cam.youtube_embed or '')|tojson }},
+        // === HIKVISION ===
+        vendor:  {{ (cam.vendor or '')|lower|tojson }},
+        // === END HIKVISION ===
+    };
+
+    const HLS_URL = CAM.mtxPath ? `/stream/${CAM.mtxPath}/index.m3u8` : '';
+    logLine(`[INIT] cam=${CAM.name} mtx_path=${CAM.mtxPath} vendor=${CAM.vendor}`);
+    logLine(`[INIT] HLS URL: ${HLS_URL || '(kosong)'}`);
+
+    // ===================== LOG HELPER =====================
+    function logLine(msg) {
+        const ts = new Date().toLocaleTimeString('id-ID');
+        _logs.push(`[${ts}] ${msg}`);
+        if (_logs.length > 500) _logs.shift();
+        const el = document.getElementById('player-log-content');
+        if (el) el.textContent = _logs.join('\n');
+    }
+
+    function toggleFfLog() {
+        const drawer = document.getElementById('player-log-drawer');
+        const btn    = document.getElementById('ff-log-btn-text');
+        if (!drawer) return;
+        const isHidden = drawer.classList.contains('hidden');
+        drawer.classList.toggle('hidden', !isHidden);
+        if (btn) btn.textContent = isHidden ? 'Sembunyikan Log Stream' : 'Lihat Log Stream';
+    }
+
+    // ===================== STATUS HELPERS =====================
+    function setStatus(text, color) {
+        if (!statusBadge) return;
+        statusBadge.textContent = text;
+        statusBadge.className = `font-semibold ${color}`;
+    }
+
+    function showSplash(iconClass, iconColor, msg) {
+        splash.classList.remove('hidden');
+        splash.style.display = 'flex';
+        splashIcon.className = `${iconColor} text-3xl`;
+        splashIcon.innerHTML = `<i class="${iconClass}"></i>`;
+        splashMsg.innerHTML = msg;
+    }
+
+    function hideSplash() {
+        splash.classList.add('hidden');
+        splash.style.display = 'none';
+    }
+
+    // ===================== UPTIME =====================
+    function startUptime() {
+        streamStartedAt = Date.now();
+        clearInterval(uptimeTimer);
+        uptimeTimer = setInterval(() => {
+            const s = Math.floor((Date.now() - streamStartedAt) / 1000);
+            const m = String(Math.floor(s / 60)).padStart(2, '0');
+            const ss = String(s % 60).padStart(2, '0');
+            if (uptimeVal) uptimeVal.textContent = `${m}:${ss}`;
+        }, 1000);
+    }
+
+    // ===================== HLS INIT =====================
+    function initHls() {
+        if (!HLS_URL) {
+            showSplash('fa-solid fa-triangle-exclamation', 'text-amber-500',
+                'Kamera ini belum punya path MediaMTX.<br>Jalankan sinkronisasi terlebih dahulu.');
+            setStatus('NO PATH', 'text-amber-500');
+            logLine('[ERROR] mtx_path kosong');
+            return;
+        }
+
+        if (window.Hls && Hls.isSupported()) {
+            hls = new Hls({
+                lowLatencyMode: false,
+                maxBufferLength: 20,
+                maxMaxBufferLength: 40,
+                liveSyncDurationCount: 4,
+                manifestLoadingTimeOut: 20000,
+                fragLoadingTimeOut: 30000,
+                fragLoadingMaxRetry: 6,
+                fragLoadingRetryDelay: 1000,
+            });
+            hls.loadSource(HLS_URL);
+            hls.attachMedia(video);
+            methodVal.textContent = 'HLS.js';
+            logLine('[HLS] Instance dibuat, loading manifest...');
+
+            hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                logLine('[HLS] Manifest parsed, siap play');
+                hideSplash();
+                video.classList.remove('hidden');
+                setStatus('LIVE', 'text-emerald-400');
+                retryRow.classList.add('hidden');
+                video.play().catch(e => logLine(`[WARN] Autoplay ditolak: ${e.message}`));
+                startUptime();
+            });
+
+            hls.on(Hls.Events.ERROR, (_, data) => {
+                logLine(`[HLS ERROR] ${data.type}/${data.details} fatal=${data.fatal}`);
+
+                if (!data.fatal) return;
+
+                if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+                    retryCount++;
+                    retryRow.classList.remove('hidden');
+                    retryVal.textContent = retryCount;
+                    setStatus('RECONNECTING', 'text-amber-500');
+                    showSplash('fa-solid fa-wifi', 'text-amber-500',
+                        `Gagal memuat stream.<br>Percobaan reconnect #${retryCount}...`);
+                    setTimeout(() => hls.startLoad(), 2000);
+                } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+                    logLine('[HLS] Media error → recoverMediaError');
+                    hls.recoverMediaError();
+                } else {
+                    showSplash('fa-solid fa-triangle-exclamation', 'text-red-500',
+                        `Stream error: ${data.details}`);
+                    setStatus('ERROR', 'text-red-500');
+                }
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = HLS_URL;
+            video.classList.remove('hidden');
+            video.addEventListener('loadedmetadata', () => {
+                hideSplash();
+                setStatus('LIVE', 'text-emerald-400');
+                startUptime();
+            });
+            video.play().catch(() => {});
+            methodVal.textContent = 'Native HLS';
+            logLine('[HLS] Pakai native HLS (Safari)');
+        } else {
+            showSplash('fa-solid fa-triangle-exclamation', 'text-red-500',
+                'Browser tidak mendukung HLS.');
+            setStatus('UNSUPPORTED', 'text-red-500');
+        }
+    }
+
+    // ===================== FULLSCREEN =====================
+    function togglePlayerFullscreen() {
+        const stage = document.getElementById('player-video-stage');
+        if (!stage) return;
+
+        const isFs = document.fullscreenElement
+                  || document.webkitFullscreenElement
+                  || stage.classList.contains('cctv-pseudo-fullscreen');
+
+        if (!isFs) {
+            const req = stage.requestFullscreen || stage.webkitRequestFullscreen || stage.msRequestFullscreen;
+            if (req) {
+                req.call(stage).catch(() => {
+                    stage.classList.add('cctv-pseudo-fullscreen');
+                });
+            } else {
+                stage.classList.add('cctv-pseudo-fullscreen');
+            }
+        } else {
+            if (document.exitFullscreen || document.webkitExitFullscreen) {
+                (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+            }
+            stage.classList.remove('cctv-pseudo-fullscreen');
+        }
+        logLine('[UI] Toggle fullscreen');
+    }
+
+    // ===================== PTZ (placeholder) =====================
+    function handlePTZMove(direction) {
+        logLine(`[PTZ] ${direction} (belum ada handler backend)`);
+    }
+
+    // ===================== KEYBOARD SHORTCUT =====================
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const stage = document.getElementById('player-video-stage');
+            if (stage && stage.classList.contains('cctv-pseudo-fullscreen')) {
+                stage.classList.remove('cctv-pseudo-fullscreen');
+            }
+        }
+        if (e.key === 'f' || e.key === 'F') {
+            togglePlayerFullscreen();
+        }
+    });
+
+    // ===================== INIT =====================
+    window.addEventListener('DOMContentLoaded', () => {
+        if (CAM.youtubeEmbed) {
+            let vid = CAM.youtubeEmbed.trim();
+            const m = vid.match(/(?:youtu\.be\/|v=|embed\/)([A-Za-z0-9_-]{11})/);
+            if (m) vid = m[1];
+            const embed = `https://www.youtube.com/embed/${vid}?autoplay=1&mute=1`;
+            iframe.src = embed;
+            iframe.classList.remove('hidden');
+            video.classList.add('hidden');
+            hideSplash();
+            setStatus('LIVE (YT)', 'text-emerald-400');
+            methodVal.textContent = 'YouTube Embed';
+            logLine(`[YT] Embed: ${embed}`);
+        } else {
+            initHls();
+        }
+
+        // === HIKVISION: set protokol playback info ===
+        const protoEl = document.getElementById('pb-protocol');
+        if (protoEl) {
+            if (CAM.vendor.includes('hik')) {
+                protoEl.textContent = 'RTSP Playback';
+                protoEl.className = 'font-semibold text-emerald-400 uppercase';
+            } else if (CAM.vendor.includes('dahua')) {
+                protoEl.textContent = 'HTTP DAV';
+                protoEl.className = 'font-semibold text-amber-400 uppercase';
+            } else {
+                protoEl.textContent = '—';
+                protoEl.className = 'font-semibold text-slate-400 uppercase';
+            }
+        }
+
+        // === HIKVISION: disable tombol download untuk Hikvision ===
+        if (CAM.vendor.includes('hik')) {
+            const dlBtn = document.getElementById('pb-download-btn');
+            if (dlBtn) {
+                dlBtn.disabled = true;
+                dlBtn.classList.add('opacity-40', 'cursor-not-allowed');
+                dlBtn.title = 'Download langsung tidak tersedia untuk Hikvision';
+            }
+        }
+        // === END HIKVISION ===
+    });
+
+    window.addEventListener('beforeunload', () => {
+        if (hls) try { hls.destroy(); } catch (e) {}
+    });
+
+    function goBackToDashboard(e) {
+        if (document.referrer && document.referrer.includes('/dashboard')) {
+            e.preventDefault();
+            history.back();
+            return;
+        }
+    }
+    window.goBackToDashboard = goBackToDashboard;
+
+    window.togglePlayerFullscreen = togglePlayerFullscreen;
+    window.toggleFfLog            = toggleFfLog;
+    window.handlePTZMove          = handlePTZMove;
+
+    // ===================== PLAYBACK STATE =====================
+    let playbackHls = null;
+    let playbackActive = false;
+    const PB_CAM_ID   = CAM.id;
+    const PB_CAM_TYPE = {{ (cam.nvr_dvr or 'ipcam')|tojson }};
+    const PB_CAM_CH   = {{ (cam.channel or 1)|tojson }};
+    // === HIKVISION ===
+    const PB_VENDOR   = CAM.vendor;
+    // === END HIKVISION ===
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const d = new Date();
+        const yyyy = d.getFullYear();
+        const mm = String(d.getMonth() + 1).padStart(2, '0');
+        const dd = String(d.getDate()).padStart(2, '0');
+        const pbDate = document.getElementById('pb-date');
+        if (pbDate) pbDate.value = `${yyyy}-${mm}-${dd}`;
+    });
+
+    // ===================== TAB SWITCH =====================
+    function switchTab(tab) {
+        const tabLive = document.getElementById('tab-live');
+        const tabPb   = document.getElementById('tab-playback');
+        const ptzPanel = document.getElementById('player-ptz-panel');
+        const pbPanel  = document.getElementById('player-playback-panel');
+
+        const activeCls   = 'bg-slate-900 text-white border-b-2 border-blue-500';
+        const inactiveCls = 'text-slate-400 hover:text-white';
+
+        if (tab === 'live') {
+            tabLive.className = `px-3 py-1.5 text-xs font-semibold rounded-t transition ${activeCls}`;
+            tabPb.className   = `px-3 py-1.5 text-xs font-semibold rounded-t transition ${inactiveCls}`;
+            ptzPanel.classList.remove('hidden');
+            pbPanel.classList.add('hidden');
+
+            stopPlayback();
+            playbackActive = false;
+            video.classList.remove('hidden');
+            document.getElementById('playback-video').classList.add('hidden');
+            if (hls) { try { hls.startLoad(); } catch(e){} }
+
+        } else {
+            tabPb.className   = `px-3 py-1.5 text-xs font-semibold rounded-t transition ${activeCls}`;
+            tabLive.className = `px-3 py-1.5 text-xs font-semibold rounded-t transition ${inactiveCls}`;
+            ptzPanel.classList.add('hidden');
+            pbPanel.classList.remove('hidden');
+
+            if (!PB_CAM_TYPE || PB_CAM_TYPE.toLowerCase() === 'ipcam') {
+                const tl = document.getElementById('pb-timeline');
+                tl.innerHTML = `<p class="text-[10px] text-amber-400 italic">
+                    Kamera tipe <b>${PB_CAM_TYPE}</b> tidak mendukung playback NVR.
+                    Fitur playback hanya untuk kamera yang terhubung ke DVR/NVR.
+                </p>`;
+            }
+        }
+        logLine(`[UI] Switch tab: ${tab}`);
+    }
+
+    // ===================== SEARCH =====================
+    async function playbackSearch() {
+        const date  = document.getElementById('pb-date').value;
+        const start = document.getElementById('pb-start').value;
+        const end   = document.getElementById('pb-end').value;
+
+        if (!date) { alert('Pilih tanggal dulu'); return; }
+
+        const startHour = parseInt((start || '00:00').split(':')[0], 10);
+        const endHour   = parseInt((end   || '23:59').split(':')[0], 10);
+
+        const tl = document.getElementById('pb-timeline');
+        tl.innerHTML = '<p class="text-[10px] text-slate-400 italic">Mencari rekaman...</p>';
+
+        try {
+            const res = await fetch(
+                `/api/playback/segments?camera_id=${PB_CAM_ID}` +
+                `&date=${date}&start_hour=${startHour}&end_hour=${endHour}`
+            );
+            const data = await res.json();
+
+            if (!data.success) {
+                tl.innerHTML = `<p class="text-[10px] text-red-400 italic">${data.message}</p>`;
+                return;
+            }
+
+            renderTimeline(data);
+        } catch (e) {
+            tl.innerHTML = `<p class="text-[10px] text-red-400 italic">Error: ${e.message}</p>`;
+        }
+    }
+
+    function renderTimeline(data) {
+        const tl = document.getElementById('pb-timeline');
+        tl.innerHTML = '';
+
+        const segs = data.segments || [];
+        if (!segs.length) {
+            tl.innerHTML = '<p class="text-[10px] text-slate-500 italic">Tidak ada segmen.</p>';
+            return;
+        }
+
+        segs.forEach(seg => {
+            const avail = seg.available;
+            const badge = avail === true
+                ? '<span class="text-emerald-400 text-[9px]">● ADA</span>'
+                : avail === false
+                    ? '<span class="text-slate-600 text-[9px]">○ kosong</span>'
+                    : '<span class="text-slate-500 text-[9px]">? </span>';
+
+            const btn = document.createElement('button');
+            btn.className = 'w-full text-left bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded px-2 py-1.5 text-[10px] text-slate-200 transition flex items-center justify-between';
+            btn.innerHTML = `
+                <span><i class="fa-regular fa-clock text-blue-400 mr-1"></i>
+                      ${String(seg.hour).padStart(2,'0')}:00 – ${String(seg.hour).padStart(2,'0')}:59</span>
+                ${badge}
+            `;
+            btn.onclick = () => playSegment(seg);
+            tl.appendChild(btn);
+        });
+    }
+
+    // ===================== PLAY SEGMENT =====================
+    async function playSegment(seg) {
+        const startISO = seg.start;
+        const endISO   = seg.end;
+
+        document.getElementById('pb-info').classList.remove('hidden');
+        document.getElementById('pb-info-ch').textContent   = PB_CAM_CH;
+        document.getElementById('pb-info-type').textContent = PB_CAM_TYPE;
+        document.getElementById('pb-info-range').textContent =
+            `${startISO.slice(11,19)} – ${endISO.slice(11,19)}`;
+
+        const pbVideo = document.getElementById('playback-video');
+
+        showSplash('fa-solid fa-spinner fa-spin', 'text-amber-500',
+                   `Memuat rekaman ${startISO.slice(11,16)}...`);
+
+        try {
+            const res = await fetch('/api/playback/session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    camera_id: PB_CAM_ID,
+                    start: startISO,
+                    end:   endISO,
+                }),
+            });
+            const data = await res.json();
+
+            if (!data.success) {
+                showSplash('fa-solid fa-triangle-exclamation', 'text-red-500',
+                           data.message || 'Gagal memuat rekaman');
+                return;
+            }
+
+            window._pbSessionId = data.session_id;
+
+            video.classList.add('hidden');
+            pbVideo.classList.remove('hidden');
+
+            if (playbackHls) { try { playbackHls.destroy(); } catch(e){} }
+
+            if (window.Hls && Hls.isSupported()) {
+                playbackHls = new Hls({ lowLatencyMode: false, maxBufferLength: 30 });
+                playbackHls.loadSource(data.hls_url);
+                playbackHls.attachMedia(pbVideo);
+                playbackHls.on(Hls.Events.MANIFEST_PARSED, () => {
+                    hideSplash();
+                    pbVideo.play().catch(e => logLine(`[PB] autoplay: ${e.message}`));
+                    logLine(`[PB] Playing ${startISO} → ${endISO} (sid=${data.session_id})`);
+                });
+                playbackHls.on(Hls.Events.ERROR, (_, d) => {
+                    logLine(`[PB HLS ERROR] ${d.type}/${d.details}`);
+                    if (d.fatal) {
+                        showSplash('fa-solid fa-triangle-exclamation', 'text-red-500',
+                                   `Playback error: ${d.details}`);
+                    }
+                });
+            } else if (pbVideo.canPlayType('application/vnd.apple.mpegurl')) {
+                pbVideo.src = data.hls_url;
+                pbVideo.play().catch(()=>{});
+                hideSplash();
+            } else {
+                showSplash('fa-solid fa-triangle-exclamation', 'text-red-500',
+                           'Browser tidak mendukung HLS.');
+            }
+            playbackActive = true;
+
+        } catch (e) {
+            showSplash('fa-solid fa-triangle-exclamation', 'text-red-500',
+                       `Error: ${e.message}`);
+        }
+    }
+
+    function stopPlayback() {
+        const pbVideo = document.getElementById('playback-video');
+        if (playbackHls) { try { playbackHls.destroy(); } catch(e){} playbackHls = null; }
+        try { pbVideo.pause(); pbVideo.removeAttribute('src'); pbVideo.load(); } catch(e){}
+        pbVideo.classList.add('hidden');
+        document.getElementById('pb-info').classList.add('hidden');
+
+        if (window._pbSessionId) {
+            fetch(`/api/playback/session/${window._pbSessionId}`, { method: 'DELETE' })
+                .catch(()=>{});
+            window._pbSessionId = null;
+        }
+        playbackActive = false;
+    }
+
+    // ===================== DOWNLOAD =====================
+    function playbackDownload() {
+        // === HIKVISION: blokir download ===
+        if (PB_VENDOR.includes('hik')) {
+            if (window.showWarningToast) {
+                showWarningToast('Info', 'Download langsung tidak tersedia untuk Hikvision. Gunakan playback + rekam layar.');
+            } else {
+                alert('Download langsung tidak tersedia untuk Hikvision.');
+            }
+            return;
+        }
+        // === END HIKVISION ===
+
+        const date  = document.getElementById('pb-date').value;
+        const start = document.getElementById('pb-start').value || '00:00';
+        const end   = document.getElementById('pb-end').value   || '01:00';
+
+        if (!date) { alert('Pilih tanggal dulu'); return; }
+
+        const startISO = `${date}T${start}:00`;
+        const endISO   = `${date}T${end}:00`;
+
+        const url = `/api/playback/download?camera_id=${PB_CAM_ID}` +
+                    `&start=${encodeURIComponent(startISO)}` +
+                    `&end=${encodeURIComponent(endISO)}`;
+        window.location.href = url;
+        logLine(`[PB] Download: ${startISO} → ${endISO}`);
+    }
+
+    window.switchTab          = switchTab;
+    window.playbackSearch     = playbackSearch;
+    window.playSegment        = playSegment;
+    window.playbackDownload   = playbackDownload;
+    window.stopPlayback       = stopPlayback;
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1a33]/90 backdrop-blur-lg border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+			<div class="flex items-center gap-3 flex-shrink-0">
+				<!-- Logo RSUD -->
+				<div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+					<img src="{{ url_for('static', filename='img/logo-rsud-white.png') }}"
+						 alt="RSUD Jombang"
+						 class="w-full h-full object-contain p-1" />
+				</div>
+
+				<!-- Brand text -->
+				<div class="leading-tight">
+					<div class="text-white font-bold text-base tracking-tight">RSUD Jombang</div>
+					<div class="text-blue-400/80 text-[10px] uppercase tracking-widest font-semibold">
+						CCTV Stream
+					</div>
+				</div>
+			</div>
+
+            <!-- Menu
+            <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+                <a href="#" class="text-white/80 hover:text-white transition">Dashboard</a>
+                <a href="#" class="text-white/80 hover:text-white transition">DVR</a>
+                <a href="#" class="text-white/80 hover:text-white transition">Camera</a>
+                <a href="#" class="text-white/80 hover:text-white transition">Monitoring</a>
+            </div>-->
+
+            <!-- Right -->
+            <div class="flex items-center gap-3 flex-shrink-0">
+                <span class="hidden sm:inline-flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-400/10 px-3 py-1.5 rounded-full border border-emerald-400/20">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                    </span>
+                    Sistem Aktif
+                </span>
+                <button onclick="openLoginModal()" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm px-5 py-2 rounded-xl shadow-lg shadow-blue-600/30 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Login
+                </button>
+                <button class="md:hidden text-white/70 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="landingMobileMenu">
+            <div class="px-2 pt-2 pb-3 space-y-1 border-t border-white/10 mt-2">
+                <a href="#" class="block text-white/80 hover:text-white px-3 py-2 rounded-lg text-sm font-medium">Dashboard</a>
+                <a href="#" class="block text-white/80 hover:text-white px-3 py-2 rounded-lg text-sm font-medium">DVR</a>
+                <a href="#" class="block text-white/80 hover:text-white px-3 py-2 rounded-lg text-sm font-medium">Camera</a>
+                <a href="#" class="block text-white/80 hover:text-white px-3 py-2 rounded-lg text-sm font-medium">Monitoring</a>
+                <hr class="border-white/10 my-2" />
+                <a href="#" onclick="openLoginModal(); return false;" class="block text-white/80 hover:text-white px-3 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Login
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

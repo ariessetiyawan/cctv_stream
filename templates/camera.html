@@ -1,0 +1,886 @@
+{% extends "base.html" %}
+
+{% block title %}Data Kamera - CCTV Stream Server{% endblock %}
+
+{% block content %}
+{% set role = session.get('role', 'public') %}
+{% set is_admin = role == 'admin' %}
+<div id="dashboardPage" class="dashboard-bg min-h-screen flex flex-col">
+    <!-- Dashboard Header -->
+    <header class="dashboard-header sticky top-0 z-40 flex items-center justify-between px-4 sm:px-6 py-3 flex-shrink-0">
+        <div class="flex items-center gap-3">
+            <button onclick="toggleSidebar()" class="lg:hidden text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/30">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                    </svg>
+                </div>
+                <span class="text-white font-bold text-lg tracking-tight">CCTV<span class="text-blue-400">Stream</span></span>
+                <span class="text-blue-300/30 text-xs hidden sm:inline">| Data Kamera</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <span class="hidden sm:inline-flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-400/10 px-3 py-1.5 rounded-full border border-emerald-400/20">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                </span>
+                Online
+            </span>
+            <button class="text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+            </button>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold text-sm shadow-lg shadow-blue-600/30">
+                    {{ user[0] if user else 'A' }}
+                </div>
+                <button onclick="handleLogout()" class="text-blue-300/50 hover:text-white text-xs font-medium transition flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar -->
+        {% include 'components/sidebar.html' %}
+
+        <!-- Overlay untuk mobile -->
+        <div id="sidebarOverlay" class="fixed inset-0 z-20 bg-black/50 backdrop-blur-sm lg:hidden hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 no-scrollbar">
+
+            <!-- Page Header -->
+            <div class="mb-8 fade-in">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-3">
+                            <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            Data Kamera
+                        </h1>
+                        <p class="text-blue-300/60 text-sm mt-1 ml-11">
+                            {{ cameras|length if cameras else 0 }} kamera terdaftar · klik <span class="text-cyan-400 font-medium">play</span> untuk pratinjau inline
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="openAddCameraForm()"
+                                class="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-cyan-600/30 transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                            Tambah Kamera
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for cat, msg in messages %}
+                        <div class="mb-5 px-4 py-3 rounded-xl text-sm flex items-start gap-2
+                            {{ 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-300'
+                               if cat == 'success'
+                               else 'bg-rose-500/10 border border-rose-500/30 text-rose-300' }}">
+                            <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                {% if cat == 'success' %}
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                {% else %}
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                {% endif %}
+                            </svg>
+                            <span>{{ msg }}</span>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <!-- ====== FORM TAMBAH KAMERA ====== -->
+            <div id="form-add" class="hidden mb-6 fade-in">
+                <div class="glass-card rounded-2xl p-6 border border-cyan-500/20 bg-[#0f2240]/60">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-600 flex items-center justify-center shadow-lg shadow-cyan-600/30">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-white text-lg font-bold">Tambah Kamera Baru</h3>
+                                <p class="text-blue-300/50 text-xs">Isi detail kamera untuk ditambahkan ke sistem</p>
+                            </div>
+                        </div>
+                        <button onclick="closeAddCameraForm()"
+                                class="text-blue-300/50 hover:text-white transition p-1.5 rounded-lg hover:bg-white/5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <form method="POST" action="/camera/add" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Nama Kamera <span class="text-red-400">*</span></label>
+                            <input type="text" name="name" required maxlength="100" placeholder="Pintu Depan"
+                                   class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition" />
+                        </div>
+                        <div>
+                            <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Lokasi</label>
+                            <input type="text" name="location" maxlength="150" placeholder="Lobby Utama"
+                                   class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition" />
+                        </div>
+                        <div>
+                            <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Tipe Sumber</label>
+                            <select name="nvr_dvr"
+                                    class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition">
+                                <option value="ipcam" class="bg-[#0a1628]">IP Camera</option>
+                                <option value="nvr" class="bg-[#0a1628]">NVR</option>
+                                <option value="dvr" class="bg-[#0a1628]">DVR</option>
+                                <option value="youtube" class="bg-[#0a1628]">YouTube</option>
+                            </select>
+                        </div>
+
+                        <!-- === HIKVISION: placeholder mencakup Dahua + Hikvision === -->
+                        <div class="md:col-span-2 lg:col-span-3">
+                            <label class="block text-blue-200/70 text-sm font-medium mb-1.5">
+                                RTSP URL <span class="text-red-400">*</span>
+                            </label>
+                            <input type="text" name="rtsp_url" required maxlength="500"
+                                   placeholder="Dahua: rtsp://admin:pass@IP:554/cam/realmonitor?channel=1&subtype=1   |   Hikvision: rtsp://admin:pass@IP:554/Streaming/Channels/101"
+                                   class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition font-mono text-xs" />
+                            <div class="flex flex-wrap items-center gap-3 mt-2 text-[11px]">
+                                <span class="inline-flex items-center gap-1 text-amber-400/70">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                                    Dahua: <code class="font-mono text-amber-300">/cam/realmonitor?channel=N&subtype=S</code>
+                                </span>
+                                <span class="inline-flex items-center gap-1 text-emerald-400/70">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                    Hikvision: <code class="font-mono text-emerald-300">/Streaming/Channels/N01</code>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- === END HIKVISION === -->
+
+                        <div>
+                            <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Channel</label>
+                            <input type="number" name="channel" value="1" min="1"
+                                   class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition" />
+                        </div>
+                        <div>
+                            <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Codec</label>
+                            <select name="codec"
+                                    class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition">
+                                <option value="auto" class="bg-[#0a1628]">Auto</option>
+                                <option value="h264" class="bg-[#0a1628]">H.264</option>
+                                <option value="h265" class="bg-[#0a1628]">H.265</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-blue-200/70 text-sm font-medium mb-1.5">YouTube Embed</label>
+                            <input type="text" name="youtube_embed" maxlength="255" placeholder="(opsional)"
+                                   class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition" />
+                        </div>
+
+                        <!-- VISIBILITAS PER ROLE -->
+                        <div class="md:col-span-2 lg:col-span-3">
+                            <label class="block text-blue-200/70 text-sm font-medium mb-1.5">
+                                Visibilitas per Role
+                            </label>
+                            <div class="flex flex-wrap gap-2">
+                                <label class="flex items-center gap-2 px-3 py-2 bg-[#0a1628] border border-blue-500/20 rounded-xl opacity-70 cursor-not-allowed"
+                                       title="Admin selalu memiliki akses">
+                                    <input type="checkbox" checked disabled class="w-4 h-4 accent-cyan-600" />
+                                    <span class="text-sm text-slate-300">Admin</span>
+                                    <svg class="w-3 h-3 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                </label>
+
+                                <label class="flex items-center gap-2 px-3 py-2 bg-[#0a1628] border border-blue-500/20 rounded-xl cursor-pointer hover:border-amber-500/40 transition">
+                                    <input type="checkbox" name="roles" value="supervisor" checked
+                                           class="w-4 h-4 accent-amber-500" />
+                                    <span class="text-sm text-slate-300">Supervisor</span>
+                                </label>
+
+                                <label class="flex items-center gap-2 px-3 py-2 bg-[#0a1628] border border-blue-500/20 rounded-xl cursor-pointer hover:border-emerald-500/40 transition">
+                                    <input type="checkbox" name="roles" value="public"
+                                           class="w-4 h-4 accent-emerald-500" />
+                                    <span class="text-sm text-slate-300">Public</span>
+                                </label>
+                            </div>
+                            <p class="text-blue-300/30 text-xs mt-1.5">
+                                Tentukan role yang boleh melihat kamera ini di dashboard.
+                                Admin selalu memiliki akses.
+                            </p>
+                        </div>
+
+                        <div class="flex items-center gap-6 pt-2">
+                            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer">
+                                <input type="checkbox" name="is_public" value="1" checked
+                                       class="w-4 h-4 rounded border-blue-500/30 bg-[#0a1628] accent-cyan-600" />
+                                <span>Publik</span>
+                            </label>
+                            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer">
+                                <input type="checkbox" name="is_active" value="1" checked
+                                       class="w-4 h-4 rounded border-blue-500/30 bg-[#0a1628] accent-cyan-600" />
+                                <span>Aktif</span>
+                            </label>
+                        </div>
+                        <div class="md:col-span-2 lg:col-span-3 flex items-center gap-3 pt-4 mt-2 border-t border-blue-500/10">
+                            <button type="submit"
+                                    class="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-cyan-600/30 transition">
+                                Simpan Kamera
+                            </button>
+                            <button type="button" onclick="closeAddCameraForm()"
+                                    class="px-6 py-3 rounded-xl border border-blue-500/20 text-blue-300/70 hover:text-white hover:border-blue-500/40 transition font-medium">
+                                Batal
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {% if cameras and cameras|length > 0 %}
+            <!-- ====== FILTER TOOLBAR ====== -->
+            <div class="glass-card rounded-2xl border border-blue-500/10 bg-[#0f2240]/60 p-4 mb-5 fade-in">
+                <div class="flex flex-col lg:flex-row lg:items-center gap-3">
+                    <div class="relative flex-1 min-w-[200px]">
+                        <input type="text" id="searchCamera" onkeyup="filterCameras()"
+                               placeholder="Cari nama, lokasi, DVR, atau channel (contoh: ch 12)..."
+                               class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-2.5 pl-10 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition text-sm" />
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-300/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <button type="button" id="clearCameraSearch" onclick="clearCameraSearch()"
+                                class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-blue-300/40 hover:text-white transition p-0.5 rounded">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2">
+                        <select id="filterCameraStatus" onchange="filterCameras()"
+                                class="bg-[#0a1628] border border-blue-500/20 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition cursor-pointer">
+                            <option value="all" class="bg-[#0a1628]">Semua Status</option>
+                            <option value="online" class="bg-[#0a1628]">● Online</option>
+                            <option value="offline" class="bg-[#0a1628]">● Offline</option>
+                        </select>
+
+                        <select id="filterCameraDvr" onchange="filterCameras()"
+                                class="bg-[#0a1628] border border-blue-500/20 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition cursor-pointer max-w-[200px]">
+                            <option value="all" class="bg-[#0a1628]">Semua DVR</option>
+                            {% set dvr_names = [] %}
+                            {% for cam in cameras %}
+                                {% if cam.dvr and cam.dvr not in dvr_names %}
+                                    {% set _ = dvr_names.append(cam.dvr) %}
+                                    <option value="{{ cam.dvr|lower }}" class="bg-[#0a1628]">{{ cam.dvr }}</option>
+                                {% endif %}
+                            {% endfor %}
+                            <option value="__none__" class="bg-[#0a1628]">— Tanpa DVR —</option>
+                        </select>
+
+                        <select id="filterCameraCodec" onchange="filterCameras()"
+                                class="bg-[#0a1628] border border-blue-500/20 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition cursor-pointer">
+                            <option value="all" class="bg-[#0a1628]">Semua Codec</option>
+                            <option value="h264" class="bg-[#0a1628]">H.264</option>
+                            <option value="h265" class="bg-[#0a1628]">H.265</option>
+                            <option value="auto" class="bg-[#0a1628]">Auto</option>
+                        </select>
+
+                        {% if is_admin %}
+                        <select id="filterCameraRole" onchange="filterCameras()"
+                                class="bg-[#0a1628] border border-blue-500/20 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition cursor-pointer">
+                            <option value="all" class="bg-[#0a1628]">Semua Role</option>
+                            <option value="admin" class="bg-[#0a1628]">Admin</option>
+                            <option value="supervisor" class="bg-[#0a1628]">Supervisor</option>
+                            <option value="public" class="bg-[#0a1628]">Public</option>
+                        </select>
+                        {% endif %}
+
+                        <button type="button" onclick="resetCameraFilter()"
+                                class="text-xs text-cyan-400 hover:text-cyan-300 border border-blue-500/20 hover:border-cyan-500/40 px-3 py-2.5 rounded-xl transition flex items-center gap-1.5"
+                                title="Reset semua filter">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between gap-3 mt-3 pt-3 border-t border-blue-500/10">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-xs text-blue-300/50">
+                            Menampilkan
+                            <span id="visibleCameraCount" class="text-cyan-400 font-bold">{{ cameras|length }}</span>
+                            dari <span class="text-white font-medium">{{ cameras|length }}</span> kamera
+                        </span>
+                        <div id="activeFiltersBadges" class="flex items-center gap-1.5 flex-wrap"></div>
+                    </div>
+                    <div id="noResultsMessage" class="hidden text-xs text-amber-400 flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        Tidak ada kamera yang cocok
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== GRID KAMERA ====== -->
+            <div id="cameraGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 fade-in">
+                {% for cam in cameras %}
+                <div class="cam-card camera-item bg-gradient-to-b from-[#0c1427]/98 to-[#070b16]/98 border border-slate-800/90 rounded-3xl overflow-hidden group hover:border-cyan-500/50 transition-all duration-300 shadow-xl hover:shadow-[0_12px_30px_rgba(0,0,0,0.7),0_0_20px_rgba(6,182,212,0.15)] flex flex-col justify-between transform hover:-translate-y-1"
+                     data-cam-id="{{ cam.id }}"
+                     data-name="{{ (cam.name or '')|lower }}"
+                     data-location="{{ (cam.location or '')|lower }}"
+                     data-dvr="{{ (cam.dvr or '')|lower }}"
+                     data-status="{{ 'online' if cam.is_active else 'offline' }}"
+                     data-codec="{{ cam.codec or 'auto' }}"
+                     data-type="{{ cam.nvr_dvr }}"
+                     data-channel="{{ cam.channel }}"
+                     data-roles="{{ (cam.roles or [])|join(',') }}">
+
+                    <div class="relative aspect-video overflow-hidden bg-black">
+                        <img id="camPoster-{{ cam.id }}"
+                             src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80"
+                             alt="{{ cam.name }}" loading="lazy"
+                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                        <video id="camVideo-{{ cam.id }}"
+                               class="hidden absolute inset-0 w-full h-full object-cover bg-black z-20"
+                               controls playsinline muted
+                               data-hls="{% if cam.mtx_path and cam.is_active and not cam.youtube_embed %}/stream/{{ cam.mtx_path }}/index.m3u8{% endif %}"></video>
+
+                        {% if cam.mtx_path and cam.is_active and not cam.youtube_embed %}
+                        <button id="camPlayBtn-{{ cam.id }}"
+                                type="button"
+                                onclick="playInline({{ cam.id }})"
+                                class="absolute inset-0 flex items-center justify-center z-10 bg-black/20 hover:bg-cyan-950/30 transition-colors cursor-pointer"
+                                title="Putar di card">
+                            <div class="w-14 h-14 rounded-full bg-cyan-500/90 hover:bg-cyan-400 text-white flex items-center justify-center shadow-lg shadow-cyan-500/50 transform scale-90 group-hover:scale-100 hover:scale-110 transition-all">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                     class="w-6 h-6 fill-current ml-0.5">
+                                    <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path>
+                                </svg>
+                            </div>
+                        </button>
+                        {% endif %}
+
+                        <button id="camStopBtn-{{ cam.id }}"
+                                type="button"
+                                onclick="stopInline({{ cam.id }})"
+                                class="hidden absolute top-2.5 right-2.5 z-30 w-8 h-8 rounded-full bg-slate-900/90 hover:bg-red-500/90 text-white flex items-center justify-center border border-slate-700 hover:border-red-400 transition shadow-lg"
+                                title="Tutup pratinjau">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+
+                        <div class="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#0c1427] to-transparent pointer-events-none z-10"></div>
+
+                        <div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between pointer-events-none z-10">
+                            {% if cam.is_active %}
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-emerald-950/80 text-emerald-300 border border-emerald-500/40 backdrop-blur-md shadow-md">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 status-dot-online"></span>
+                                    <span>LIVE</span>
+                                </span>
+                            {% else %}
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-slate-900/80 text-slate-400 border border-slate-600/40 backdrop-blur-md shadow-md">
+                                    <span class="w-2 h-2 rounded-full bg-slate-500"></span>
+                                    <span>OFF</span>
+                                </span>
+                            {% endif %}
+
+                            {# === HIKVISION: badge DVR berwarna === #}
+                            <span class="px-2.5 py-1 rounded-xl bg-slate-900/85 backdrop-blur-md border text-[10px] font-mono font-black shadow-md uppercase truncate max-w-[120px]
+                                         {{ 'border-emerald-500/40 text-emerald-300' if 'hik' in (cam.vendor or '')|lower
+                                            else 'border-amber-500/40 text-amber-300' if 'dahua' in (cam.vendor or '')|lower
+                                            else 'border-cyan-500/30 text-cyan-300' }}"
+                                  title="{{ cam.dvr or cam.nvr_dvr|upper }}">
+                                {{ cam.dvr or cam.nvr_dvr|upper }}
+                            </span>
+                            {# === END HIKVISION === #}
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-2 right-2 z-10 opacity-40 pointer-events-none">
+                        <img src="{{ url_for('static', filename='img/logo-rsud-white.png') }}"
+                             alt=""
+                             class="w-6 h-6 object-contain" />
+                    </div>
+
+                    <div class="p-4 pt-3 space-y-3">
+                        <div class="flex items-start justify-between gap-2">
+                            <div class="min-w-0 flex-1">
+                                <h3 class="text-xs sm:text-sm font-extrabold text-white group-hover:text-cyan-300 transition-colors truncate"
+                                    title="{{ cam.name }}">
+                                    {{ cam.name }}
+                                </h3>
+                                <p class="flex items-center gap-1.5 text-xs text-slate-400 mt-1 truncate">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                         class="w-3.5 h-3.5 text-cyan-400 flex-shrink-0">
+                                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <span class="truncate">{{ cam.location or 'Lokasi belum diisi' }}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-2.5 border-t border-slate-800/80 gap-2">
+                            <div class="flex items-center gap-1.5 min-w-0 flex-wrap">
+                                <span class="text-[10px] font-mono text-slate-400 flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full
+                                        {{ 'bg-emerald-400' if cam.is_active else 'bg-slate-500' }}"></span>
+                                    <span class="uppercase">{{ cam.codec or 'auto' }}</span>
+                                </span>
+
+                                <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-[10px] font-mono font-bold text-cyan-300 whitespace-nowrap"
+                                      title="Channel {{ cam.channel }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="7" width="20" height="14" rx="2"></rect>
+                                        <path d="M16 3v4M8 3v4"></path>
+                                    </svg>
+                                    <span>CH {{ cam.channel }}</span>
+                                </span>
+
+                                {% if is_admin and cam.roles %}
+                                <span class="inline-flex items-center gap-1">
+                                    {% for r in cam.roles %}
+                                        <span class="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded border
+                                            {% if r == 'admin' %}
+                                                bg-purple-500/15 border-purple-500/30 text-purple-300
+                                            {% elif r == 'supervisor' %}
+                                                bg-amber-500/15 border-amber-500/30 text-amber-300
+                                            {% else %}
+                                                bg-emerald-500/15 border-emerald-500/30 text-emerald-300
+                                            {% endif %}"
+                                            title="Visible untuk: {{ r|capitalize }}">
+                                            {{ r[0]|upper }}
+                                        </span>
+                                    {% endfor %}
+                                </span>
+                                {% endif %}
+                            </div>
+
+                            <div class="flex items-center gap-1.5 flex-shrink-0">
+                                <button type="button"
+                                        onclick="shareWhatsApp('{{ cam.name }}', '{{ cam.id }}')"
+                                        class="p-1.5 rounded-xl bg-slate-900 hover:bg-emerald-950/60 text-slate-400 hover:text-emerald-400 border border-slate-700 hover:border-emerald-500/40 text-[11px] transition active:scale-95"
+                                        title="Bagikan ke WhatsApp">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                         class="w-3.5 h-3.5">
+                                        <circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line>
+                                        <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line>
+                                    </svg>
+                                </button>
+
+                                <a href="/camera/{{ cam.id }}"
+                                   class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-white border border-cyan-500/30 text-xs font-bold transition-all shadow-sm active:scale-95"
+                                   title="Buka di halaman viewer">
+                                    <span>Tonton</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                         class="w-3 h-3">
+                                        <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Empty state after filter -->
+            <div id="cameraEmptyState" class="hidden text-center py-16 rounded-2xl bg-[#0f2240]/60 border border-blue-500/10 fade-in">
+                <svg class="w-16 h-16 mx-auto text-blue-300/20 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <p class="text-blue-300/60 text-sm mb-2">Tidak ada kamera yang cocok dengan filter</p>
+                <p class="text-blue-300/40 text-xs mb-4">Coba ubah kata kunci atau reset filter</p>
+                <button onclick="resetCameraFilter()"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-semibold transition shadow-lg shadow-cyan-600/20">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    Reset Filter
+                </button>
+            </div>
+
+            {% else %}
+            <!-- Empty state: belum ada kamera -->
+            <div class="text-center py-20 rounded-2xl bg-[#0f2240]/60 border border-blue-500/10 fade-in">
+                <svg class="w-20 h-20 mx-auto text-cyan-300/20 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                          d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                <p class="text-blue-300/60 text-sm mb-2">Belum ada kamera terdaftar</p>
+                <p class="text-blue-300/40 text-xs mb-6">Tambahkan kamera pertama atau import dari DVR</p>
+                <button onclick="openAddCameraForm()"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-semibold transition shadow-lg shadow-cyan-600/20">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Tambah Kamera
+                </button>
+            </div>
+            {% endif %}
+
+        </main>
+    </div>
+
+    <!-- Dashboard Footer -->
+    {% include 'components/dashboard_footer.html' %}
+</div>
+
+<!-- Toast -->
+{% include 'components/toast.html' %}
+
+<script>
+// ============================================================
+// FORM TAMBAH KAMERA
+// ============================================================
+function openAddCameraForm() {
+    const form = document.getElementById('form-add');
+    if (form) {
+        form.classList.remove('hidden');
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+            const firstInput = form.querySelector('input[name="name"]');
+            if (firstInput) firstInput.focus();
+        }, 300);
+    }
+}
+
+function closeAddCameraForm() {
+    const form = document.getElementById('form-add');
+    if (form) form.classList.add('hidden');
+}
+
+// ============================================================
+// INLINE HLS PLAYER
+// ============================================================
+const _inlinePlayers = {};
+let _currentlyPlayingCam = null;
+
+function playInline(camId) {
+    const video   = document.getElementById(`camVideo-${camId}`);
+    const poster  = document.getElementById(`camPoster-${camId}`);
+    const playBtn = document.getElementById(`camPlayBtn-${camId}`);
+    const stopBtn = document.getElementById(`camStopBtn-${camId}`);
+    if (!video) return;
+
+    const src = video.dataset.hls;
+    if (!src || src.trim() === '') {
+        showWarningToast('Belum siap', 'Kamera ini belum punya path MediaMTX');
+        return;
+    }
+
+    if (_currentlyPlayingCam !== null && _currentlyPlayingCam !== camId) {
+        stopInline(_currentlyPlayingCam);
+    }
+
+    if (poster)  poster.classList.add('hidden');
+    if (playBtn) playBtn.classList.add('hidden');
+    if (stopBtn) stopBtn.classList.remove('hidden');
+    video.classList.remove('hidden');
+    _currentlyPlayingCam = camId;
+
+    if (!_inlinePlayers[camId]) {
+        if (window.Hls && Hls.isSupported()) {
+            const hls = new Hls({
+                lowLatencyMode: false,
+                maxBufferLength: 15,
+                maxMaxBufferLength: 30,
+                liveSyncDurationCount: 4,
+                manifestLoadingTimeOut: 15000,
+                fragLoadingTimeOut: 20000,
+                fragLoadingMaxRetry: 4,
+            });
+            hls.loadSource(src);
+            hls.attachMedia(video);
+
+            hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                video.play().catch(() => {});
+            });
+
+            hls.on(Hls.Events.ERROR, (_, data) => {
+                console.error('[INLINE HLS ERROR]', data);
+                if (data.fatal) {
+                    showErrorToast('Stream Error', data.details || 'Gagal memuat stream');
+                    stopInline(camId);
+                }
+            });
+
+            _inlinePlayers[camId] = hls;
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = src;
+            video.play().catch(() => {});
+        } else {
+            showErrorToast('Tidak didukung', 'Browser tidak mendukung HLS');
+            stopInline(camId);
+        }
+    } else {
+        video.play().catch(() => {});
+    }
+}
+
+function stopInline(camId) {
+    const video   = document.getElementById(`camVideo-${camId}`);
+    const poster  = document.getElementById(`camPoster-${camId}`);
+    const playBtn = document.getElementById(`camPlayBtn-${camId}`);
+    const stopBtn = document.getElementById(`camStopBtn-${camId}`);
+
+    const hls = _inlinePlayers[camId];
+    if (hls) {
+        try { hls.destroy(); } catch (e) {}
+        delete _inlinePlayers[camId];
+    }
+
+    if (video) {
+        try { video.pause(); } catch (e) {}
+        video.removeAttribute('src');
+        try { video.load(); } catch (e) {}
+        video.classList.add('hidden');
+    }
+    if (poster)  poster.classList.remove('hidden');
+    if (playBtn) playBtn.classList.remove('hidden');
+    if (stopBtn) stopBtn.classList.add('hidden');
+
+    if (_currentlyPlayingCam === camId) _currentlyPlayingCam = null;
+}
+
+// ============================================================
+// SHARE WHATSAPP
+// ============================================================
+function shareWhatsApp(name, id) {
+    const url  = `${window.location.origin}/camera/${id}`;
+    const text = `CCTV: ${name}\n${url}`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+// ============================================================
+// FILTER CAMERA
+// ============================================================
+function filterCameras() {
+    const searchInput  = document.getElementById('searchCamera');
+    const statusFilter = document.getElementById('filterCameraStatus');
+    const dvrFilter    = document.getElementById('filterCameraDvr');
+    const codecFilter  = document.getElementById('filterCameraCodec');
+    const roleFilter   = document.getElementById('filterCameraRole');
+
+    const searchTerm = (searchInput?.value || '').toLowerCase().trim();
+    const statusTerm = statusFilter?.value || 'all';
+    const dvrTerm    = dvrFilter?.value || 'all';
+    const codecTerm  = codecFilter?.value || 'all';
+    const roleTerm   = roleFilter?.value || 'all';
+
+    const cards = document.querySelectorAll('.camera-item');
+    let visibleCount = 0;
+
+    const clearBtn = document.getElementById('clearCameraSearch');
+    if (clearBtn) clearBtn.classList.toggle('hidden', !searchTerm);
+
+    cards.forEach(card => {
+        const name     = card.dataset.name || '';
+        const location = card.dataset.location || '';
+        const dvr      = card.dataset.dvr || '';
+        const status   = card.dataset.status || '';
+        const codec    = card.dataset.codec || '';
+        const channel  = card.dataset.channel || '';
+        const roles    = (card.dataset.roles || '').split(',').filter(Boolean);
+
+        const channelRaw  = String(channel).trim();
+        const channelNorm = channelRaw.toLowerCase();
+        const searchNorm  = searchTerm;
+
+        const channelMatch =
+            !searchNorm
+            || channelRaw === searchNorm
+            || `ch ${channelRaw}` === searchNorm
+            || `ch${channelRaw}` === searchNorm
+            || `channel ${channelRaw}` === searchNorm
+            || `channel${channelRaw}` === searchNorm
+            || channelNorm === searchNorm;
+
+        const haystack    = `${name} ${location} ${dvr}`;
+        const matchSearch = !searchNorm || haystack.includes(searchNorm) || channelMatch;
+        const matchStatus = statusTerm === 'all' || status === statusTerm;
+
+        let matchDvr = true;
+        if (dvrTerm === '__none__') {
+            matchDvr = !dvr;
+        } else if (dvrTerm !== 'all') {
+            matchDvr = dvr === dvrTerm;
+        }
+
+        const matchCodec = codecTerm === 'all' || codec === codecTerm;
+        const matchRole  = roleTerm === 'all' || roles.includes(roleTerm);
+
+        if (matchSearch && matchStatus && matchDvr && matchCodec && matchRole) {
+            card.style.display = '';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    const countEl = document.getElementById('visibleCameraCount');
+    if (countEl) countEl.textContent = visibleCount;
+
+    const emptyState   = document.getElementById('cameraEmptyState');
+    const grid         = document.getElementById('cameraGrid');
+    const noResultsMsg = document.getElementById('noResultsMessage');
+
+    if (visibleCount === 0) {
+        if (emptyState)   emptyState.classList.remove('hidden');
+        if (grid)         grid.classList.add('hidden');
+        if (noResultsMsg) noResultsMsg.classList.remove('hidden');
+    } else {
+        if (emptyState)   emptyState.classList.add('hidden');
+        if (grid)         grid.classList.remove('hidden');
+        if (noResultsMsg) noResultsMsg.classList.add('hidden');
+    }
+
+    updateActiveFilterBadges({
+        search: searchTerm,
+        status: statusTerm,
+        dvr:    dvrTerm,
+        codec:  codecTerm,
+        role:   roleTerm,
+    });
+}
+
+function clearCameraSearch() {
+    const input = document.getElementById('searchCamera');
+    if (input) { input.value = ''; input.focus(); }
+    filterCameras();
+}
+
+function resetCameraFilter() {
+    const s  = document.getElementById('searchCamera');
+    const st = document.getElementById('filterCameraStatus');
+    const dv = document.getElementById('filterCameraDvr');
+    const co = document.getElementById('filterCameraCodec');
+    const ro = document.getElementById('filterCameraRole');
+
+    if (s)  s.value  = '';
+    if (st) st.value = 'all';
+    if (dv) dv.value = 'all';
+    if (co) co.value = 'all';
+    if (ro) ro.value = 'all';
+
+    filterCameras();
+}
+
+function updateActiveFilterBadges(filters) {
+    const container = document.getElementById('activeFiltersBadges');
+    if (!container) return;
+
+    const badges = [];
+    if (filters.search) badges.push({ label: `Cari: "${filters.search}"`, type: 'search' });
+    if (filters.status !== 'all') {
+        const labels = { online: '● Online', offline: '● Offline' };
+        badges.push({ label: labels[filters.status] || filters.status, type: 'status' });
+    }
+    if (filters.dvr !== 'all') {
+        const label = filters.dvr === '__none__' ? 'Tanpa DVR' : `DVR: ${filters.dvr}`;
+        badges.push({ label, type: 'dvr' });
+    }
+    if (filters.codec !== 'all') badges.push({ label: `Codec: ${filters.codec.toUpperCase()}`, type: 'codec' });
+    if (filters.role && filters.role !== 'all') {
+        badges.push({ label: `Role: ${filters.role.charAt(0).toUpperCase() + filters.role.slice(1)}`, type: 'role' });
+    }
+
+    container.innerHTML = badges.map(b => `
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-[10px] font-medium text-cyan-300">
+            <span>${(b.label || '').replace(/</g, '&lt;')}</span>
+            <button type="button" onclick="removeCameraFilterBadge('${b.type}')" class="hover:text-white transition">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </span>
+    `).join('');
+}
+
+function removeCameraFilterBadge(type) {
+    switch (type) {
+        case 'search': document.getElementById('searchCamera').value = ''; break;
+        case 'status': document.getElementById('filterCameraStatus').value = 'all'; break;
+        case 'dvr':    document.getElementById('filterCameraDvr').value = 'all'; break;
+        case 'codec':  document.getElementById('filterCameraCodec').value = 'all'; break;
+        case 'role': {
+            const ro = document.getElementById('filterCameraRole');
+            if (ro) ro.value = 'all';
+            break;
+        }
+    }
+    filterCameras();
+}
+
+// ============================================================
+// KEYBOARD SHORTCUT
+// ============================================================
+document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        const input = document.getElementById('searchCamera');
+        if (input) {
+            e.preventDefault();
+            input.focus();
+            input.select();
+        }
+    }
+});
+
+// ============================================================
+// HANDLE LOGOUT
+// ============================================================
+if (typeof window.handleLogout !== 'function') {
+    window.handleLogout = function() {
+        if (confirm('Yakin ingin keluar?')) {
+            fetch('/api/logout', { method: 'POST', credentials: 'same-origin' })
+                .then(r => r.json())
+                .then(d => { if (d.success) window.location.href = '/'; });
+        }
+    };
+}
+
+// ============================================================
+// EXPOSE GLOBALS
+// ============================================================
+window.openAddCameraForm    = openAddCameraForm;
+window.closeAddCameraForm   = closeAddCameraForm;
+window.playInline           = playInline;
+window.stopInline           = stopInline;
+window.shareWhatsApp        = shareWhatsApp;
+window.filterCameras        = filterCameras;
+window.clearCameraSearch    = clearCameraSearch;
+window.resetCameraFilter    = resetCameraFilter;
+window.removeCameraFilterBadge = removeCameraFilterBadge;
+</script>
+{% endblock %}

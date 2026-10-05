@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar — DVR Monitor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#1a1a2e] text-slate-100 min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-md">
+        <a href="/" class="flex items-center justify-center gap-2
+                            text-[#4fc3f7] font-bold tracking-widest text-lg mb-8">
+            <span class="text-3xl">🎥</span> DVR MONITOR
+        </a>
+
+        <div class="bg-[#16213e] border border-[#0f3460] rounded-2xl p-8 shadow-2xl">
+            <h1 class="text-2xl font-light tracking-wide mb-2">Buat Akun</h1>
+            <p class="text-sm text-slate-400 mb-6">Daftar untuk mengakses dashboard monitoring.</p>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for cat, msg in messages %}
+                        <div class="mb-4 px-4 py-3 rounded-lg text-sm
+                            {{ 'bg-red-500/15 border border-red-500/40 text-red-300'
+                               if cat == 'error'
+                               else 'bg-green-500/15 border border-green-500/40 text-green-300' }}">
+                            {{ msg }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-slate-400 mb-1.5">
+                        Nama Lengkap
+                    </label>
+                    <input type="text" name="full_name"
+                           class="w-full px-4 py-3 rounded-lg bg-[#0f172a] border border-[#0f3460]
+                                  focus:outline-none focus:border-[#4fc3f7] transition"
+                           placeholder="Nama Anda">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-slate-400 mb-1.5">
+                        Username
+                    </label>
+                    <input type="text" name="username" required
+                           class="w-full px-4 py-3 rounded-lg bg-[#0f172a] border border-[#0f3460]
+                                  focus:outline-none focus:border-[#4fc3f7] transition"
+                           placeholder="username">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-slate-400 mb-1.5">
+                        Email
+                    </label>
+                    <input type="email" name="email" required
+                           class="w-full px-4 py-3 rounded-lg bg-[#0f172a] border border-[#0f3460]
+                                  focus:outline-none focus:border-[#4fc3f7] transition"
+                           placeholder="nama@email.com">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-slate-400 mb-1.5">
+                        Password
+                    </label>
+                    <input type="password" name="password" required minlength="6"
+                           class="w-full px-4 py-3 rounded-lg bg-[#0f172a] border border-[#0f3460]
+                                  focus:outline-none focus:border-[#4fc3f7] transition">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-slate-400 mb-1.5">
+                        Konfirmasi Password
+                    </label>
+                    <input type="password" name="password2" required minlength="6"
+                           class="w-full px-4 py-3 rounded-lg bg-[#0f172a] border border-[#0f3460]
+                                  focus:outline-none focus:border-[#4fc3f7] transition">
+                </div>
+
+                <button type="submit"
+                        class="w-full bg-[#4fc3f7] hover:bg-[#81d4fa] text-[#0b1020]
+                               font-bold py-3 rounded-lg transition">
+                    Daftar
+                </button>
+            </form>
+
+            <p class="text-center text-sm text-slate-400 mt-6">
+                Sudah punya akun?
+                <a href="/login" class="text-[#4fc3f7] hover:text-[#81d4fa] font-semibold">
+                    Masuk
+                </a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

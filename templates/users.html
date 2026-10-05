@@ -1,0 +1,688 @@
+{% extends "base.html" %}
+
+{% block title %}Manajemen User - CCTV Stream Server{% endblock %}
+
+{% block content %}
+<div id="dashboardPage" class="dashboard-bg min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="dashboard-header sticky top-0 z-40 flex items-center justify-between px-4 sm:px-6 py-3 flex-shrink-0">
+        <div class="flex items-center gap-3">
+            <button onclick="toggleSidebar()" class="lg:hidden text-white/60 hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/30">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                    </svg>
+                </div>
+                <span class="text-white font-bold text-lg tracking-tight">CCTV<span class="text-blue-400">Stream</span></span>
+                <span class="text-blue-300/30 text-xs hidden sm:inline">| Manajemen User</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <span class="hidden sm:inline-flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-400/10 px-3 py-1.5 rounded-full border border-emerald-400/20">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                </span>
+                Online
+            </span>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold text-sm shadow-lg shadow-blue-600/30">
+                    {{ user[0] if user else 'A' }}
+                </div>
+                <button onclick="handleLogout()" class="text-blue-300/50 hover:text-white text-xs font-medium transition flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        {% include 'components/sidebar.html' %}
+        <div id="sidebarOverlay" class="fixed inset-0 z-20 bg-black/50 backdrop-blur-sm lg:hidden hidden" onclick="toggleSidebar()"></div>
+
+        <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 no-scrollbar">
+            <!-- Page Header -->
+            <div class="mb-8 fade-in">
+                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-3">
+                            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-5.13a4 4 0 11-8 0 4 4 0 018 0zm10 0a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            Manajemen User
+                        </h1>
+                        <p class="text-blue-300/60 text-sm mt-1 ml-11">Kelola akun pengguna dan hak akses sistem</p>
+                    </div>
+                    <button onclick="openUserModal('add')"
+                            class="text-sm bg-blue-600 hover:bg-blue-500 text-white font-medium px-5 py-2.5 rounded-lg transition shadow-lg shadow-blue-600/20 flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        Tambah User
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stat Cards -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-8 fade-in">
+                <div class="dashboard-card rounded-xl p-5">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-5.13a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-blue-300/50 text-xs font-medium uppercase tracking-wider">Total User</p>
+                            <p class="text-white font-semibold text-lg">{{ users|length }}</p>
+                            <p class="text-blue-300/40 text-xs">akun terdaftar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card rounded-xl p-5">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-blue-300/50 text-xs font-medium uppercase tracking-wider">Administrator</p>
+                            <p class="text-white font-semibold text-lg" id="adminCount">
+                                {{ users|selectattr('role','equalto','admin')|list|length }}
+                            </p>
+                            <p class="text-purple-400 text-xs">akses penuh</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card rounded-xl p-5">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-blue-300/50 text-xs font-medium uppercase tracking-wider">Supervisor</p>
+                            <p class="text-white font-semibold text-lg" id="supervisorCount">
+                                {{ users|selectattr('role','equalto','supervisor')|list|length }}
+                            </p>
+                            <p class="text-amber-400 text-xs">akses monitoring</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card rounded-xl p-5">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-blue-300/50 text-xs font-medium uppercase tracking-wider">Public Viewer</p>
+                            <p class="text-white font-semibold text-lg" id="publicCount">
+                                {{ users|selectattr('role','equalto','public')|list|length }}
+                            </p>
+                            <p class="text-emerald-400 text-xs">akses terbatas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="glass-card rounded-2xl overflow-hidden border border-blue-500/10 bg-[#0f2240]/60 fade-in">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 border-b border-blue-500/10">
+                    <div class="relative w-full sm:w-72">
+                        <input type="text" id="searchUser" onkeyup="filterUser()" placeholder="Cari username..."
+                               class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-2 pl-9 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition text-sm" />
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-300/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <select id="filterRole" onchange="filterUser()"
+                            class="bg-[#0a1628] border border-blue-500/20 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition">
+                        <option value="all" class="bg-[#0a1628]">Semua Role</option>
+                        <option value="admin" class="bg-[#0a1628]">Admin</option>
+                        <option value="supervisor" class="bg-[#0a1628]">Supervisor</option>
+                        <option value="public" class="bg-[#0a1628]">Public</option>
+                    </select>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-blue-500/10 bg-blue-900/20">
+                                <th class="px-5 py-4 text-left text-xs font-semibold text-blue-300/60 uppercase tracking-wider">User</th>
+                                <th class="px-5 py-4 text-center text-xs font-semibold text-blue-300/60 uppercase tracking-wider">Role</th>
+                                <th class="px-5 py-4 text-left text-xs font-semibold text-blue-300/60 uppercase tracking-wider">Dibuat</th>
+                                <th class="px-5 py-4 text-right text-xs font-semibold text-blue-300/60 uppercase tracking-wider">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody" class="divide-y divide-blue-500/5">
+                            {% if users and users|length > 0 %}
+                                {% for u in users %}
+                                <tr class="table-row-hover transition user-row"
+                                    data-id="{{ u.id }}"
+                                    data-username="{{ (u.username or '')|lower }}"
+                                    data-role="{{ u.role }}">
+                                    <td class="px-5 py-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm
+                                                {{ 'bg-purple-500/20 text-purple-300' if u.role == 'admin'
+                                                   else 'bg-amber-500/20 text-amber-300' if u.role == 'supervisor'
+                                                   else 'bg-emerald-500/20 text-emerald-300' }}">
+                                                {{ (u.username or 'U')[0]|upper }}
+                                            </div>
+                                            <div>
+                                                <p class="text-white font-medium flex items-center gap-2">
+                                                    {{ u.username }}
+                                                    {% if u.id == current_user_id %}
+                                                        <span class="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                                            Anda
+                                                        </span>
+                                                    {% endif %}
+                                                </p>
+                                                <p class="text-blue-300/40 text-[11px]">ID: {{ u.id }}</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-5 py-4 text-center">
+                                        {% if u.role == 'admin' %}
+                                            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944 11.955 11.955 0 013.382 5.984 12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                                </svg>
+                                                Admin
+                                            </span>
+                                        {% elif u.role == 'supervisor' %}
+                                            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                </svg>
+                                                Supervisor
+                                            </span>
+                                        {% else %}
+                                            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                </svg>
+                                                Public
+                                            </span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="px-5 py-4 text-blue-300/60 text-xs font-mono">
+                                        {{ u.created_at.strftime('%Y-%m-%d %H:%M') if u.created_at else '—' }}
+                                    </td>
+                                    <td class="px-5 py-4 text-right">
+                                        <div class="flex items-center justify-end gap-1">
+                                            <button onclick="editUserFromRow(this)"
+                                                    class="p-1.5 rounded-lg text-blue-300/50 hover:text-yellow-400 hover:bg-yellow-500/10 transition"
+                                                    title="Edit">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                </svg>
+                                            </button>
+                                            {% if u.id != current_user_id %}
+                                            <button onclick="deleteUserFromRow(this)"
+                                                    class="p-1.5 rounded-lg text-blue-300/50 hover:text-red-400 hover:bg-red-500/10 transition"
+                                                    title="Hapus">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                </svg>
+                                            </button>
+                                            {% endif %}
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="4" class="text-center py-10 text-blue-300/40 text-sm">
+                                        Belum ada user terdaftar.
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="px-5 py-3 border-t border-blue-500/5 flex items-center justify-between text-xs text-blue-300/50">
+                    <span>Menampilkan <span id="visibleUserCount">{{ users|length }}</span> user</span>
+                    <span class="text-blue-300/30">Hanya <span class="text-purple-400 font-bold">Admin</span> yang dapat mengelola user</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    {% include 'components/dashboard_footer.html' %}
+</div>
+
+<!-- ====== USER ADD/EDIT MODAL ====== -->
+<div id="userModal" class="fixed inset-0 z-[150] flex items-center justify-center px-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="absolute inset-0 modal-backdrop" onclick="closeUserModal()"></div>
+    <div class="relative w-full max-w-md bg-[#0f2240] rounded-2xl shadow-2xl border border-blue-500/20 p-6 sm:p-8 transform transition-all duration-300 scale-95 max-h-[90vh] overflow-y-auto no-scrollbar"
+         id="userModalCard">
+
+        <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/30">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-5.13a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 id="userModalTitle" class="text-white text-lg font-bold">Tambah User</h3>
+                    <p class="text-blue-300/50 text-xs" id="userModalSub">Buat akun pengguna baru</p>
+                </div>
+            </div>
+            <button onclick="closeUserModal()" class="text-blue-300/50 hover:text-white transition p-1.5 rounded-lg hover:bg-white/5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <form id="userForm" onsubmit="submitUser(event)" class="space-y-4">
+            <input type="hidden" id="userId" value="" />
+
+            <div>
+                <label class="block text-blue-200/70 text-sm font-medium mb-1.5">
+                    Username <span class="text-red-400">*</span>
+                </label>
+                <input type="text" id="userUsername" required maxlength="50" placeholder="johndoe"
+                       autocomplete="off"
+                       class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+            </div>
+
+            <div>
+                <label class="block text-blue-200/70 text-sm font-medium mb-1.5">
+                    Password <span id="userPasswordReq" class="text-red-400">*</span>
+                </label>
+                <input type="password" id="userPassword" minlength="6"
+                       placeholder="Minimal 6 karakter"
+                       autocomplete="new-password"
+                       class="w-full bg-[#0a1628] border border-blue-500/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/30 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" />
+                <p id="userPasswordHint" class="text-blue-300/30 text-xs mt-1 hidden">
+                    Kosongkan jika tidak ingin mengubah password
+                </p>
+            </div>
+
+            <div>
+                <label class="block text-blue-200/70 text-sm font-medium mb-1.5">Role <span class="text-red-400">*</span></label>
+                <div class="grid grid-cols-3 gap-3">
+                    <label class="cursor-pointer">
+                        <input type="radio" name="userRole" value="admin" class="peer sr-only" />
+                        <div class="p-3 rounded-xl border-2 border-blue-500/20 peer-checked:border-purple-500 peer-checked:bg-purple-500/10 transition text-center">
+                            <svg class="w-5 h-5 mx-auto text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944 11.955 11.955 0 013.382 5.984A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <p class="text-white text-sm font-semibold mt-1">Admin</p>
+                            <p class="text-blue-300/40 text-[10px]">Akses penuh</p>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="userRole" value="supervisor" class="peer sr-only" />
+                        <div class="p-3 rounded-xl border-2 border-blue-500/20 peer-checked:border-amber-500 peer-checked:bg-amber-500/10 transition text-center">
+                            <svg class="w-5 h-5 mx-auto text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                            <p class="text-white text-sm font-semibold mt-1">Supervisor</p>
+                            <p class="text-blue-300/40 text-[10px]">Monitoring</p>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="userRole" value="public" class="peer sr-only" checked />
+                        <div class="p-3 rounded-xl border-2 border-blue-500/20 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 transition text-center">
+                            <svg class="w-5 h-5 mx-auto text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                            <p class="text-white text-sm font-semibold mt-1">Public</p>
+                            <p class="text-blue-300/40 text-[10px]">Lihat saja</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 pt-4 border-t border-blue-500/10">
+                <button type="button" onclick="closeUserModal()"
+                        class="flex-1 px-4 py-3 text-sm text-blue-300/70 hover:text-white border border-blue-500/20 hover:border-blue-500/40 rounded-xl transition font-medium">
+                    Batal
+                </button>
+                <button type="submit" id="userSubmitBtn"
+                        class="flex-1 px-4 py-3 text-sm bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span id="userSubmitText">Simpan</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% include 'components/toast.html' %}
+
+<script>
+// ===================== USER CRUD =====================
+let _userMode = 'add';
+const CURRENT_USER_ID = {{ current_user_id or 'null' }};
+
+function openUserModal(mode, data) {
+    _userMode = mode || 'add';
+    const modal = document.getElementById('userModal');
+    const card  = document.getElementById('userModalCard');
+
+    document.getElementById('userModalTitle').textContent =
+        _userMode === 'edit' ? 'Edit User' : 'Tambah User';
+    document.getElementById('userModalSub').textContent =
+        _userMode === 'edit' ? 'Perbarui data pengguna' : 'Buat akun pengguna baru';
+    document.getElementById('userSubmitText').textContent =
+        _userMode === 'edit' ? 'Perbarui' : 'Simpan';
+
+    // Password: wajib untuk add, opsional untuk edit
+    const pwInput = document.getElementById('userPassword');
+    const pwReq   = document.getElementById('userPasswordReq');
+    const pwHint  = document.getElementById('userPasswordHint');
+    if (_userMode === 'edit') {
+        pwInput.required = false;
+        pwReq.classList.add('hidden');
+        pwHint.classList.remove('hidden');
+    } else {
+        pwInput.required = true;
+        pwReq.classList.remove('hidden');
+        pwHint.classList.add('hidden');
+    }
+
+    document.getElementById('userId').value       = data?.id       ?? '';
+    document.getElementById('userUsername').value = data?.username ?? '';
+    document.getElementById('userPassword').value = '';
+
+    // Set radio role (default 'public' untuk add)
+    const targetRole = data?.role ?? 'public';
+    let matched = false;
+    document.querySelectorAll('input[name="userRole"]').forEach(r => {
+        const isMatch = (r.value === targetRole);
+        r.checked = isMatch;
+        if (isMatch) matched = true;
+    });
+    // Fallback kalau role tidak dikenal → pilih public
+    if (!matched) {
+        const pubRadio = document.querySelector('input[name="userRole"][value="public"]');
+        if (pubRadio) pubRadio.checked = true;
+    }
+
+    modal.classList.remove('pointer-events-none', 'opacity-0');
+    card.classList.remove('scale-95');
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(() => document.getElementById('userUsername').focus(), 150);
+}
+
+function closeUserModal() {
+    const modal = document.getElementById('userModal');
+    const card  = document.getElementById('userModalCard');
+    modal.classList.add('pointer-events-none', 'opacity-0');
+    card.classList.add('scale-95');
+    document.body.style.overflow = 'auto';
+}
+
+function editUserFromRow(btn) {
+    const tr = btn.closest('tr');
+    if (!tr) return;
+    const d = tr.dataset;
+    openUserModal('edit', {
+        id:       parseInt(d.id, 10),
+        username: tr.querySelector('p.text-white')?.firstChild?.textContent.trim() || d.username,
+        role:     d.role,
+    });
+}
+
+async function submitUser(e) {
+    e.preventDefault();
+    const btn  = document.getElementById('userSubmitBtn');
+    const id   = document.getElementById('userId').value;
+    const role = document.querySelector('input[name="userRole"]:checked')?.value || 'public';
+
+    const payload = {
+        username: document.getElementById('userUsername').value.trim(),
+        password: document.getElementById('userPassword').value,
+        role:     role,
+    };
+
+    if (!payload.username) {
+        showWarningToast('Validasi', 'Username wajib diisi');
+        return;
+    }
+    if (_userMode === 'add' && (!payload.password || payload.password.length < 6)) {
+        showWarningToast('Validasi', 'Password minimal 6 karakter');
+        return;
+    }
+
+    btn.disabled = true;
+    try {
+        const url    = id ? `/api/users/${id}` : '/api/users';
+        const method = id ? 'PUT' : 'POST';
+        const res    = await fetch(url, {
+            method,
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'same-origin',
+            body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+
+        if (data.success) {
+            closeUserModal();
+            showSuccessToast('Berhasil!', data.message || 'User tersimpan');
+            setTimeout(reloadUserTable, 500);
+        } else {
+            showErrorToast('Gagal!', data.message || 'Terjadi kesalahan');
+        }
+    } catch (err) {
+        showErrorToast('Error!', 'Tidak dapat menghubungi server');
+    } finally {
+        btn.disabled = false;
+    }
+}
+
+async function deleteUserFromRow(btn) {
+    const tr = btn.closest('tr');
+    if (!tr) return;
+    const id   = tr.dataset.id;
+    const name = tr.querySelector('p.text-white')?.firstChild?.textContent.trim() || 'user';
+
+    if (!confirm(`Hapus user "${name}"?\n\nTindakan ini tidak dapat dibatalkan.`)) return;
+
+    try {
+        const res  = await fetch(`/api/users/${id}`, {
+            method: 'DELETE',
+            credentials: 'same-origin',
+        });
+        const data = await res.json();
+        if (data.success) {
+            showSuccessToast('Terhapus!', `User ${name} berhasil dihapus`);
+            setTimeout(reloadUserTable, 500);
+        } else {
+            showErrorToast('Gagal!', data.message || 'Tidak dapat menghapus');
+        }
+    } catch (err) {
+        showErrorToast('Error!', 'Tidak dapat menghubungi server');
+    }
+}
+
+async function reloadUserTable() {
+    try {
+        const res  = await fetch('/api/users', { credentials: 'same-origin' });
+        const data = await res.json();
+        if (!data.success) return;
+
+        const tbody = document.getElementById('userTableBody');
+        if (!tbody) return;
+
+        if (!data.data.length) {
+            tbody.innerHTML = `<tr><td colspan="4" class="text-center py-10 text-blue-300/40 text-sm">
+                Belum ada user terdaftar.</td></tr>`;
+            document.getElementById('visibleUserCount').textContent = '0';
+            return;
+        }
+
+        tbody.innerHTML = data.data.map(buildUserRowHtml).join('');
+        document.getElementById('visibleUserCount').textContent = data.data.length;
+
+        // Update stats
+        const adminCnt = data.data.filter(u => u.role === 'admin').length;
+        const supCnt   = data.data.filter(u => u.role === 'supervisor').length;
+        const publicCnt= data.data.filter(u => u.role === 'public').length;
+        const ac = document.getElementById('adminCount');
+        const sc = document.getElementById('supervisorCount');
+        const pc = document.getElementById('publicCount');
+        if (ac) ac.textContent = adminCnt;
+        if (sc) sc.textContent = supCnt;
+        if (pc) pc.textContent = publicCnt;
+
+        applyUserFilter();
+    } catch (e) { /* silent */ }
+}
+
+function buildUserRowHtml(u) {
+    const safe = (s) => (s ?? '').toString().replace(/</g, '&lt;');
+    const isMe = u.id === CURRENT_USER_ID;
+
+    // Avatar
+    let avatarClass;
+    if (u.role === 'admin')           avatarClass = 'bg-purple-500/20 text-purple-300';
+    else if (u.role === 'supervisor') avatarClass = 'bg-amber-500/20 text-amber-300';
+    else                              avatarClass = 'bg-emerald-500/20 text-emerald-300';
+    const initial = (u.username || 'U')[0].toUpperCase();
+
+    // Role badge
+    let roleBadge;
+    if (u.role === 'admin') {
+        roleBadge = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-purple-500/20 text-purple-300 border border-purple-500/30">Admin</span>`;
+    } else if (u.role === 'supervisor') {
+        roleBadge = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">Supervisor</span>`;
+    } else {
+        roleBadge = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Public</span>`;
+    }
+
+    const meBadge = isMe
+        ? `<span class="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full uppercase tracking-wider">Anda</span>`
+        : '';
+
+    const created = u.created_at ? new Date(u.created_at).toLocaleString('id-ID') : '—';
+
+    const deleteBtn = isMe
+        ? ''
+        : `<button onclick="deleteUserFromRow(this)" class="p-1.5 rounded-lg text-blue-300/50 hover:text-red-400 hover:bg-red-500/10 transition" title="Hapus">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+            </button>`;
+
+    return `
+        <tr class="table-row-hover transition user-row"
+            data-id="${u.id}"
+            data-username="${(u.username || '').toLowerCase()}"
+            data-role="${u.role}">
+            <td class="px-5 py-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm ${avatarClass}">
+                        ${initial}
+                    </div>
+                    <div>
+                        <p class="text-white font-medium flex items-center gap-2">
+                            ${safe(u.username)} ${meBadge}
+                        </p>
+                        <p class="text-blue-300/40 text-[11px]">ID: ${u.id}</p>
+                    </div>
+                </div>
+            </td>
+            <td class="px-5 py-4 text-center">${roleBadge}</td>
+            <td class="px-5 py-4 text-blue-300/60 text-xs font-mono">${created}</td>
+            <td class="px-5 py-4 text-right">
+                <div class="flex items-center justify-end gap-1">
+                    <button onclick="editUserFromRow(this)" class="p-1.5 rounded-lg text-blue-300/50 hover:text-yellow-400 hover:bg-yellow-500/10 transition" title="Edit">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                    </button>
+                    ${deleteBtn}
+                </div>
+            </td>
+        </tr>`;
+}
+
+function filterUser() { applyUserFilter(); }
+
+function applyUserFilter() {
+    const search = (document.getElementById('searchUser')?.value || '').toLowerCase();
+    const role   = document.getElementById('filterRole')?.value || 'all';
+
+    let visible = 0;
+    document.querySelectorAll('.user-row').forEach(row => {
+        const d = row.dataset;
+        const matchSearch = !search || (d.username || '').includes(search);
+        const matchRole   = role === 'all' || d.role === role;
+
+        if (matchSearch && matchRole) {
+            row.style.display = '';
+            visible++;
+        } else {
+            row.style.display = 'none';
+        }
+    });
+
+    const countEl = document.getElementById('visibleUserCount');
+    if (countEl) countEl.textContent = visible;
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeUserModal();
+});
+
+// Expose ke global
+window.openUserModal      = openUserModal;
+window.closeUserModal     = closeUserModal;
+window.editUserFromRow    = editUserFromRow;
+window.deleteUserFromRow  = deleteUserFromRow;
+window.submitUser         = submitUser;
+window.reloadUserTable    = reloadUserTable;
+window.filterUser         = filterUser;
+</script>
+{% endblock %}

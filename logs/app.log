@@ -1,0 +1,1420 @@
+2026-10-05 00:00:05 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 00:00:49 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6266 checked=5 online=5 offline=0 
+2026-10-05 00:01:06 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 00:01:49 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6267 checked=5 online=5 offline=0 
+2026-10-05 00:02:07 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 00:02:49 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6268 checked=5 online=5 offline=0 
+2026-10-05 00:03:08 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.9% Threads=19
+2026-10-05 00:03:49 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6269 checked=5 online=5 offline=0 
+2026-10-05 00:04:09 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 00:04:50 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6270 checked=5 online=5 offline=0 (deep check)
+2026-10-05 00:05:10 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 00:05:50 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6271 checked=5 online=5 offline=0 
+2026-10-05 00:06:11 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 00:06:50 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6272 checked=5 online=5 offline=0 
+2026-10-05 00:07:12 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.9% Threads=19
+2026-10-05 00:07:50 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6273 checked=5 online=5 offline=0 
+2026-10-05 00:08:13 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 00:08:50 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6274 checked=5 online=5 offline=0 
+2026-10-05 00:09:14 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.0% Threads=13
+2026-10-05 00:09:50 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6275 checked=5 online=5 offline=0 
+2026-10-05 00:10:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 00:10:50 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6276 checked=5 online=5 offline=0 
+2026-10-05 00:11:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 00:11:50 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6277 checked=5 online=5 offline=0 
+2026-10-05 00:12:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 00:12:50 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6278 checked=5 online=5 offline=0 
+2026-10-05 00:13:18 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 00:13:50 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6279 checked=5 online=5 offline=0 
+2026-10-05 00:14:19 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 00:14:51 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6280 checked=5 online=5 offline=0 (deep check)
+2026-10-05 00:15:20 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 00:15:51 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6281 checked=5 online=5 offline=0 
+2026-10-05 00:16:21 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 00:16:51 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6282 checked=5 online=5 offline=0 
+2026-10-05 00:17:22 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 00:17:51 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6283 checked=5 online=5 offline=0 
+2026-10-05 00:18:23 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 00:18:51 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6284 checked=5 online=5 offline=0 
+2026-10-05 00:19:24 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 00:19:51 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6285 checked=5 online=5 offline=0 
+2026-10-05 00:20:25 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.7% Threads=13
+2026-10-05 00:20:51 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6286 checked=5 online=5 offline=0 
+2026-10-05 00:21:26 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.9% Threads=19
+2026-10-05 00:21:51 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6287 checked=5 online=5 offline=0 
+2026-10-05 00:22:27 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 00:22:51 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6288 checked=5 online=5 offline=0 
+2026-10-05 00:23:28 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 00:23:51 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6289 checked=5 online=5 offline=0 
+2026-10-05 00:24:29 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 00:24:52 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6290 checked=5 online=5 offline=0 (deep check)
+2026-10-05 00:25:30 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 00:25:52 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6291 checked=5 online=5 offline=0 
+2026-10-05 00:26:31 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 00:26:52 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6292 checked=5 online=5 offline=0 
+2026-10-05 00:27:32 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.3% Threads=19
+2026-10-05 00:27:52 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6293 checked=5 online=5 offline=0 
+2026-10-05 00:28:33 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 00:28:52 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6294 checked=5 online=5 offline=0 
+2026-10-05 00:29:34 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.6% Threads=13
+2026-10-05 00:29:52 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6295 checked=5 online=5 offline=0 
+2026-10-05 00:30:35 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 00:30:52 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6296 checked=5 online=5 offline=0 
+2026-10-05 00:31:36 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.7% Threads=13
+2026-10-05 00:31:52 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6297 checked=5 online=5 offline=0 
+2026-10-05 00:32:37 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 00:32:52 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6298 checked=5 online=5 offline=0 
+2026-10-05 00:33:38 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 00:33:52 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6299 checked=5 online=5 offline=0 
+2026-10-05 00:34:39 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 00:34:53 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6300 checked=5 online=5 offline=0 (deep check)
+2026-10-05 00:35:40 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 00:35:53 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6301 checked=5 online=5 offline=0 
+2026-10-05 00:36:41 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.3% Threads=19
+2026-10-05 00:36:53 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6302 checked=5 online=5 offline=0 
+2026-10-05 00:37:42 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.9% Threads=19
+2026-10-05 00:37:53 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6303 checked=5 online=5 offline=0 
+2026-10-05 00:38:43 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.7% Threads=13
+2026-10-05 00:38:53 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6304 checked=5 online=5 offline=0 
+2026-10-05 00:39:44 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 00:39:53 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6305 checked=5 online=5 offline=0 
+2026-10-05 00:40:45 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 00:40:53 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6306 checked=5 online=5 offline=0 
+2026-10-05 00:41:46 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 00:41:53 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6307 checked=5 online=5 offline=0 
+2026-10-05 00:42:47 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.9% Threads=19
+2026-10-05 00:42:53 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6308 checked=5 online=5 offline=0 
+2026-10-05 00:43:48 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.6% Threads=19
+2026-10-05 00:43:53 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6309 checked=5 online=5 offline=0 
+2026-10-05 00:44:49 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 00:44:54 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6310 checked=5 online=5 offline=0 (deep check)
+2026-10-05 00:45:50 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 00:45:54 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6311 checked=5 online=5 offline=0 
+2026-10-05 00:46:51 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 00:46:54 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6312 checked=5 online=5 offline=0 
+2026-10-05 00:47:52 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 00:47:54 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6313 checked=5 online=5 offline=0 
+2026-10-05 00:48:53 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 00:48:54 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6314 checked=5 online=5 offline=0 
+2026-10-05 00:49:54 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 00:49:54 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6315 checked=5 online=5 offline=0 
+2026-10-05 00:50:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6316 checked=5 online=5 offline=0 
+2026-10-05 00:50:55 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=4.0% SystemRAM=36.2% Threads=19
+2026-10-05 00:51:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6317 checked=5 online=5 offline=0 
+2026-10-05 00:51:56 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.7% Threads=13
+2026-10-05 00:52:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6318 checked=5 online=5 offline=0 
+2026-10-05 00:52:57 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 00:53:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6319 checked=5 online=5 offline=0 
+2026-10-05 00:53:58 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=37.0% Threads=19
+2026-10-05 00:54:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6320 checked=5 online=5 offline=0 (deep check)
+2026-10-05 00:54:59 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.0% Threads=19
+2026-10-05 00:55:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6321 checked=5 online=5 offline=0 
+2026-10-05 00:56:00 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 00:56:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6322 checked=5 online=5 offline=0 
+2026-10-05 00:57:01 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 00:57:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6323 checked=5 online=5 offline=0 
+2026-10-05 00:58:02 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.8% Threads=19
+2026-10-05 00:58:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6324 checked=5 online=5 offline=0 
+2026-10-05 00:59:03 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 00:59:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6325 checked=5 online=5 offline=0 
+2026-10-05 01:00:04 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 01:00:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6326 checked=5 online=5 offline=0 
+2026-10-05 01:01:05 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 01:01:55 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6327 checked=5 online=5 offline=0 
+2026-10-05 01:02:06 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 01:02:56 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6328 checked=5 online=5 offline=0 
+2026-10-05 01:03:07 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.8% Threads=19
+2026-10-05 01:03:56 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6329 checked=5 online=5 offline=0 
+2026-10-05 01:04:08 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 01:04:57 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6330 checked=5 online=5 offline=0 (deep check)
+2026-10-05 01:05:09 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 01:05:57 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6331 checked=5 online=5 offline=0 
+2026-10-05 01:06:10 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.5% Threads=19
+2026-10-05 01:06:57 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6332 checked=5 online=5 offline=0 
+2026-10-05 01:07:11 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 01:07:57 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6333 checked=5 online=5 offline=0 
+2026-10-05 01:08:12 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.6% Threads=13
+2026-10-05 01:08:57 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6334 checked=5 online=5 offline=0 
+2026-10-05 01:09:13 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 01:09:57 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6335 checked=5 online=5 offline=0 
+2026-10-05 01:10:14 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 01:10:57 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6336 checked=5 online=5 offline=0 
+2026-10-05 01:11:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 01:11:57 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6337 checked=5 online=5 offline=0 
+2026-10-05 01:12:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.0% Threads=19
+2026-10-05 01:12:57 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6338 checked=5 online=5 offline=0 
+2026-10-05 01:13:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 01:13:57 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6339 checked=5 online=5 offline=0 
+2026-10-05 01:14:18 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 01:14:58 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6340 checked=5 online=5 offline=0 (deep check)
+2026-10-05 01:15:19 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 01:15:58 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6341 checked=5 online=5 offline=0 
+2026-10-05 01:16:20 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 01:16:58 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6342 checked=5 online=5 offline=0 
+2026-10-05 01:17:21 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 01:17:58 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6343 checked=5 online=5 offline=0 
+2026-10-05 01:18:22 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 01:18:58 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6344 checked=5 online=5 offline=0 
+2026-10-05 01:19:23 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 01:19:58 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6345 checked=5 online=5 offline=0 
+2026-10-05 01:20:24 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 01:20:58 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6346 checked=5 online=5 offline=0 
+2026-10-05 01:21:25 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 01:21:58 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6347 checked=5 online=5 offline=0 
+2026-10-05 01:22:26 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 01:22:58 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6348 checked=5 online=5 offline=0 
+2026-10-05 01:23:27 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 01:23:58 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6349 checked=5 online=5 offline=0 
+2026-10-05 01:24:28 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.7% Threads=19
+2026-10-05 01:24:59 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6350 checked=5 online=5 offline=0 (deep check)
+2026-10-05 01:25:29 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 01:25:59 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6351 checked=5 online=5 offline=0 
+2026-10-05 01:26:30 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 01:26:59 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6352 checked=5 online=5 offline=0 
+2026-10-05 01:27:31 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 01:27:59 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6353 checked=5 online=5 offline=0 
+2026-10-05 01:28:32 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 01:28:59 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6354 checked=5 online=5 offline=0 
+2026-10-05 01:29:33 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 01:29:59 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6355 checked=5 online=5 offline=0 
+2026-10-05 01:30:34 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.8% Threads=19
+2026-10-05 01:30:59 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6356 checked=5 online=5 offline=0 
+2026-10-05 01:31:35 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 01:31:59 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6357 checked=5 online=5 offline=0 
+2026-10-05 01:32:36 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 01:32:59 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6358 checked=5 online=5 offline=0 
+2026-10-05 01:33:37 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 01:33:59 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6359 checked=5 online=5 offline=0 
+2026-10-05 01:34:38 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 01:35:00 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6360 checked=5 online=5 offline=0 (deep check)
+2026-10-05 01:35:39 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=34.6% Threads=13
+2026-10-05 01:36:00 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6361 checked=5 online=5 offline=0 
+2026-10-05 01:36:40 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 01:37:00 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6362 checked=5 online=5 offline=0 
+2026-10-05 01:37:41 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 01:38:00 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6363 checked=5 online=5 offline=0 
+2026-10-05 01:38:42 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 01:39:00 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6364 checked=5 online=5 offline=0 
+2026-10-05 01:39:43 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=5.0% SystemRAM=35.0% Threads=19
+2026-10-05 01:40:00 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6365 checked=5 online=5 offline=0 
+2026-10-05 01:40:44 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 01:41:00 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6366 checked=5 online=5 offline=0 
+2026-10-05 01:41:45 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 01:42:00 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6367 checked=5 online=5 offline=0 
+2026-10-05 01:42:46 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.1% Threads=19
+2026-10-05 01:43:00 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6368 checked=5 online=5 offline=0 
+2026-10-05 01:43:47 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 01:44:00 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6369 checked=5 online=5 offline=0 
+2026-10-05 01:44:48 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 01:45:01 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6370 checked=5 online=5 offline=0 (deep check)
+2026-10-05 01:45:49 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 01:46:01 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6371 checked=5 online=5 offline=0 
+2026-10-05 01:46:50 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 01:47:01 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6372 checked=5 online=5 offline=0 
+2026-10-05 01:47:51 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.6% Threads=19
+2026-10-05 01:48:01 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6373 checked=5 online=5 offline=0 
+2026-10-05 01:48:52 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 01:49:01 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6374 checked=5 online=5 offline=0 
+2026-10-05 01:49:53 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.8% Threads=19
+2026-10-05 01:50:01 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6375 checked=5 online=5 offline=0 
+2026-10-05 01:50:54 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 01:51:01 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6376 checked=5 online=5 offline=0 
+2026-10-05 01:51:55 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.6% Threads=19
+2026-10-05 01:52:01 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6377 checked=5 online=5 offline=0 
+2026-10-05 01:52:56 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 01:53:01 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6378 checked=5 online=5 offline=0 
+2026-10-05 01:53:57 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 01:54:01 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6379 checked=5 online=5 offline=0 
+2026-10-05 01:54:58 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 01:55:02 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6380 checked=5 online=5 offline=0 (deep check)
+2026-10-05 01:55:59 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 01:56:02 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6381 checked=5 online=5 offline=0 
+2026-10-05 01:57:00 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 01:57:02 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6382 checked=5 online=5 offline=0 
+2026-10-05 01:58:01 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 01:58:02 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6383 checked=5 online=5 offline=0 
+2026-10-05 01:59:02 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 01:59:02 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6384 checked=5 online=5 offline=0 
+2026-10-05 02:00:02 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6385 checked=5 online=5 offline=0 
+2026-10-05 02:00:03 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=3.0% SystemRAM=36.6% Threads=19
+2026-10-05 02:01:04 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.1% Threads=19
+2026-10-05 02:01:07 [INFO    ] [cctv_app:2831] [DVR MONITOR] DVR-01 (192.168.22.5) status → offline (Tidak bisa konek ke port 554 atau 80)
+2026-10-05 02:01:07 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6386 checked=5 online=4 offline=1 
+2026-10-05 02:02:05 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=2.0% SystemRAM=36.0% Threads=19
+2026-10-05 02:02:07 [INFO    ] [cctv_app:2831] [DVR MONITOR] DVR-01 (192.168.22.5) status → online (RTSP port terbuka)
+2026-10-05 02:02:07 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6387 checked=5 online=5 offline=0 
+2026-10-05 02:03:06 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 02:03:07 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6388 checked=5 online=5 offline=0 
+2026-10-05 02:04:07 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6389 checked=5 online=5 offline=0 
+2026-10-05 02:04:07 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=4.0% SystemRAM=36.3% Threads=19
+2026-10-05 02:05:08 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6390 checked=5 online=5 offline=0 (deep check)
+2026-10-05 02:05:08 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 02:06:08 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6391 checked=5 online=5 offline=0 
+2026-10-05 02:06:09 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 02:07:08 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6392 checked=5 online=5 offline=0 
+2026-10-05 02:07:10 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.9% Threads=19
+2026-10-05 02:08:08 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6393 checked=5 online=5 offline=0 
+2026-10-05 02:08:11 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 02:09:08 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6394 checked=5 online=5 offline=0 
+2026-10-05 02:09:12 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 02:10:08 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6395 checked=5 online=5 offline=0 
+2026-10-05 02:10:13 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 02:11:08 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6396 checked=5 online=5 offline=0 
+2026-10-05 02:11:14 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 02:12:08 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6397 checked=5 online=5 offline=0 
+2026-10-05 02:12:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.6% Threads=13
+2026-10-05 02:13:08 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6398 checked=5 online=5 offline=0 
+2026-10-05 02:13:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 02:14:08 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6399 checked=5 online=5 offline=0 
+2026-10-05 02:14:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=5.0% SystemRAM=35.7% Threads=19
+2026-10-05 02:15:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6400 checked=5 online=5 offline=0 (deep check)
+2026-10-05 02:15:18 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 02:16:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6401 checked=5 online=5 offline=0 
+2026-10-05 02:16:19 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.6% Threads=19
+2026-10-05 02:17:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6402 checked=5 online=5 offline=0 
+2026-10-05 02:17:20 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.9% Threads=19
+2026-10-05 02:18:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6403 checked=5 online=5 offline=0 
+2026-10-05 02:18:21 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.6% Threads=19
+2026-10-05 02:19:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6404 checked=5 online=5 offline=0 
+2026-10-05 02:19:22 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 02:20:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6405 checked=5 online=5 offline=0 
+2026-10-05 02:20:23 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.7% Threads=19
+2026-10-05 02:21:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6406 checked=5 online=5 offline=0 
+2026-10-05 02:21:24 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 02:22:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6407 checked=5 online=5 offline=0 
+2026-10-05 02:22:25 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.9% Threads=19
+2026-10-05 02:23:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6408 checked=5 online=5 offline=0 
+2026-10-05 02:23:26 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 02:24:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6409 checked=5 online=5 offline=0 
+2026-10-05 02:24:27 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=37.1% Threads=19
+2026-10-05 02:25:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6410 checked=5 online=5 offline=0 (deep check)
+2026-10-05 02:25:28 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 02:26:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6411 checked=5 online=5 offline=0 
+2026-10-05 02:26:29 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 02:27:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6412 checked=5 online=5 offline=0 
+2026-10-05 02:27:30 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 02:28:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6413 checked=5 online=5 offline=0 
+2026-10-05 02:28:31 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.3% Threads=13
+2026-10-05 02:29:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6414 checked=5 online=5 offline=0 
+2026-10-05 02:29:32 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 02:30:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6415 checked=5 online=5 offline=0 
+2026-10-05 02:30:33 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.4% Threads=13
+2026-10-05 02:31:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6416 checked=5 online=5 offline=0 
+2026-10-05 02:31:34 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 02:32:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6417 checked=5 online=5 offline=0 
+2026-10-05 02:32:35 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 02:33:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6418 checked=5 online=5 offline=0 
+2026-10-05 02:33:36 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 02:34:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6419 checked=5 online=5 offline=0 
+2026-10-05 02:34:37 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 02:35:11 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6420 checked=5 online=5 offline=0 (deep check)
+2026-10-05 02:35:38 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 02:36:11 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6421 checked=5 online=5 offline=0 
+2026-10-05 02:36:39 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 02:37:11 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6422 checked=5 online=5 offline=0 
+2026-10-05 02:37:40 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=19
+2026-10-05 02:38:11 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6423 checked=5 online=5 offline=0 
+2026-10-05 02:38:41 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 02:39:11 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6424 checked=5 online=5 offline=0 
+2026-10-05 02:39:42 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.7% Threads=13
+2026-10-05 02:40:11 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6425 checked=5 online=5 offline=0 
+2026-10-05 02:40:43 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 02:41:11 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6426 checked=5 online=5 offline=0 
+2026-10-05 02:41:44 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 02:42:11 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6427 checked=5 online=5 offline=0 
+2026-10-05 02:42:45 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 02:43:11 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6428 checked=5 online=5 offline=0 
+2026-10-05 02:43:46 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.1% Threads=19
+2026-10-05 02:44:11 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6429 checked=5 online=5 offline=0 
+2026-10-05 02:44:47 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 02:45:12 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6430 checked=5 online=5 offline=0 (deep check)
+2026-10-05 02:45:48 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 02:46:12 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6431 checked=5 online=5 offline=0 
+2026-10-05 02:46:49 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=19
+2026-10-05 02:47:12 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6432 checked=5 online=5 offline=0 
+2026-10-05 02:47:50 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 02:48:12 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6433 checked=5 online=5 offline=0 
+2026-10-05 02:48:51 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 02:49:12 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6434 checked=5 online=5 offline=0 
+2026-10-05 02:49:52 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 02:50:12 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6435 checked=5 online=5 offline=0 
+2026-10-05 02:50:53 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 02:51:12 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6436 checked=5 online=5 offline=0 
+2026-10-05 02:51:54 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.9% Threads=19
+2026-10-05 02:52:12 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6437 checked=5 online=5 offline=0 
+2026-10-05 02:52:55 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=2.0% SystemRAM=35.9% Threads=19
+2026-10-05 02:53:12 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6438 checked=5 online=5 offline=0 
+2026-10-05 02:53:56 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 02:54:12 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6439 checked=5 online=5 offline=0 
+2026-10-05 02:54:57 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 02:55:13 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6440 checked=5 online=5 offline=0 (deep check)
+2026-10-05 02:55:58 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 02:56:13 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6441 checked=5 online=5 offline=0 
+2026-10-05 02:56:59 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 02:57:13 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6442 checked=5 online=5 offline=0 
+2026-10-05 02:58:00 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 02:58:13 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6443 checked=5 online=5 offline=0 
+2026-10-05 02:59:01 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 02:59:13 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6444 checked=5 online=5 offline=0 
+2026-10-05 03:00:02 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 03:00:13 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6445 checked=5 online=5 offline=0 
+2026-10-05 03:01:03 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 03:01:13 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6446 checked=5 online=5 offline=0 
+2026-10-05 03:02:04 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 03:02:13 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6447 checked=5 online=5 offline=0 
+2026-10-05 03:03:05 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 03:03:13 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6448 checked=5 online=5 offline=0 
+2026-10-05 03:04:06 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 03:04:13 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6449 checked=5 online=5 offline=0 
+2026-10-05 03:05:07 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.2% Threads=13
+2026-10-05 03:05:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6450 checked=5 online=5 offline=0 (deep check)
+2026-10-05 03:06:08 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 03:06:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6451 checked=5 online=5 offline=0 
+2026-10-05 03:07:09 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 03:07:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6452 checked=5 online=5 offline=0 
+2026-10-05 03:08:10 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 03:08:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6453 checked=5 online=5 offline=0 
+2026-10-05 03:09:11 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.6% Threads=13
+2026-10-05 03:09:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6454 checked=5 online=5 offline=0 
+2026-10-05 03:10:12 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=37.0% Threads=19
+2026-10-05 03:10:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6455 checked=5 online=5 offline=0 
+2026-10-05 03:11:13 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 03:11:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6456 checked=5 online=5 offline=0 
+2026-10-05 03:12:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6457 checked=5 online=5 offline=0 
+2026-10-05 03:12:14 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=4.0% SystemRAM=36.3% Threads=19
+2026-10-05 03:13:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6458 checked=5 online=5 offline=0 
+2026-10-05 03:13:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 03:14:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6459 checked=5 online=5 offline=0 
+2026-10-05 03:14:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 03:15:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6460 checked=5 online=5 offline=0 (deep check)
+2026-10-05 03:15:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 03:16:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6461 checked=5 online=5 offline=0 
+2026-10-05 03:16:18 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 03:17:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6462 checked=5 online=5 offline=0 
+2026-10-05 03:17:19 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 03:18:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6463 checked=5 online=5 offline=0 
+2026-10-05 03:18:20 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 03:19:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6464 checked=5 online=5 offline=0 
+2026-10-05 03:19:21 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 03:20:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6465 checked=5 online=5 offline=0 
+2026-10-05 03:20:22 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 03:21:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6466 checked=5 online=5 offline=0 
+2026-10-05 03:21:23 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 03:22:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6467 checked=5 online=5 offline=0 
+2026-10-05 03:22:24 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 03:23:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6468 checked=5 online=5 offline=0 
+2026-10-05 03:23:25 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 03:24:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6469 checked=5 online=5 offline=0 
+2026-10-05 03:24:26 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 03:25:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6470 checked=5 online=5 offline=0 (deep check)
+2026-10-05 03:25:27 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 03:26:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6471 checked=5 online=5 offline=0 
+2026-10-05 03:26:28 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 03:27:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6472 checked=5 online=5 offline=0 
+2026-10-05 03:27:29 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 03:28:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6473 checked=5 online=5 offline=0 
+2026-10-05 03:28:30 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 03:29:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6474 checked=5 online=5 offline=0 
+2026-10-05 03:29:31 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 03:30:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6475 checked=5 online=5 offline=0 
+2026-10-05 03:30:32 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 03:31:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6476 checked=5 online=5 offline=0 
+2026-10-05 03:31:33 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 03:32:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6477 checked=5 online=5 offline=0 
+2026-10-05 03:32:34 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.4% Threads=19
+2026-10-05 03:33:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6478 checked=5 online=5 offline=0 
+2026-10-05 03:33:35 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 03:34:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6479 checked=5 online=5 offline=0 
+2026-10-05 03:34:36 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=34.7% Threads=13
+2026-10-05 03:35:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6480 checked=5 online=5 offline=0 (deep check)
+2026-10-05 03:35:37 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 03:36:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6481 checked=5 online=5 offline=0 
+2026-10-05 03:36:38 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 03:37:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6482 checked=5 online=5 offline=0 
+2026-10-05 03:37:39 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 03:38:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6483 checked=5 online=5 offline=0 
+2026-10-05 03:38:40 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.9% Threads=19
+2026-10-05 03:39:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6484 checked=5 online=5 offline=0 
+2026-10-05 03:39:41 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 03:40:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6485 checked=5 online=5 offline=0 
+2026-10-05 03:40:42 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 03:41:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6486 checked=5 online=5 offline=0 
+2026-10-05 03:41:43 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 03:42:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6487 checked=5 online=5 offline=0 
+2026-10-05 03:42:44 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 03:43:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6488 checked=5 online=5 offline=0 
+2026-10-05 03:43:45 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 03:44:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6489 checked=5 online=5 offline=0 
+2026-10-05 03:44:46 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 03:45:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6490 checked=5 online=5 offline=0 (deep check)
+2026-10-05 03:45:47 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 03:46:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6491 checked=5 online=5 offline=0 
+2026-10-05 03:46:48 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 03:47:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6492 checked=5 online=5 offline=0 
+2026-10-05 03:47:49 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 03:48:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6493 checked=5 online=5 offline=0 
+2026-10-05 03:48:50 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 03:49:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6494 checked=5 online=5 offline=0 
+2026-10-05 03:49:51 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 03:50:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6495 checked=5 online=5 offline=0 
+2026-10-05 03:50:52 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 03:51:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6496 checked=5 online=5 offline=0 
+2026-10-05 03:51:53 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 03:52:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6497 checked=5 online=5 offline=0 
+2026-10-05 03:52:54 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 03:53:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6498 checked=5 online=5 offline=0 
+2026-10-05 03:53:55 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 03:54:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6499 checked=5 online=5 offline=0 
+2026-10-05 03:54:56 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 03:55:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6500 checked=5 online=5 offline=0 (deep check)
+2026-10-05 03:55:57 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 03:56:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6501 checked=5 online=5 offline=0 
+2026-10-05 03:56:58 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 03:57:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6502 checked=5 online=5 offline=0 
+2026-10-05 03:57:59 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 03:58:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6503 checked=5 online=5 offline=0 
+2026-10-05 03:59:00 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 03:59:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6504 checked=5 online=5 offline=0 
+2026-10-05 04:00:01 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 04:00:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6505 checked=5 online=5 offline=0 
+2026-10-05 04:01:02 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 04:01:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6506 checked=5 online=5 offline=0 
+2026-10-05 04:02:03 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 04:02:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6507 checked=5 online=5 offline=0 
+2026-10-05 04:03:04 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 04:03:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6508 checked=5 online=5 offline=0 
+2026-10-05 04:04:05 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.7% Threads=13
+2026-10-05 04:04:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6509 checked=5 online=5 offline=0 
+2026-10-05 04:05:06 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 04:05:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6510 checked=5 online=5 offline=0 (deep check)
+2026-10-05 04:06:07 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 04:06:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6511 checked=5 online=5 offline=0 
+2026-10-05 04:07:08 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 04:07:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6512 checked=5 online=5 offline=0 
+2026-10-05 04:08:09 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 04:08:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6513 checked=5 online=5 offline=0 
+2026-10-05 04:09:10 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 04:09:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6514 checked=5 online=5 offline=0 
+2026-10-05 04:10:11 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 04:10:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6515 checked=5 online=5 offline=0 
+2026-10-05 04:11:12 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 04:11:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6516 checked=5 online=5 offline=0 
+2026-10-05 04:12:13 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 04:12:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6517 checked=5 online=5 offline=0 
+2026-10-05 04:13:14 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 04:13:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6518 checked=5 online=5 offline=0 
+2026-10-05 04:14:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 04:14:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6519 checked=5 online=5 offline=0 
+2026-10-05 04:15:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 04:15:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6520 checked=5 online=5 offline=0 (deep check)
+2026-10-05 04:16:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 04:16:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6521 checked=5 online=5 offline=0 
+2026-10-05 04:17:18 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 04:17:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6522 checked=5 online=5 offline=0 
+2026-10-05 04:18:20 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 04:18:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6523 checked=5 online=5 offline=0 
+2026-10-05 04:19:21 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.9% Threads=19
+2026-10-05 04:19:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6524 checked=5 online=5 offline=0 
+2026-10-05 04:20:22 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.6% Threads=19
+2026-10-05 04:20:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6525 checked=5 online=5 offline=0 
+2026-10-05 04:21:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6526 checked=5 online=5 offline=0 
+2026-10-05 04:21:23 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=2.0% SystemRAM=36.4% Threads=19
+2026-10-05 04:22:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6527 checked=5 online=5 offline=0 
+2026-10-05 04:22:24 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 04:23:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6528 checked=5 online=5 offline=0 
+2026-10-05 04:23:25 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 04:24:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6529 checked=5 online=5 offline=0 
+2026-10-05 04:24:26 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 04:25:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6530 checked=5 online=5 offline=0 (deep check)
+2026-10-05 04:25:27 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 04:26:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6531 checked=5 online=5 offline=0 
+2026-10-05 04:26:28 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 04:27:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6532 checked=5 online=5 offline=0 
+2026-10-05 04:27:29 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 04:28:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6533 checked=5 online=5 offline=0 
+2026-10-05 04:28:30 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.1% Threads=19
+2026-10-05 04:29:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6534 checked=5 online=5 offline=0 
+2026-10-05 04:29:31 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.1% Threads=19
+2026-10-05 04:30:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6535 checked=5 online=5 offline=0 
+2026-10-05 04:30:32 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 04:31:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6536 checked=5 online=5 offline=0 
+2026-10-05 04:31:33 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 04:32:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6537 checked=5 online=5 offline=0 
+2026-10-05 04:32:34 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 04:33:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6538 checked=5 online=5 offline=0 
+2026-10-05 04:33:35 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 04:34:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6539 checked=5 online=5 offline=0 
+2026-10-05 04:34:36 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 04:35:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6540 checked=5 online=5 offline=0 (deep check)
+2026-10-05 04:35:37 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.8% Threads=19
+2026-10-05 04:36:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6541 checked=5 online=5 offline=0 
+2026-10-05 04:36:38 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.7% Threads=19
+2026-10-05 04:37:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6542 checked=5 online=5 offline=0 
+2026-10-05 04:37:39 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 04:38:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6543 checked=5 online=5 offline=0 
+2026-10-05 04:38:40 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 04:39:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6544 checked=5 online=5 offline=0 
+2026-10-05 04:39:41 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 04:40:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6545 checked=5 online=5 offline=0 
+2026-10-05 04:40:42 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 04:41:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6546 checked=5 online=5 offline=0 
+2026-10-05 04:41:43 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 04:42:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6547 checked=5 online=5 offline=0 
+2026-10-05 04:42:44 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 04:43:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6548 checked=5 online=5 offline=0 
+2026-10-05 04:43:45 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.8% Threads=19
+2026-10-05 04:44:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6549 checked=5 online=5 offline=0 
+2026-10-05 04:44:46 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.6% Threads=13
+2026-10-05 04:45:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6550 checked=5 online=5 offline=0 (deep check)
+2026-10-05 04:45:47 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 04:46:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6551 checked=5 online=5 offline=0 
+2026-10-05 04:46:48 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 04:47:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6552 checked=5 online=5 offline=0 
+2026-10-05 04:47:49 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 04:48:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6553 checked=5 online=5 offline=0 
+2026-10-05 04:48:50 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 04:49:24 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6554 checked=5 online=5 offline=0 
+2026-10-05 04:49:51 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 04:50:25 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6555 checked=5 online=5 offline=0 
+2026-10-05 04:50:52 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 04:51:25 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6556 checked=5 online=5 offline=0 
+2026-10-05 04:51:53 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 04:52:25 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6557 checked=5 online=5 offline=0 
+2026-10-05 04:52:54 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 04:53:25 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6558 checked=5 online=5 offline=0 
+2026-10-05 04:53:55 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 04:54:25 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6559 checked=5 online=5 offline=0 
+2026-10-05 04:54:56 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 04:55:26 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6560 checked=5 online=5 offline=0 (deep check)
+2026-10-05 04:55:57 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 04:56:26 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6561 checked=5 online=5 offline=0 
+2026-10-05 04:56:58 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.1% Threads=19
+2026-10-05 04:57:26 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6562 checked=5 online=5 offline=0 
+2026-10-05 04:57:59 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.9% Threads=19
+2026-10-05 04:58:26 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6563 checked=5 online=5 offline=0 
+2026-10-05 04:59:00 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.6% Threads=13
+2026-10-05 04:59:26 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6564 checked=5 online=5 offline=0 
+2026-10-05 05:00:01 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.9% Threads=19
+2026-10-05 05:00:26 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6565 checked=5 online=5 offline=0 
+2026-10-05 05:01:02 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 05:01:26 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6566 checked=5 online=5 offline=0 
+2026-10-05 05:02:03 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 05:02:26 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6567 checked=5 online=5 offline=0 
+2026-10-05 05:03:04 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 05:03:26 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6568 checked=5 online=5 offline=0 
+2026-10-05 05:04:05 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 05:04:26 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6569 checked=5 online=5 offline=0 
+2026-10-05 05:05:06 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 05:05:27 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6570 checked=5 online=5 offline=0 (deep check)
+2026-10-05 05:06:07 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.0% Threads=19
+2026-10-05 05:06:27 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6571 checked=5 online=5 offline=0 
+2026-10-05 05:07:08 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 05:07:27 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6572 checked=5 online=5 offline=0 
+2026-10-05 05:08:09 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 05:08:27 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6573 checked=5 online=5 offline=0 
+2026-10-05 05:09:10 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 05:09:27 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6574 checked=5 online=5 offline=0 
+2026-10-05 05:10:11 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 05:10:27 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6575 checked=5 online=5 offline=0 
+2026-10-05 05:11:12 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 05:11:27 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6576 checked=5 online=5 offline=0 
+2026-10-05 05:12:13 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 05:12:27 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6577 checked=5 online=5 offline=0 
+2026-10-05 05:13:14 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 05:13:27 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6578 checked=5 online=5 offline=0 
+2026-10-05 05:14:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 05:14:27 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6579 checked=5 online=5 offline=0 
+2026-10-05 05:15:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 05:15:28 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6580 checked=5 online=5 offline=0 (deep check)
+2026-10-05 05:16:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 05:16:28 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6581 checked=5 online=5 offline=0 
+2026-10-05 05:17:18 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 05:17:28 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6582 checked=5 online=5 offline=0 
+2026-10-05 05:18:19 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 05:18:28 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6583 checked=5 online=5 offline=0 
+2026-10-05 05:19:20 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 05:19:28 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6584 checked=5 online=5 offline=0 
+2026-10-05 05:20:21 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.6% Threads=19
+2026-10-05 05:20:28 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6585 checked=5 online=5 offline=0 
+2026-10-05 05:21:22 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 05:21:28 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6586 checked=5 online=5 offline=0 
+2026-10-05 05:22:23 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 05:22:28 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6587 checked=5 online=5 offline=0 
+2026-10-05 05:23:24 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 05:23:28 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6588 checked=5 online=5 offline=0 
+2026-10-05 05:24:25 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 05:24:28 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6589 checked=5 online=5 offline=0 
+2026-10-05 05:25:26 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 05:25:29 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6590 checked=5 online=5 offline=0 (deep check)
+2026-10-05 05:26:27 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.7% Threads=13
+2026-10-05 05:26:29 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6591 checked=5 online=5 offline=0 
+2026-10-05 05:27:28 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 05:27:29 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6592 checked=5 online=5 offline=0 
+2026-10-05 05:28:29 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.7% Threads=13
+2026-10-05 05:28:29 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6593 checked=5 online=5 offline=0 
+2026-10-05 05:29:29 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6594 checked=5 online=5 offline=0 
+2026-10-05 05:29:30 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=5.0% SystemRAM=36.0% Threads=19
+2026-10-05 05:30:29 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6595 checked=5 online=5 offline=0 
+2026-10-05 05:30:31 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 05:31:29 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6596 checked=5 online=5 offline=0 
+2026-10-05 05:31:32 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 05:32:29 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6597 checked=5 online=5 offline=0 
+2026-10-05 05:32:33 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 05:33:29 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6598 checked=5 online=5 offline=0 
+2026-10-05 05:33:34 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.8% Threads=19
+2026-10-05 05:34:29 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6599 checked=5 online=5 offline=0 
+2026-10-05 05:34:35 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 05:35:30 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6600 checked=5 online=5 offline=0 (deep check)
+2026-10-05 05:35:36 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 05:36:30 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6601 checked=5 online=5 offline=0 
+2026-10-05 05:36:37 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 05:37:30 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6602 checked=5 online=5 offline=0 
+2026-10-05 05:37:38 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 05:38:30 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6603 checked=5 online=5 offline=0 
+2026-10-05 05:38:39 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 05:39:30 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6604 checked=5 online=5 offline=0 
+2026-10-05 05:39:40 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.8% Threads=19
+2026-10-05 05:40:30 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6605 checked=5 online=5 offline=0 
+2026-10-05 05:40:41 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 05:41:30 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6606 checked=5 online=5 offline=0 
+2026-10-05 05:41:42 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 05:42:30 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6607 checked=5 online=5 offline=0 
+2026-10-05 05:42:43 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.6% Threads=19
+2026-10-05 05:43:30 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6608 checked=5 online=5 offline=0 
+2026-10-05 05:43:44 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 05:44:31 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6609 checked=5 online=5 offline=0 
+2026-10-05 05:44:45 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 05:45:31 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6610 checked=5 online=5 offline=0 (deep check)
+2026-10-05 05:45:46 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.1% Threads=19
+2026-10-05 05:46:31 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6611 checked=5 online=5 offline=0 
+2026-10-05 05:46:47 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 05:47:31 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6612 checked=5 online=5 offline=0 
+2026-10-05 05:47:48 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 05:48:31 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6613 checked=5 online=5 offline=0 
+2026-10-05 05:48:49 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 05:49:31 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6614 checked=5 online=5 offline=0 
+2026-10-05 05:49:50 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.7% Threads=19
+2026-10-05 05:50:31 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6615 checked=5 online=5 offline=0 
+2026-10-05 05:50:51 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 05:51:31 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6616 checked=5 online=5 offline=0 
+2026-10-05 05:51:52 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.1% Threads=19
+2026-10-05 05:52:31 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6617 checked=5 online=5 offline=0 
+2026-10-05 05:52:53 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 05:53:31 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6618 checked=5 online=5 offline=0 
+2026-10-05 05:53:54 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 05:54:32 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6619 checked=5 online=5 offline=0 
+2026-10-05 05:54:55 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 05:55:32 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6620 checked=5 online=5 offline=0 (deep check)
+2026-10-05 05:55:56 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 05:56:32 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6621 checked=5 online=5 offline=0 
+2026-10-05 05:56:57 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 05:57:32 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6622 checked=5 online=5 offline=0 
+2026-10-05 05:57:58 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.9% Threads=19
+2026-10-05 05:58:32 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6623 checked=5 online=5 offline=0 
+2026-10-05 05:58:59 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 05:59:32 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6624 checked=5 online=5 offline=0 
+2026-10-05 06:00:00 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 06:00:32 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6625 checked=5 online=5 offline=0 
+2026-10-05 06:01:01 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 06:01:32 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6626 checked=5 online=5 offline=0 
+2026-10-05 06:02:02 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 06:02:32 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6627 checked=5 online=5 offline=0 
+2026-10-05 06:03:03 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 06:03:32 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6628 checked=5 online=5 offline=0 
+2026-10-05 06:04:04 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 06:04:32 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6629 checked=5 online=5 offline=0 
+2026-10-05 06:05:05 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 06:05:33 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6630 checked=5 online=5 offline=0 (deep check)
+2026-10-05 06:06:06 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 06:06:33 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6631 checked=5 online=5 offline=0 
+2026-10-05 06:07:07 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 06:07:33 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6632 checked=5 online=5 offline=0 
+2026-10-05 06:08:08 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 06:08:33 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6633 checked=5 online=5 offline=0 
+2026-10-05 06:09:09 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.9% Threads=19
+2026-10-05 06:09:33 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6634 checked=5 online=5 offline=0 
+2026-10-05 06:10:10 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 06:10:33 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6635 checked=5 online=5 offline=0 
+2026-10-05 06:11:11 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 06:11:33 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6636 checked=5 online=5 offline=0 
+2026-10-05 06:12:12 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 06:12:33 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6637 checked=5 online=5 offline=0 
+2026-10-05 06:13:13 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.0% Threads=19
+2026-10-05 06:13:34 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6638 checked=5 online=5 offline=0 
+2026-10-05 06:14:14 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 06:14:34 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6639 checked=5 online=5 offline=0 
+2026-10-05 06:15:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.6% Threads=19
+2026-10-05 06:15:34 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6640 checked=5 online=5 offline=0 (deep check)
+2026-10-05 06:16:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 06:16:34 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6641 checked=5 online=5 offline=0 
+2026-10-05 06:17:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 06:17:34 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6642 checked=5 online=5 offline=0 
+2026-10-05 06:18:18 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 06:18:34 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6643 checked=5 online=5 offline=0 
+2026-10-05 06:19:19 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 06:19:34 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6644 checked=5 online=5 offline=0 
+2026-10-05 06:20:20 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 06:20:34 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6645 checked=5 online=5 offline=0 
+2026-10-05 06:21:21 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 06:21:34 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6646 checked=5 online=5 offline=0 
+2026-10-05 06:22:22 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 06:22:34 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6647 checked=5 online=5 offline=0 
+2026-10-05 06:23:23 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 06:23:34 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6648 checked=5 online=5 offline=0 
+2026-10-05 06:24:24 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=2.0% SystemRAM=36.1% Threads=19
+2026-10-05 06:24:35 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6649 checked=5 online=5 offline=0 
+2026-10-05 06:25:25 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 06:25:35 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6650 checked=5 online=5 offline=0 (deep check)
+2026-10-05 06:26:26 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 06:26:35 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6651 checked=5 online=5 offline=0 
+2026-10-05 06:27:27 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 06:27:35 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6652 checked=5 online=5 offline=0 
+2026-10-05 06:28:28 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 06:28:35 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6653 checked=5 online=5 offline=0 
+2026-10-05 06:29:29 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 06:29:35 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6654 checked=5 online=5 offline=0 
+2026-10-05 06:30:30 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 06:30:35 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6655 checked=5 online=5 offline=0 
+2026-10-05 06:31:31 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 06:31:35 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6656 checked=5 online=5 offline=0 
+2026-10-05 06:32:32 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 06:32:35 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6657 checked=5 online=5 offline=0 
+2026-10-05 06:33:33 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 06:33:35 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6658 checked=5 online=5 offline=0 
+2026-10-05 06:34:34 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 06:34:35 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6659 checked=5 online=5 offline=0 
+2026-10-05 06:35:35 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 06:35:36 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6660 checked=5 online=5 offline=0 (deep check)
+2026-10-05 06:36:36 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=2.0% SystemRAM=36.1% Threads=19
+2026-10-05 06:36:36 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6661 checked=5 online=5 offline=0 
+2026-10-05 06:37:36 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6662 checked=5 online=5 offline=0 
+2026-10-05 06:37:37 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=4.0% SystemRAM=35.9% Threads=19
+2026-10-05 06:38:36 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6663 checked=5 online=5 offline=0 
+2026-10-05 06:38:38 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 06:39:36 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6664 checked=5 online=5 offline=0 
+2026-10-05 06:39:39 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 06:40:36 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6665 checked=5 online=5 offline=0 
+2026-10-05 06:40:40 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 06:41:36 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6666 checked=5 online=5 offline=0 
+2026-10-05 06:41:41 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 06:42:36 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6667 checked=5 online=5 offline=0 
+2026-10-05 06:42:42 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 06:43:36 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6668 checked=5 online=5 offline=0 
+2026-10-05 06:43:43 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.6% Threads=19
+2026-10-05 06:44:36 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6669 checked=5 online=5 offline=0 
+2026-10-05 06:44:44 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 06:45:37 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6670 checked=5 online=5 offline=0 (deep check)
+2026-10-05 06:45:45 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 06:46:37 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6671 checked=5 online=5 offline=0 
+2026-10-05 06:46:46 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.8% Threads=19
+2026-10-05 06:47:37 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6672 checked=5 online=5 offline=0 
+2026-10-05 06:47:47 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 06:48:37 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6673 checked=5 online=5 offline=0 
+2026-10-05 06:48:48 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.3% Threads=13
+2026-10-05 06:49:37 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6674 checked=5 online=5 offline=0 
+2026-10-05 06:49:49 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 06:50:37 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6675 checked=5 online=5 offline=0 
+2026-10-05 06:50:50 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 06:51:37 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6676 checked=5 online=5 offline=0 
+2026-10-05 06:51:51 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.7% Threads=19
+2026-10-05 06:52:37 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6677 checked=5 online=5 offline=0 
+2026-10-05 06:52:52 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.7% Threads=19
+2026-10-05 06:53:37 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6678 checked=5 online=5 offline=0 
+2026-10-05 06:53:53 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 06:54:37 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6679 checked=5 online=5 offline=0 
+2026-10-05 06:54:54 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 06:55:38 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6680 checked=5 online=5 offline=0 (deep check)
+2026-10-05 06:55:55 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.7% Threads=19
+2026-10-05 06:56:38 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6681 checked=5 online=5 offline=0 
+2026-10-05 06:56:56 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 06:57:38 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6682 checked=5 online=5 offline=0 
+2026-10-05 06:57:57 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 06:58:38 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6683 checked=5 online=5 offline=0 
+2026-10-05 06:58:58 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 06:59:38 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6684 checked=5 online=5 offline=0 
+2026-10-05 06:59:59 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 07:00:38 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6685 checked=5 online=5 offline=0 
+2026-10-05 07:01:00 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 07:01:38 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6686 checked=5 online=5 offline=0 
+2026-10-05 07:02:01 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.0% Threads=19
+2026-10-05 07:02:38 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6687 checked=5 online=5 offline=0 
+2026-10-05 07:03:02 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.0% Threads=19
+2026-10-05 07:03:38 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6688 checked=5 online=5 offline=0 
+2026-10-05 07:04:03 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 07:04:38 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6689 checked=5 online=5 offline=0 
+2026-10-05 07:05:04 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 07:05:39 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6690 checked=5 online=5 offline=0 (deep check)
+2026-10-05 07:06:05 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 07:06:39 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6691 checked=5 online=5 offline=0 
+2026-10-05 07:07:06 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.1% Threads=13
+2026-10-05 07:07:39 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6692 checked=5 online=5 offline=0 
+2026-10-05 07:08:07 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 07:08:39 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6693 checked=5 online=5 offline=0 
+2026-10-05 07:09:08 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 07:09:39 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6694 checked=5 online=5 offline=0 
+2026-10-05 07:10:09 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 07:10:39 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6695 checked=5 online=5 offline=0 
+2026-10-05 07:11:10 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.5% Threads=19
+2026-10-05 07:11:39 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6696 checked=5 online=5 offline=0 
+2026-10-05 07:12:11 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 07:12:39 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6697 checked=5 online=5 offline=0 
+2026-10-05 07:13:12 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 07:13:39 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6698 checked=5 online=5 offline=0 
+2026-10-05 07:14:13 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.4% Threads=19
+2026-10-05 07:14:39 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6699 checked=5 online=5 offline=0 
+2026-10-05 07:15:14 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 07:15:40 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6700 checked=5 online=5 offline=0 (deep check)
+2026-10-05 07:16:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 07:16:40 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6701 checked=5 online=5 offline=0 
+2026-10-05 07:17:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.6% Threads=19
+2026-10-05 07:17:40 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6702 checked=5 online=5 offline=0 
+2026-10-05 07:18:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 07:18:40 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6703 checked=5 online=5 offline=0 
+2026-10-05 07:19:18 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 07:19:40 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6704 checked=5 online=5 offline=0 
+2026-10-05 07:20:19 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 07:20:40 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6705 checked=5 online=5 offline=0 
+2026-10-05 07:21:20 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 07:21:41 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6706 checked=5 online=5 offline=0 
+2026-10-05 07:22:21 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.8% Threads=19
+2026-10-05 07:22:41 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6707 checked=5 online=5 offline=0 
+2026-10-05 07:23:22 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 07:23:41 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6708 checked=5 online=5 offline=0 
+2026-10-05 07:24:23 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 07:24:41 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6709 checked=5 online=5 offline=0 
+2026-10-05 07:25:24 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 07:25:41 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6710 checked=5 online=5 offline=0 (deep check)
+2026-10-05 07:26:25 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 07:26:41 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6711 checked=5 online=5 offline=0 
+2026-10-05 07:27:26 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 07:27:41 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6712 checked=5 online=5 offline=0 
+2026-10-05 07:28:27 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 07:28:41 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6713 checked=5 online=5 offline=0 
+2026-10-05 07:29:28 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 07:29:41 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6714 checked=5 online=5 offline=0 
+2026-10-05 07:30:29 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 07:30:41 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6715 checked=5 online=5 offline=0 
+2026-10-05 07:31:30 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 07:31:41 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6716 checked=5 online=5 offline=0 
+2026-10-05 07:32:31 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 07:32:42 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6717 checked=5 online=5 offline=0 
+2026-10-05 07:33:32 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.8% Threads=19
+2026-10-05 07:33:42 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6718 checked=5 online=5 offline=0 
+2026-10-05 07:34:33 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.7% Threads=13
+2026-10-05 07:34:42 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6719 checked=5 online=5 offline=0 
+2026-10-05 07:35:34 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.9% Threads=19
+2026-10-05 07:35:42 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6720 checked=5 online=5 offline=0 (deep check)
+2026-10-05 07:36:35 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 07:36:42 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6721 checked=5 online=5 offline=0 
+2026-10-05 07:37:36 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 07:37:42 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6722 checked=5 online=5 offline=0 
+2026-10-05 07:38:37 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 07:38:42 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6723 checked=5 online=5 offline=0 
+2026-10-05 07:39:38 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.9% Threads=19
+2026-10-05 07:39:43 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6724 checked=5 online=5 offline=0 
+2026-10-05 07:40:39 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 07:40:43 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6725 checked=5 online=5 offline=0 
+2026-10-05 07:41:40 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.9% Threads=13
+2026-10-05 07:41:43 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6726 checked=5 online=5 offline=0 
+2026-10-05 07:42:41 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.5% Threads=19
+2026-10-05 07:42:43 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6727 checked=5 online=5 offline=0 
+2026-10-05 07:43:42 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.0% Threads=13
+2026-10-05 07:43:43 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6728 checked=5 online=5 offline=0 
+2026-10-05 07:44:43 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6729 checked=5 online=5 offline=0 
+2026-10-05 07:44:43 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=4.0% SystemRAM=36.3% Threads=19
+2026-10-05 07:45:44 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6730 checked=5 online=5 offline=0 (deep check)
+2026-10-05 07:45:44 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=35.0% Threads=13
+2026-10-05 07:46:44 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6731 checked=5 online=5 offline=0 
+2026-10-05 07:46:45 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 07:47:44 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6732 checked=5 online=5 offline=0 
+2026-10-05 07:47:46 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 07:48:44 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6733 checked=5 online=5 offline=0 
+2026-10-05 07:48:47 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.2% Threads=19
+2026-10-05 07:49:44 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6734 checked=5 online=5 offline=0 
+2026-10-05 07:49:48 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 07:50:44 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6735 checked=5 online=5 offline=0 
+2026-10-05 07:50:49 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 07:51:44 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6736 checked=5 online=5 offline=0 
+2026-10-05 07:51:50 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 07:52:44 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6737 checked=5 online=5 offline=0 
+2026-10-05 07:52:51 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.7% Threads=13
+2026-10-05 07:53:44 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6738 checked=5 online=5 offline=0 
+2026-10-05 07:53:52 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 07:54:44 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6739 checked=5 online=5 offline=0 
+2026-10-05 07:54:53 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 07:55:45 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6740 checked=5 online=5 offline=0 (deep check)
+2026-10-05 07:55:54 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.7% Threads=19
+2026-10-05 07:56:45 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6741 checked=5 online=5 offline=0 
+2026-10-05 07:56:55 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.4% Threads=19
+2026-10-05 07:57:45 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6742 checked=5 online=5 offline=0 
+2026-10-05 07:57:56 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.5% Threads=19
+2026-10-05 07:58:45 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6743 checked=5 online=5 offline=0 
+2026-10-05 07:58:57 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 07:59:45 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6744 checked=5 online=5 offline=0 
+2026-10-05 07:59:58 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.3% Threads=13
+2026-10-05 08:00:45 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6745 checked=5 online=5 offline=0 
+2026-10-05 08:00:59 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.2% Threads=19
+2026-10-05 08:01:45 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6746 checked=5 online=5 offline=0 
+2026-10-05 08:02:00 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 08:02:45 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6747 checked=5 online=5 offline=0 
+2026-10-05 08:03:01 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 08:03:45 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6748 checked=5 online=5 offline=0 
+2026-10-05 08:04:02 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.1% Threads=19
+2026-10-05 08:04:45 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6749 checked=5 online=5 offline=0 
+2026-10-05 08:05:03 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.3% Threads=19
+2026-10-05 08:05:46 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6750 checked=5 online=5 offline=0 (deep check)
+2026-10-05 08:06:04 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 08:06:46 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6751 checked=5 online=5 offline=0 
+2026-10-05 08:07:05 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=34.8% Threads=13
+2026-10-05 08:07:46 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6752 checked=5 online=5 offline=0 
+2026-10-05 08:08:06 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.8% Threads=19
+2026-10-05 08:08:46 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6753 checked=5 online=5 offline=0 
+2026-10-05 08:09:07 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 08:09:46 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6754 checked=5 online=5 offline=0 
+2026-10-05 08:10:08 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 08:10:46 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6755 checked=5 online=5 offline=0 
+2026-10-05 08:11:09 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.1% Threads=13
+2026-10-05 08:11:46 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6756 checked=5 online=5 offline=0 
+2026-10-05 08:12:10 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.4% Threads=19
+2026-10-05 08:12:46 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6757 checked=5 online=5 offline=0 
+2026-10-05 08:13:11 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 08:13:46 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6758 checked=5 online=5 offline=0 
+2026-10-05 08:14:12 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 08:14:46 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6759 checked=5 online=5 offline=0 
+2026-10-05 08:15:13 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=1.0% SystemRAM=36.3% Threads=19
+2026-10-05 08:15:47 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6760 checked=5 online=5 offline=0 (deep check)
+2026-10-05 08:16:14 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=35.2% Threads=13
+2026-10-05 08:16:47 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6761 checked=5 online=5 offline=0 
+2026-10-05 08:17:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.1% Threads=19
+2026-10-05 08:17:47 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6762 checked=5 online=5 offline=0 
+2026-10-05 08:18:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=34.8% Threads=13
+2026-10-05 08:18:47 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6763 checked=5 online=5 offline=0 
+2026-10-05 08:19:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=104179 RAM=117.8MB CPU=0.0% SystemRAM=36.0% Threads=19
+2026-10-05 08:20:08 [INFO    ] [cctv_app:3485] ============================================================
+2026-10-05 08:20:08 [INFO    ] [cctv_app:3486] SERVER STARTING
+2026-10-05 08:20:08 [INFO    ] [cctv_app:3487] PID: 1204
+2026-10-05 08:20:08 [INFO    ] [cctv_app:3488] Python: 3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]
+2026-10-05 08:20:08 [INFO    ] [cctv_app:3489] ============================================================
+2026-10-05 08:20:08 [INFO    ] [cctv_app:3500] [MONITOR] Background monitor aktif (interval 30s)
+2026-10-05 08:20:08 [INFO    ] [cctv_app:3503] [DVR MONITOR] Thread aktif (interval 60s)
+2026-10-05 08:20:08 [ERROR   ] [cctv_app:2867] [DVR MONITOR] Loop error: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+Traceback (most recent call last):
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 681, in connect
+    sock = socket.create_connection(
+        (self.host, self.port), self.connect_timeout, **kwargs
+    )
+  File "/usr/lib/python3.14/socket.py", line 870, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.14/socket.py", line 855, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/administrator/cctv/app.py", line 2803, in _dvr_monitor_loop
+    dvrs = dbmod.fetch_all_dvr()
+  File "/home/administrator/cctv/db.py", line 146, in fetch_all_dvr
+    with get_cursor() as cur:
+         ~~~~~~~~~~^^
+  File "/usr/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/home/administrator/cctv/db.py", line 34, in get_cursor
+    conn = get_connection()
+  File "/home/administrator/cctv/db.py", line 19, in get_connection
+    return pymysql.connect(
+           ~~~~~~~~~~~~~~~^
+        host=Config.DB_HOST,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        autocommit=False,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 373, in __init__
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 744, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+2026-10-05 08:20:08 [ERROR   ] [cctv_app:2228] [STARTUP] Sync gagal: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+Traceback (most recent call last):
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 681, in connect
+    sock = socket.create_connection(
+        (self.host, self.port), self.connect_timeout, **kwargs
+    )
+  File "/usr/lib/python3.14/socket.py", line 870, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.14/socket.py", line 855, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/administrator/cctv/app.py", line 2201, in _startup_sync_cameras
+    cameras = dbmod.fetch_all_cameras()
+  File "/home/administrator/cctv/db.py", line 427, in fetch_all_cameras
+    with get_cursor() as cur:
+         ~~~~~~~~~~^^
+  File "/usr/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/home/administrator/cctv/db.py", line 34, in get_cursor
+    conn = get_connection()
+  File "/home/administrator/cctv/db.py", line 19, in get_connection
+    return pymysql.connect(
+           ~~~~~~~~~~~~~~~^
+        host=Config.DB_HOST,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        autocommit=False,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 373, in __init__
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 744, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+2026-10-05 08:20:10 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=66.3MB CPU=3.0% SystemRAM=29.7% Threads=13
+2026-10-05 08:21:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=2 checked=5 online=5 offline=0 
+2026-10-05 08:21:11 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.1MB CPU=0.0% SystemRAM=31.8% Threads=19
+2026-10-05 08:22:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=3 checked=5 online=5 offline=0 
+2026-10-05 08:22:12 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.1MB CPU=0.0% SystemRAM=30.4% Threads=13
+2026-10-05 08:23:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=4 checked=5 online=5 offline=0 
+2026-10-05 08:23:13 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.6MB CPU=0.0% SystemRAM=31.8% Threads=19
+2026-10-05 08:24:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=5 checked=5 online=5 offline=0 
+2026-10-05 08:24:14 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.5MB CPU=0.0% SystemRAM=30.7% Threads=13
+2026-10-05 08:25:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6 checked=5 online=5 offline=0 
+2026-10-05 08:25:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.6MB CPU=1.0% SystemRAM=32.6% Threads=19
+2026-10-05 08:26:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=7 checked=5 online=5 offline=0 
+2026-10-05 08:26:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.6MB CPU=0.0% SystemRAM=32.3% Threads=19
+2026-10-05 08:27:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=8 checked=5 online=5 offline=0 
+2026-10-05 08:27:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.7MB CPU=0.0% SystemRAM=32.1% Threads=19
+2026-10-05 08:28:09 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=9 checked=5 online=5 offline=0 
+2026-10-05 08:28:18 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.7MB CPU=0.0% SystemRAM=31.9% Threads=19
+2026-10-05 08:29:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=10 checked=5 online=5 offline=0 (deep check)
+2026-10-05 08:29:19 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.7MB CPU=0.0% SystemRAM=32.2% Threads=19
+2026-10-05 08:30:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=11 checked=5 online=5 offline=0 
+2026-10-05 08:30:20 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.7MB CPU=0.0% SystemRAM=32.7% Threads=19
+2026-10-05 08:31:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=12 checked=5 online=5 offline=0 
+2026-10-05 08:31:21 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.7MB CPU=0.0% SystemRAM=30.9% Threads=13
+2026-10-05 08:32:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=13 checked=5 online=5 offline=0 
+2026-10-05 08:32:22 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.8MB CPU=0.0% SystemRAM=32.0% Threads=19
+2026-10-05 08:33:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=14 checked=5 online=5 offline=0 
+2026-10-05 08:33:23 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.7MB CPU=0.0% SystemRAM=30.8% Threads=13
+2026-10-05 08:34:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=15 checked=5 online=5 offline=0 
+2026-10-05 08:34:24 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.8MB CPU=0.0% SystemRAM=33.1% Threads=19
+2026-10-05 08:35:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=16 checked=5 online=5 offline=0 
+2026-10-05 08:35:25 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.8MB CPU=1.0% SystemRAM=32.6% Threads=19
+2026-10-05 08:36:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=17 checked=5 online=5 offline=0 
+2026-10-05 08:36:26 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.8MB CPU=1.0% SystemRAM=32.6% Threads=19
+2026-10-05 08:37:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=18 checked=5 online=5 offline=0 
+2026-10-05 08:37:27 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.8MB CPU=0.0% SystemRAM=32.1% Threads=19
+2026-10-05 08:38:10 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=19 checked=5 online=5 offline=0 
+2026-10-05 08:38:28 [INFO    ] [cctv_app:98] [RESOURCE] PID=1204 RAM=68.8MB CPU=0.0% SystemRAM=31.6% Threads=19
+2026-10-05 08:39:14 [INFO    ] [cctv_app:3485] ============================================================
+2026-10-05 08:39:14 [INFO    ] [cctv_app:3486] SERVER STARTING
+2026-10-05 08:39:14 [INFO    ] [cctv_app:3487] PID: 1228
+2026-10-05 08:39:14 [INFO    ] [cctv_app:3488] Python: 3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]
+2026-10-05 08:39:14 [INFO    ] [cctv_app:3489] ============================================================
+2026-10-05 08:39:14 [INFO    ] [cctv_app:3500] [MONITOR] Background monitor aktif (interval 30s)
+2026-10-05 08:39:14 [INFO    ] [cctv_app:3503] [DVR MONITOR] Thread aktif (interval 60s)
+2026-10-05 08:39:14 [ERROR   ] [cctv_app:2867] [DVR MONITOR] Loop error: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+Traceback (most recent call last):
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 681, in connect
+    sock = socket.create_connection(
+        (self.host, self.port), self.connect_timeout, **kwargs
+    )
+  File "/usr/lib/python3.14/socket.py", line 870, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.14/socket.py", line 855, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/administrator/cctv/app.py", line 2803, in _dvr_monitor_loop
+    dvrs = dbmod.fetch_all_dvr()
+  File "/home/administrator/cctv/db.py", line 146, in fetch_all_dvr
+    with get_cursor() as cur:
+         ~~~~~~~~~~^^
+  File "/usr/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/home/administrator/cctv/db.py", line 34, in get_cursor
+    conn = get_connection()
+  File "/home/administrator/cctv/db.py", line 19, in get_connection
+    return pymysql.connect(
+           ~~~~~~~~~~~~~~~^
+        host=Config.DB_HOST,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        autocommit=False,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 373, in __init__
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 744, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+2026-10-05 08:39:14 [ERROR   ] [cctv_app:2228] [STARTUP] Sync gagal: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+Traceback (most recent call last):
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 681, in connect
+    sock = socket.create_connection(
+        (self.host, self.port), self.connect_timeout, **kwargs
+    )
+  File "/usr/lib/python3.14/socket.py", line 870, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.14/socket.py", line 855, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/administrator/cctv/app.py", line 2201, in _startup_sync_cameras
+    cameras = dbmod.fetch_all_cameras()
+  File "/home/administrator/cctv/db.py", line 427, in fetch_all_cameras
+    with get_cursor() as cur:
+         ~~~~~~~~~~^^
+  File "/usr/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/home/administrator/cctv/db.py", line 34, in get_cursor
+    conn = get_connection()
+  File "/home/administrator/cctv/db.py", line 19, in get_connection
+    return pymysql.connect(
+           ~~~~~~~~~~~~~~~^
+        host=Config.DB_HOST,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        autocommit=False,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 373, in __init__
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/home/administrator/venv/lib/python3.14/site-packages/pymysql/connections.py", line 744, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+2026-10-05 08:39:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=66.4MB CPU=4.0% SystemRAM=29.5% Threads=13
+2026-10-05 08:40:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=2 checked=5 online=5 offline=0 
+2026-10-05 08:40:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=68.3MB CPU=0.0% SystemRAM=32.7% Threads=19
+2026-10-05 08:40:53 [INFO    ] [cctv_app:471] GET / → 200 (142ms) [192.168.10.1] user=-
+2026-10-05 08:41:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=3 checked=5 online=5 offline=0 
+2026-10-05 08:41:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.1MB CPU=0.0% SystemRAM=30.8% Threads=13
+2026-10-05 08:42:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=4 checked=5 online=5 offline=0 
+2026-10-05 08:42:18 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.3MB CPU=0.0% SystemRAM=32.3% Threads=19
+2026-10-05 08:43:14 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=5 checked=5 online=5 offline=0 
+2026-10-05 08:43:19 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.3MB CPU=0.0% SystemRAM=30.7% Threads=13
+2026-10-05 08:44:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=6 checked=5 online=5 offline=0 
+2026-10-05 08:44:20 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.3MB CPU=0.0% SystemRAM=32.1% Threads=19
+2026-10-05 08:45:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=7 checked=5 online=5 offline=0 
+2026-10-05 08:45:21 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.3MB CPU=1.0% SystemRAM=32.3% Threads=19
+2026-10-05 08:46:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=8 checked=5 online=5 offline=0 
+2026-10-05 08:46:22 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=32.1% Threads=19
+2026-10-05 08:47:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=9 checked=5 online=5 offline=0 
+2026-10-05 08:47:23 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=32.1% Threads=19
+2026-10-05 08:48:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=10 checked=5 online=5 offline=0 (deep check)
+2026-10-05 08:48:24 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=32.1% Threads=19
+2026-10-05 08:49:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=11 checked=5 online=5 offline=0 
+2026-10-05 08:49:25 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=32.1% Threads=19
+2026-10-05 08:50:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=12 checked=5 online=5 offline=0 
+2026-10-05 08:50:26 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=30.8% Threads=13
+2026-10-05 08:51:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=13 checked=5 online=5 offline=0 
+2026-10-05 08:51:27 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=31.9% Threads=19
+2026-10-05 08:52:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=14 checked=5 online=5 offline=0 
+2026-10-05 08:52:28 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=31.0% Threads=13
+2026-10-05 08:53:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=15 checked=5 online=5 offline=0 
+2026-10-05 08:53:29 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=32.2% Threads=19
+2026-10-05 08:54:15 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=16 checked=5 online=5 offline=0 
+2026-10-05 08:54:30 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=32.0% Threads=19
+2026-10-05 08:55:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=17 checked=5 online=5 offline=0 
+2026-10-05 08:55:31 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=32.9% Threads=19
+2026-10-05 08:56:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=18 checked=5 online=5 offline=0 
+2026-10-05 08:56:32 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=2.0% SystemRAM=31.9% Threads=19
+2026-10-05 08:57:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=19 checked=5 online=5 offline=0 
+2026-10-05 08:57:33 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=1.0% SystemRAM=30.7% Threads=13
+2026-10-05 08:58:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=20 checked=5 online=5 offline=0 (deep check)
+2026-10-05 08:58:34 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=32.2% Threads=19
+2026-10-05 08:59:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=21 checked=5 online=5 offline=0 
+2026-10-05 08:59:35 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=31.0% Threads=13
+2026-10-05 09:00:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=22 checked=5 online=5 offline=0 
+2026-10-05 09:00:36 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=32.1% Threads=19
+2026-10-05 09:01:16 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=23 checked=5 online=5 offline=0 
+2026-10-05 09:01:37 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=31.0% Threads=13
+2026-10-05 09:02:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=24 checked=5 online=5 offline=0 
+2026-10-05 09:02:38 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=1.0% SystemRAM=32.1% Threads=19
+2026-10-05 09:03:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=25 checked=5 online=5 offline=0 
+2026-10-05 09:03:39 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=32.6% Threads=19
+2026-10-05 09:04:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=26 checked=5 online=5 offline=0 
+2026-10-05 09:04:40 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=32.5% Threads=19
+2026-10-05 09:05:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=27 checked=5 online=5 offline=0 
+2026-10-05 09:05:41 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=1.0% SystemRAM=32.3% Threads=19
+2026-10-05 09:06:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=28 checked=5 online=5 offline=0 
+2026-10-05 09:06:42 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.4MB CPU=0.0% SystemRAM=30.9% Threads=13
+2026-10-05 09:07:17 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=29 checked=5 online=5 offline=0 
+2026-10-05 09:07:43 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=32.5% Threads=19
+2026-10-05 09:08:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=30 checked=5 online=5 offline=0 (deep check)
+2026-10-05 09:08:44 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=31.0% Threads=13
+2026-10-05 09:09:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=31 checked=5 online=5 offline=0 
+2026-10-05 09:09:45 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=1.0% SystemRAM=32.6% Threads=19
+2026-10-05 09:10:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=32 checked=5 online=5 offline=0 
+2026-10-05 09:10:46 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=30.8% Threads=13
+2026-10-05 09:11:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=33 checked=5 online=5 offline=0 
+2026-10-05 09:11:47 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=32.7% Threads=19
+2026-10-05 09:12:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=34 checked=5 online=5 offline=0 
+2026-10-05 09:12:48 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=2.0% SystemRAM=32.2% Threads=19
+2026-10-05 09:13:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=35 checked=5 online=5 offline=0 
+2026-10-05 09:13:49 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=1.0% SystemRAM=32.3% Threads=19
+2026-10-05 09:14:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=36 checked=5 online=5 offline=0 
+2026-10-05 09:14:50 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=1.0% SystemRAM=31.9% Threads=19
+2026-10-05 09:15:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=37 checked=5 online=5 offline=0 
+2026-10-05 09:15:51 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=1.0% SystemRAM=30.7% Threads=13
+2026-10-05 09:16:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=38 checked=5 online=5 offline=0 
+2026-10-05 09:16:52 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=32.1% Threads=19
+2026-10-05 09:17:18 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=39 checked=5 online=5 offline=0 
+2026-10-05 09:17:53 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=31.1% Threads=13
+2026-10-05 09:18:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=40 checked=5 online=5 offline=0 (deep check)
+2026-10-05 09:18:54 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.6MB CPU=0.0% SystemRAM=32.2% Threads=19
+2026-10-05 09:19:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=41 checked=5 online=5 offline=0 
+2026-10-05 09:19:55 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=30.8% Threads=13
+2026-10-05 09:20:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=42 checked=5 online=5 offline=0 
+2026-10-05 09:20:56 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.6MB CPU=0.0% SystemRAM=32.0% Threads=19
+2026-10-05 09:21:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=43 checked=5 online=5 offline=0 
+2026-10-05 09:21:57 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.6MB CPU=0.0% SystemRAM=32.5% Threads=19
+2026-10-05 09:22:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=44 checked=5 online=5 offline=0 
+2026-10-05 09:22:58 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.6MB CPU=0.0% SystemRAM=32.5% Threads=19
+2026-10-05 09:23:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=45 checked=5 online=5 offline=0 
+2026-10-05 09:23:59 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.6MB CPU=0.0% SystemRAM=32.0% Threads=19
+2026-10-05 09:24:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=46 checked=5 online=5 offline=0 
+2026-10-05 09:25:00 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=31.2% Threads=13
+2026-10-05 09:25:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=47 checked=5 online=5 offline=0 
+2026-10-05 09:26:01 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.6MB CPU=0.0% SystemRAM=31.8% Threads=19
+2026-10-05 09:26:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=48 checked=5 online=5 offline=0 
+2026-10-05 09:27:02 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=72.5MB CPU=0.0% SystemRAM=30.7% Threads=13
+2026-10-05 09:27:19 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=49 checked=5 online=5 offline=0 
+2026-10-05 09:27:19 [INFO    ] [cctv_app:471] GET / → 200 (51ms) [192.168.10.1] user=-
+2026-10-05 09:27:26 [INFO    ] [cctv_app:471] POST /api/login → 200 (2560ms) [192.168.10.1] user=085962777868
+2026-10-05 09:27:27 [INFO    ] [cctv_app:471] GET /dashboard → 200 (403ms) [192.168.10.1] user=085962777868
+2026-10-05 09:28:03 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=80.8MB CPU=0.0% SystemRAM=32.5% Threads=19
+2026-10-05 09:28:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=50 checked=5 online=5 offline=0 (deep check)
+2026-10-05 09:29:04 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=80.8MB CPU=0.0% SystemRAM=31.0% Threads=13
+2026-10-05 09:29:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=51 checked=5 online=5 offline=0 
+2026-10-05 09:30:05 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=80.8MB CPU=0.0% SystemRAM=32.7% Threads=19
+2026-10-05 09:30:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=52 checked=5 online=5 offline=0 
+2026-10-05 09:31:06 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=80.8MB CPU=0.0% SystemRAM=32.8% Threads=19
+2026-10-05 09:31:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=53 checked=5 online=5 offline=0 
+2026-10-05 09:31:23 [INFO    ] [cctv_app:471] GET /camera/420 → 200 (189ms) [192.168.10.1] user=085962777868
+2026-10-05 09:31:23 [INFO    ] [cctv_app:471] GET /favicon.ico → 404 (1ms) [192.168.10.1] user=085962777868
+2026-10-05 09:32:07 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=81.4MB CPU=0.0% SystemRAM=32.6% Threads=19
+2026-10-05 09:32:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=54 checked=5 online=5 offline=0 
+2026-10-05 09:33:08 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=81.4MB CPU=0.0% SystemRAM=32.9% Threads=19
+2026-10-05 09:33:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=55 checked=5 online=5 offline=0 
+2026-10-05 09:34:09 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=81.3MB CPU=0.0% SystemRAM=31.1% Threads=13
+2026-10-05 09:34:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=56 checked=5 online=5 offline=0 
+2026-10-05 09:35:10 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=81.4MB CPU=0.0% SystemRAM=32.8% Threads=19
+2026-10-05 09:35:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=57 checked=5 online=5 offline=0 
+2026-10-05 09:36:11 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=81.3MB CPU=0.0% SystemRAM=31.3% Threads=13
+2026-10-05 09:36:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=58 checked=5 online=5 offline=0 
+2026-10-05 09:37:12 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=81.4MB CPU=0.0% SystemRAM=32.7% Threads=19
+2026-10-05 09:37:20 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=59 checked=5 online=5 offline=0 
+2026-10-05 09:37:59 [INFO    ] [cctv_app:471] POST /api/login → 401 (345ms) [192.168.10.1] user=-
+2026-10-05 09:38:09 [INFO    ] [cctv_app:471] POST /api/login → 200 (305ms) [192.168.10.1] user=admin
+2026-10-05 09:38:10 [INFO    ] [cctv_app:471] GET /dashboard → 200 (207ms) [192.168.10.1] user=admin
+2026-10-05 09:38:11 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 09:38:13 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=85.6MB CPU=0.0% SystemRAM=31.9% Threads=13
+2026-10-05 09:38:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=60 checked=5 online=5 offline=0 (deep check)
+2026-10-05 09:38:41 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:39:11 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:39:14 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=85.6MB CPU=0.0% SystemRAM=32.9% Threads=19
+2026-10-05 09:39:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=61 checked=5 online=5 offline=0 
+2026-10-05 09:39:41 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:40:11 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:40:15 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=85.6MB CPU=0.0% SystemRAM=33.3% Threads=19
+2026-10-05 09:40:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=62 checked=5 online=5 offline=0 
+2026-10-05 09:40:41 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 09:41:11 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 09:41:16 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=85.7MB CPU=0.0% SystemRAM=33.0% Threads=19
+2026-10-05 09:41:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=63 checked=5 online=5 offline=0 
+2026-10-05 09:41:41 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 09:42:11 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:42:17 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=85.7MB CPU=0.0% SystemRAM=33.1% Threads=19
+2026-10-05 09:42:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=64 checked=5 online=5 offline=0 
+2026-10-05 09:42:41 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:43:11 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:43:18 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=85.6MB CPU=1.0% SystemRAM=31.9% Threads=13
+2026-10-05 09:43:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=65 checked=5 online=5 offline=0 
+2026-10-05 09:43:41 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:44:11 [INFO    ] [cctv_app:471] GET /dashboard → 200 (230ms) [192.168.10.1] user=admin
+2026-10-05 09:44:11 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 09:44:13 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 09:44:19 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.4MB CPU=0.0% SystemRAM=33.1% Threads=19
+2026-10-05 09:44:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=66 checked=5 online=5 offline=0 
+2026-10-05 09:44:43 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (2ms) [192.168.10.1] user=admin
+2026-10-05 09:45:13 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 09:45:20 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.4MB CPU=0.0% SystemRAM=31.8% Threads=13
+2026-10-05 09:45:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=67 checked=5 online=5 offline=0 
+2026-10-05 09:45:43 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:46:07 [INFO    ] [cctv_app:471] GET /dashboard → 200 (167ms) [192.168.10.1] user=admin
+2026-10-05 09:46:09 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:46:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=68 checked=5 online=5 offline=0 
+2026-10-05 09:46:21 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.6MB CPU=4.0% SystemRAM=33.6% Threads=19
+2026-10-05 09:46:39 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 09:47:09 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:47:21 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=69 checked=5 online=5 offline=0 
+2026-10-05 09:47:22 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.5MB CPU=1.0% SystemRAM=31.6% Threads=13
+2026-10-05 09:47:40 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:48:10 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:48:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=70 checked=5 online=5 offline=0 (deep check)
+2026-10-05 09:48:23 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.6MB CPU=0.0% SystemRAM=33.6% Threads=19
+2026-10-05 09:48:40 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:49:10 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (2ms) [192.168.10.1] user=admin
+2026-10-05 09:49:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=71 checked=5 online=5 offline=0 
+2026-10-05 09:49:24 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.6MB CPU=0.0% SystemRAM=33.1% Threads=19
+2026-10-05 09:49:40 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (2ms) [192.168.10.1] user=admin
+2026-10-05 09:50:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=72 checked=5 online=5 offline=0 
+2026-10-05 09:50:25 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.6MB CPU=0.0% SystemRAM=32.9% Threads=19
+2026-10-05 09:50:41 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:51:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=73 checked=5 online=5 offline=0 
+2026-10-05 09:51:26 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.6MB CPU=0.0% SystemRAM=33.5% Threads=19
+2026-10-05 09:51:42 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (2ms) [192.168.10.1] user=admin
+2026-10-05 09:52:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=74 checked=5 online=5 offline=0 
+2026-10-05 09:52:27 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.5MB CPU=0.0% SystemRAM=31.9% Threads=13
+2026-10-05 09:52:43 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:53:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=75 checked=5 online=5 offline=0 
+2026-10-05 09:53:28 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.6MB CPU=0.0% SystemRAM=33.2% Threads=19
+2026-10-05 09:53:44 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 09:54:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=76 checked=5 online=5 offline=0 
+2026-10-05 09:54:29 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.5MB CPU=0.0% SystemRAM=31.9% Threads=13
+2026-10-05 09:54:45 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:55:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=77 checked=5 online=5 offline=0 
+2026-10-05 09:55:30 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.6MB CPU=0.0% SystemRAM=32.8% Threads=19
+2026-10-05 09:55:46 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 09:56:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=78 checked=5 online=5 offline=0 
+2026-10-05 09:56:31 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.5MB CPU=0.0% SystemRAM=31.8% Threads=13
+2026-10-05 09:56:47 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:57:22 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=79 checked=5 online=5 offline=0 
+2026-10-05 09:57:32 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.6MB CPU=0.0% SystemRAM=33.0% Threads=19
+2026-10-05 09:57:48 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 09:58:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=80 checked=5 online=5 offline=0 (deep check)
+2026-10-05 09:58:33 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.6MB CPU=0.0% SystemRAM=33.5% Threads=19
+2026-10-05 09:58:49 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 09:59:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=81 checked=5 online=5 offline=0 
+2026-10-05 09:59:34 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.6MB CPU=0.0% SystemRAM=33.0% Threads=19
+2026-10-05 09:59:50 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (1ms) [192.168.10.1] user=admin
+2026-10-05 10:00:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=82 checked=5 online=5 offline=0 
+2026-10-05 10:00:35 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.6MB CPU=1.0% SystemRAM=33.3% Threads=19
+2026-10-05 10:00:51 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 10:01:09 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin
+2026-10-05 10:01:23 [INFO    ] [cctv_app:2858] [DVR MONITOR] tick=83 checked=5 online=5 offline=0 
+2026-10-05 10:01:36 [INFO    ] [cctv_app:98] [RESOURCE] PID=1228 RAM=86.5MB CPU=0.0% SystemRAM=31.9% Threads=13
+2026-10-05 10:01:40 [INFO    ] [cctv_app:471] GET /api/camera/status → 200 (3ms) [192.168.10.1] user=admin

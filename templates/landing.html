@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+
+{% block title %}CCTV Stream Server - Landing{% endblock %}
+
+{% block content %}
+<!-- LANDING PAGE -->
+<div id="landingPage">
+    <!-- Navbar -->
+    {% include 'components/navbar.html' %}
+    
+    <!-- Hero Section with Slider -->
+    <section class="gradient-bg pt-24 pb-16 px-4 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                <!-- Left Content -->
+                <div class="text-center lg:text-left lg:flex-1">
+                    <span class="inline-block text-xs font-semibold tracking-widest text-blue-300 bg-white/10 px-4 py-1.5 rounded-full border border-white/10 uppercase mb-4">
+                        Real-time Monitoring
+                    </span>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
+                        CCTV Stream Server
+                        <span class="text-blue-300 block mt-1">Kendali Penuh &amp; Aman</span>
+                    </h1>
+                    <p class="mt-4 text-blue-100/80 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+                        Pantau semua perangkat DVR, kamera, dan status jaringan secara real-time
+                        dari satu dashboard terpusat.
+                    </p>
+                    <div class="mt-6 flex flex-wrap items-center gap-3 justify-center lg:justify-start">
+                        <button onclick="openLoginModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-7 py-3 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                            </svg>
+                            Login Sekarang
+                        </button>
+                        <a href="#fitur" class="border border-white/20 hover:bg-white/10 text-white font-medium px-7 py-3 rounded-xl transition flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Pelajari Fitur
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right - SLIDER -->
+                <div class="w-full lg:flex-1 max-w-lg lg:max-w-none">
+                    <div class="slider-container" id="heroSlider">
+                        <!-- Slide 1 -->
+                        <div class="slider-slide active" style="background-image: url('{{ url_for('static', filename='img/slide/cleaned_cctv_rsudjmb_1.jpeg') }}');">
+                            <div class="slider-caption">
+                                <h3>🎥 Mencegah tindak kriminal</h3>
+                                <p>Keberadaan CCTV sering kali membuat pelaku kejahatan berpikir dua kali sebelum bertindak</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="slider-slide" style="background-image: url('{{ url_for('static', filename='img/slide/cleaned_cctv_rsudjmb_2.jpeg') }}');">
+                            <div class="slider-caption">
+                                <h3>🛡️ Merekam bukti kejadian</h3>
+                                <p>Rekaman CCTV bisa menjadi bukti sah dalam investigasi</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="slider-slide" style="background-image: url('{{ url_for('static', filename='img/slide/cleaned_cctv_rsudjmb_3.jpeg') }}');">
+                            <div class="slider-caption">
+                                <h3>📡 Mengawasi kinerja karyawan</h3>
+                                <p>CCTV menjadi alat yang efektif untuk memastikan karyawan bekerja sesuai prosedur.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="slider-slide" style="background-image: url('{{ url_for('static', filename='img/slide/cleaned_cctv_rsudjmb_4.jpeg') }}');">
+                            <div class="slider-caption">
+                                <h3>🔒 Memantau Ruangan Kerja dari jarak jauh</h3>
+                                <p>CCTV kini bisa dipantau langsung melalui smartphone</p>
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="slider-slide" style="background-image: url('{{ url_for('static', filename='img/slide/cleaned_cctv_rsudjmb_5.jpeg') }}');">
+                            <div class="slider-caption">
+                                <h3>🤖 Meningkatkan efisiensi operasional</h3>
+                                <p>CCTV juga berfungsi sebagai alat monitoring yang membantu manajemen perusahaan dalam memantau proses kerja.</p>
+                            </div>
+                        </div>
+
+                        <!-- Dots -->
+                        <div class="slider-dots" id="sliderDots">
+                            <button class="slider-dot active" data-index="0"></button>
+                            <button class="slider-dot" data-index="1"></button>
+                            <button class="slider-dot" data-index="2"></button>
+                            <button class="slider-dot" data-index="3"></button>
+                            <button class="slider-dot" data-index="4"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-10 px-4 bg-[#0a1628]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="stat-card glass-card rounded-2xl p-6 bg-[#0f2240] border border-blue-500/10">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="text-blue-300/70 text-xs font-semibold uppercase tracking-wider">Device Online</p>
+                            <p class="text-3xl font-extrabold text-white mt-1">{{ stats.device_online }}</p>
+                            <p class="text-emerald-400 text-xs font-medium flex items-center gap-1 mt-1">
+                                <span>↑ {{ stats.device_growth }}%</span>
+                                <span class="text-blue-300/50">dari bulan lalu</span>
+                            </p>
+                        </div>
+                        <div class="w-11 h-11 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-3 w-full h-1.5 bg-blue-900/40 rounded-full overflow-hidden">
+                        <div class="h-full w-[82%] bg-emerald-400 rounded-full"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card glass-card rounded-2xl p-6 bg-[#0f2240] border border-blue-500/10">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="text-blue-300/70 text-xs font-semibold uppercase tracking-wider">Total DVR</p>
+                            <p class="text-3xl font-extrabold text-white mt-1">{{ stats.total_dvr }}</p>
+                            <p class="text-blue-300/50 text-xs font-medium mt-1">{{ stats.total_locations }} lokasi tersebar</p>
+                        </div>
+                        <div class="w-11 h-11 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-3 w-full h-1.5 bg-blue-900/40 rounded-full overflow-hidden">
+                        <div class="h-full w-[68%] bg-blue-400 rounded-full"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card glass-card rounded-2xl p-6 bg-[#0f2240] border border-blue-500/10">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="text-blue-300/70 text-xs font-semibold uppercase tracking-wider">Total Kamera</p>
+                            <p class="text-3xl font-extrabold text-white mt-1">{{ stats.total_cameras }}</p>
+                            <p class="text-blue-300/50 text-xs font-medium mt-1">di semua DVR</p>
+                        </div>
+                        <div class="w-11 h-11 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-3 w-full h-1.5 bg-blue-900/40 rounded-full overflow-hidden">
+                        <div class="h-full w-[74%] bg-purple-400 rounded-full"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card glass-card rounded-2xl p-6 bg-[#0f2240] border border-blue-500/10">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="text-blue-300/70 text-xs font-semibold uppercase tracking-wider">Kamera Online</p>
+                            <p class="text-3xl font-extrabold text-white mt-1">{{ stats.cameras_online }}</p>
+                            <p class="text-emerald-400 text-xs font-medium flex items-center gap-1 mt-1">
+                                <span>● {{ stats.cameras_percentage }}%</span>
+                                <span class="text-blue-300/50">dari total</span>
+                            </p>
+                        </div>
+                        <div class="w-11 h-11 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-3 w-full h-1.5 bg-blue-900/40 rounded-full overflow-hidden">
+                        <div class="h-full w-[84%] bg-emerald-400 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	<!-- Fitur Section -->
+	<!-- ====== FITUR UNGGULAN ====== -->
+	<section class="py-16 px-4 bg-gradient-to-b from-[#0a1628] to-[#06101f]" id="fitur">
+		<div class="max-w-7xl mx-auto">
+			<!-- Header -->
+			<div class="text-center mb-12">
+				<span class="inline-block text-xs font-semibold tracking-widest text-blue-300 bg-blue-500/10 px-4 py-1.5 rounded-full border border-blue-500/20 uppercase mb-4">
+					Fitur Unggulan
+				</span>
+				<h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+					Semua yang Anda Butuhkan
+					<span class="text-blue-400 block mt-1">dalam Satu Platform</span>
+				</h2>
+				<p class="text-blue-300/60 text-base mt-3 max-w-2xl mx-auto">
+					Sistem monitoring CCTV terpusat dengan fitur lengkap untuk keamanan dan efisiensi operasional.
+				</p>
+			</div>
+
+			<!-- Features Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+				<!-- Feature 1 -->
+				<div class="glass-card rounded-2xl p-6 bg-[#0f2240] border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300 group">
+					<div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4 group-hover:bg-blue-500/30 transition">
+						<svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+						</svg>
+					</div>
+					<h3 class="text-white font-bold text-lg mb-2">Live Streaming HD</h3>
+					<p class="text-blue-300/60 text-sm leading-relaxed">
+						Pantau kamera secara real-time dengan kualitas HD dan latensi rendah di semua perangkat.
+					</p>
+				</div>
+
+				<!-- Feature 2 -->
+				<div class="glass-card rounded-2xl p-6 bg-[#0f2240] border border-blue-500/10 hover:border-emerald-500/30 transition-all duration-300 group">
+					<div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-4 group-hover:bg-emerald-500/30 transition">
+						<svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+						</svg>
+					</div>
+					<h3 class="text-white font-bold text-lg mb-2">Keamanan Terjamin</h3>
+					<p class="text-blue-300/60 text-sm leading-relaxed">
+						Enkripsi AES-256 dan autentikasi token HMAC untuk memastikan hanya pengguna berwenang yang dapat mengakses.
+					</p>
+				</div>
+
+				<!-- Feature 3 -->
+				<div class="glass-card rounded-2xl p-6 bg-[#0f2240] border border-blue-500/10 hover:border-purple-500/30 transition-all duration-300 group">
+					<div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4 group-hover:bg-purple-500/30 transition">
+						<svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+						</svg>
+					</div>
+					<h3 class="text-white font-bold text-lg mb-2">Manajemen Terpusat</h3>
+					<p class="text-blue-300/60 text-sm leading-relaxed">
+						Kelola ratusan DVR dan kamera dari satu dashboard terintegrasi dengan mudah dan efisien.
+					</p>
+				</div>
+
+				<!-- Feature 4 -->
+				<div class="glass-card rounded-2xl p-6 bg-[#0f2240] border border-blue-500/10 hover:border-amber-500/30 transition-all duration-300 group">
+					<div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center mb-4 group-hover:bg-amber-500/30 transition">
+						<svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+						</svg>
+					</div>
+					<h3 class="text-white font-bold text-lg mb-2">Notifikasi Realtime</h3>
+					<p class="text-blue-300/60 text-sm leading-relaxed">
+						Dapatkan peringatan instan saat terjadi gangguan, gerakan mencurigakan, atau perangkat offline.
+					</p>
+				</div>
+
+				<!-- Feature 5 -->
+				<div class="glass-card rounded-2xl p-6 bg-[#0f2240] border border-blue-500/10 hover:border-cyan-500/30 transition-all duration-300 group">
+					<div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-4 group-hover:bg-cyan-500/30 transition">
+						<svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+						</svg>
+					</div>
+					<h3 class="text-white font-bold text-lg mb-2">Rekaman Otomatis</h3>
+					<p class="text-blue-300/60 text-sm leading-relaxed">
+						Penyimpanan rekaman terjadwal dengan retensi yang dapat diatur sesuai kebutuhan Anda.
+					</p>
+				</div>
+
+				<!-- Feature 6 -->
+				<div class="glass-card rounded-2xl p-6 bg-[#0f2240] border border-blue-500/10 hover:border-rose-500/30 transition-all duration-300 group">
+					<div class="w-12 h-12 rounded-xl bg-rose-500/20 flex items-center justify-center mb-4 group-hover:bg-rose-500/30 transition">
+						<svg class="w-6 h-6 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+						</svg>
+					</div>
+					<h3 class="text-white font-bold text-lg mb-2">Akses Multi-Device</h3>
+					<p class="text-blue-300/60 text-sm leading-relaxed">
+						Pantau dari desktop, tablet, atau smartphone dengan tampilan yang responsif dan modern.
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	
+    <!-- Footer -->
+    {% include 'components/footer.html' %}
+</div>
+
+<!-- Login Modal -->
+{% include 'login_modal.html' %}
+
+<!-- Toast -->
+{% include 'components/toast.html' %}
+
+<script>
+    // Pass Flask data to JavaScript
+    const STATS_DATA = {{ stats|tojson|safe }};
+</script>
+{% endblock %}

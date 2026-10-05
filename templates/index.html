@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVR Dahua - 16 Kamera</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4fc3f7;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            max-width: 1400px;
+            margin: auto;
+        }
+        .card {
+            background: #16213e;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #0f3460;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(79, 195, 247, 0.3);
+        }
+        .card a {
+            text-decoration: none;
+            color: #4fc3f7;
+            font-size: 17px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .card a:hover { color: #81d4fa; }
+        .status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .status.active { background: #28a745; color: white; }
+        .status.inactive { background: #dc3545; color: white; }
+        .readers {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎥 SISTEM MONITORING DVR</h1>
+    <div class="grid">
+        {% for cam in cameras %}
+        <div class="card">
+            <a href="/camera/{{ cam.id }}">{{ cam.name }}</a>
+            <span class="status {{ 'active' if cam.active else 'inactive' }}">
+                {{ 'AKTIF' if cam.active else 'OFFLINE' }}
+            </span>
+            {% if cam.readers is number and cam.readers > 0 %}
+            <div class="readers">👁 {{ cam.readers }} penonton</div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
